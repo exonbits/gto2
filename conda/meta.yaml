@@ -4,11 +4,11 @@
 # ------------------------------------------------
 
 package:
-    name: gto
-    version: '1.5.9'
+    name: gto2
+    version: '0.2.0'
 
 source:
-    git_rev: v1.5.9
+    git_rev: v0.2.0
     git_url: https://github.com/cobilab/gto.git
 
 requirements:
@@ -17,7 +17,7 @@ requirements:
         - cmake
 
 about:
-    home: http://bioinformatics.ua.pt/gto
+    home: https://cobilab.github.io/gto2/
     license: GPL v3 License
     license_family: GPL
-    summary: A genomic toolkit 
+    summary: The second version of the genomics-proteomics toolkit
