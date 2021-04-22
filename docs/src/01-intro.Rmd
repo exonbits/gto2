@@ -1,0 +1,21 @@
+
+
+# Introduction
+
+to do
+
+## SubSection
+
+to do
+
+
+```css
+.dashboard > div:not(.dashboard-content)
+  display: none;
+}
+```
+
+
+```{r filters, fig.cap="Settings for creating filters charts",echo=FALSE, out.width="100%"}
+knitr::include_graphics("images/dashboardsLayout.png")
+```
