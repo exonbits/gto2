@@ -3,13 +3,12 @@
 [![License: MIT](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE)
 
 <p align="center"><img src="imgs/logo.png"
-alt="GTO" height="76" border="0" /></p>
+alt="GTO2" height="76" border="0" /></p>
 
 <p align="center"><b>The genomics-proteomics toolkit</b></p>
 
 ## Under development
 Please wait for the next release
-
 
 ## ISSUES
 Please let us know if there is any

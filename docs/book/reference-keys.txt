@@ -1,6 +1,9 @@
-fig:filters
 introduction
-subsection
+installation
+testing
+execution-control
+fasta-tools
+gto2_fa_to_fq
 fastq-tools
 gto2_fq_to_fasta
 gto2_fq_to_mfasta
@@ -30,5 +33,9 @@ gto2_fq_variation_map
 gto2_fq_variation_filter
 gto2_fq_variation_visual
 gto2_fq_metagenomics
-server-side-template-injection
-to-do
+amino-acid-tools
+gto2_aa
+genomic-tools
+gto2_dna
+general-purpose-tools
+gto2_

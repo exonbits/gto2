@@ -1,8 +1,4 @@
-
-# (PART) Tools {-}
-
 # FASTQ Tools
-
 
 ## gto2_fq_to_fasta
 to do
