@@ -9,7 +9,7 @@
 #include "argparse.h"
 #include <unistd.h>
 
-#define BREAKER 100
+#define BREAKER 70
 
 /*
  * This application converts a genomic sequence to pseudo FASTA file format.
@@ -73,6 +73,9 @@ int main(int argc, char *argv[])
         pos = 0;
       }
     }
+  
+  if(pos != 0) putchar('\n');
+  
   RemoveBuffer(Buffer); 
 
   return EXIT_SUCCESS;
