@@ -24,7 +24,7 @@
 <meta name="author" content="J. R. Almeida, A. J. Pinho, J. L. Oliveira, D. Pratas" />
 
 
-<meta name="date" content="2021-04-23" />
+<meta name="date" content="2021-04-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -103,7 +103,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">GTO 2: The genomics-proteomics toolkit</a></li>
+<li><a href="/">GTO 2: The genomics-proteomics toolkit</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
@@ -114,13 +114,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#testing"><i class="fa fa-check"></i><b>1.2</b> Testing</a></li>
 <li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#execution-control"><i class="fa fa-check"></i><b>1.3</b> Execution control</a></li>
 </ul></li>
-<li class="part"><span><b>I Tools</b></span></li>
 <li class="chapter" data-level="2" data-path="fasta-tools.html"><a href="fasta-tools.html"><i class="fa fa-check"></i><b>2</b> FASTA Tools</a><ul>
 <li class="chapter" data-level="2.1" data-path="fasta-tools.html"><a href="fasta-tools.html#gto2_fa_to_fq"><i class="fa fa-check"></i><b>2.1</b> gto2_fa_to_fq</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="fastq-tools.html"><a href="fastq-tools.html"><i class="fa fa-check"></i><b>3</b> FASTQ Tools</a><ul>
-<li class="chapter" data-level="3.1" data-path="fastq-tools.html"><a href="fastq-tools.html#gto2_fq_to_fasta"><i class="fa fa-check"></i><b>3.1</b> gto2_fq_to_fasta</a></li>
-<li class="chapter" data-level="3.2" data-path="fastq-tools.html"><a href="fastq-tools.html#gto2_fq_to_mfasta"><i class="fa fa-check"></i><b>3.2</b> gto2_fq_to_mfasta</a></li>
+<li class="chapter" data-level="3.1" data-path="fastq-tools.html"><a href="fastq-tools.html#gto2_fq_to_fa"><i class="fa fa-check"></i><b>3.1</b> gto2_fq_to_fa</a><ul>
+<li class="chapter" data-level="" data-path="fastq-tools.html"><a href="fastq-tools.html#input-parameters"><i class="fa fa-check"></i>Input parameters</a></li>
+<li class="chapter" data-level="" data-path="fastq-tools.html"><a href="fastq-tools.html#output"><i class="fa fa-check"></i>Output</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="fastq-tools.html"><a href="fastq-tools.html#gto2_fq_to_mfa"><i class="fa fa-check"></i><b>3.2</b> gto2_fq_to_mfa</a></li>
 <li class="chapter" data-level="3.3" data-path="fastq-tools.html"><a href="fastq-tools.html#gto2_fq_exclude_n"><i class="fa fa-check"></i><b>3.3</b> gto2_fq_exclude_n</a></li>
 <li class="chapter" data-level="3.4" data-path="fastq-tools.html"><a href="fastq-tools.html#gto2_fq_extract_quality_scores"><i class="fa fa-check"></i><b>3.4</b> gto2_fq_extract_quality_scores</a></li>
 <li class="chapter" data-level="3.5" data-path="fastq-tools.html"><a href="fastq-tools.html#gto2_fq_info"><i class="fa fa-check"></i><b>3.5</b> gto2_fq_info</a></li>
@@ -140,13 +142,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.19" data-path="fastq-tools.html"><a href="fastq-tools.html#gto2_fq_minimum_local_quality_score_forward"><i class="fa fa-check"></i><b>3.19</b> gto2_fq_minimum_local_quality_score_forward</a></li>
 <li class="chapter" data-level="3.20" data-path="fastq-tools.html"><a href="fastq-tools.html#gto2_fq_minimum_local_quality_score_reverse"><i class="fa fa-check"></i><b>3.20</b> gto2_fq_minimum_local_quality_score_reverse</a></li>
 <li class="chapter" data-level="3.21" data-path="fastq-tools.html"><a href="fastq-tools.html#gto2_fq_xs"><i class="fa fa-check"></i><b>3.21</b> gto2_fq_xs</a></li>
-<li class="chapter" data-level="3.22" data-path="fastq-tools.html"><a href="fastq-tools.html#gto2_fq_clust_reads"><i class="fa fa-check"></i><b>3.22</b> gto2_fq_clust_reads</a></li>
-<li class="chapter" data-level="3.23" data-path="fastq-tools.html"><a href="fastq-tools.html#gto2_fq_complement"><i class="fa fa-check"></i><b>3.23</b> gto2_fq_complement</a></li>
-<li class="chapter" data-level="3.24" data-path="fastq-tools.html"><a href="fastq-tools.html#gto2_fq_reverse"><i class="fa fa-check"></i><b>3.24</b> gto2_fq_reverse</a></li>
-<li class="chapter" data-level="3.25" data-path="fastq-tools.html"><a href="fastq-tools.html#gto2_fq_variation_map"><i class="fa fa-check"></i><b>3.25</b> gto2_fq_variation_map</a></li>
-<li class="chapter" data-level="3.26" data-path="fastq-tools.html"><a href="fastq-tools.html#gto2_fq_variation_filter"><i class="fa fa-check"></i><b>3.26</b> gto2_fq_variation_filter</a></li>
-<li class="chapter" data-level="3.27" data-path="fastq-tools.html"><a href="fastq-tools.html#gto2_fq_variation_visual"><i class="fa fa-check"></i><b>3.27</b> gto2_fq_variation_visual</a></li>
-<li class="chapter" data-level="3.28" data-path="fastq-tools.html"><a href="fastq-tools.html#gto2_fq_metagenomics"><i class="fa fa-check"></i><b>3.28</b> gto2_fq_metagenomics</a></li>
+<li class="chapter" data-level="3.22" data-path="fastq-tools.html"><a href="fastq-tools.html#gto2_fq_complement"><i class="fa fa-check"></i><b>3.22</b> gto2_fq_complement</a></li>
+<li class="chapter" data-level="3.23" data-path="fastq-tools.html"><a href="fastq-tools.html#gto2_fq_reverse"><i class="fa fa-check"></i><b>3.23</b> gto2_fq_reverse</a></li>
+<li class="chapter" data-level="3.24" data-path="fastq-tools.html"><a href="fastq-tools.html#gto2_fq_variation_map"><i class="fa fa-check"></i><b>3.24</b> gto2_fq_variation_map</a></li>
+<li class="chapter" data-level="3.25" data-path="fastq-tools.html"><a href="fastq-tools.html#gto2_fq_variation_filter"><i class="fa fa-check"></i><b>3.25</b> gto2_fq_variation_filter</a></li>
+<li class="chapter" data-level="3.26" data-path="fastq-tools.html"><a href="fastq-tools.html#gto2_fq_variation_visual"><i class="fa fa-check"></i><b>3.26</b> gto2_fq_variation_visual</a></li>
+<li class="chapter" data-level="3.27" data-path="fastq-tools.html"><a href="fastq-tools.html#gto2_fq_metagenomics"><i class="fa fa-check"></i><b>3.27</b> gto2_fq_metagenomics</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html"><i class="fa fa-check"></i><b>4</b> Amino Acid Tools</a><ul>
 <li class="chapter" data-level="4.1" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#gto2_aa"><i class="fa fa-check"></i><b>4.1</b> gto2_aa</a></li>

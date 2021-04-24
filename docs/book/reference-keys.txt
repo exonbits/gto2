@@ -5,8 +5,8 @@ execution-control
 fasta-tools
 gto2_fa_to_fq
 fastq-tools
-gto2_fq_to_fasta
-gto2_fq_to_mfasta
+gto2_fq_to_fa
+gto2_fq_to_mfa
 gto2_fq_exclude_n
 gto2_fq_extract_quality_scores
 gto2_fq_info
@@ -26,7 +26,6 @@ gto2_fq_cut
 gto2_fq_minimum_local_quality_score_forward
 gto2_fq_minimum_local_quality_score_reverse
 gto2_fq_xs
-gto2_fq_clust_reads
 gto2_fq_complement
 gto2_fq_reverse
 gto2_fq_variation_map

@@ -1574,12 +1574,12 @@
 
 \newenvironment{symbollist}[1]{%
 \addvspace{12pt}
-			\setbox\tempbox\hbox{#1\hskip1em}%
+      \setbox\tempbox\hbox{#1\hskip1em}%
    \global\nomenwidth\wd\tempbox
    %\section*{Sumbol Description}
 \noindent{\SectionHeadFont Symbol Description}\vskip6pt
 \begin{multicols}{2}}{%
-		\end{multicols}\par\addvspace{12pt}}
+    \end{multicols}\par\addvspace{12pt}}
 \def\symbolentry#1#2{\par\noindent\@hangfrom{\hbox to \nomenwidth{#1\hss}}#2\par}
 
 
@@ -1714,10 +1714,10 @@
 \newdimen\notewidth
 \newenvironment{notelist}[1]{%
 \addvspace{6pt}
-			\setbox\tempbox\hbox{#1\hskip.57em}%
+      \setbox\tempbox\hbox{#1\hskip.57em}%
    \global\notewidth\wd\tempbox
 }{%
-		\par\addvspace{6pt}}
+    \par\addvspace{6pt}}
 
 \def\notes#1#2{\par\noindent\@hangfrom{\hbox to \notewidth{\bf #1\hss}}#2\par}
 %%%%%%%%%%%%%%%% wherelist %%%%%%%%%%%%%%%%
@@ -1725,7 +1725,7 @@
 \newdimen\wherewidth
 \newenvironment{wherelist}[1]{\leftskip10pt%
 \addvspace{6pt}
-			\setbox\wherebox\hbox{#1\hskip1em}%
+      \setbox\wherebox\hbox{#1\hskip1em}%
    \global\wherewidth\wd\wherebox
 \noindent\hspace*{-14pt} where
 }{%
@@ -1748,18 +1748,18 @@
   \endlist}
   %
 \newenvironment{extract}{%
-		\par\addvspace{11.5pt minus2pt}%
+    \par\addvspace{11.5pt minus2pt}%
   \leftskip2em\rightskip\leftskip
  \noindent\ignorespaces
 }{%
-		\par\addvspace{11.5pt minus2pt}%
+    \par\addvspace{11.5pt minus2pt}%
   \@endparenv}
 %
 %
 \def\VA#1#2{\addvspace{12pt}\raggedleft #1\rightskip3em\par #2\rightskip3em}
 %
 \newenvironment{VF}{\VfFont%
-		\par\addvspace{12pt minus2pt}%
+    \par\addvspace{12pt minus2pt}%
 \noindent{\vrule height2pt width\textwidth}\par\vskip7.3pt
   \leftskip3em\rightskip\leftskip
  \noindent\ignorespaces
@@ -1775,7 +1775,7 @@
 \def\VH#1{{\normalfont\fontsize{12.5}{14.5}\itshape\centering\selectfont #1\par}\addvspace{5.5pt}}
 %
 \newenvironment{VT1}{\VfFont%
-		\par\addvspace{12pt minus2pt}%
+    \par\addvspace{12pt minus2pt}%
 \noindent{\vrule height2pt width\textwidth}\par\vskip7.5pt
   \leftskip3em\rightskip\leftskip
 %\@afterheading
