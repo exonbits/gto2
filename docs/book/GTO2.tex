@@ -1316,34 +1316,622 @@ file. An example, using the size line as 60 and the read's header as
 
 \section{Program gto2\_fq\_mutate}\label{program-gto2_fq_mutate}
 
-to do
+The \textbf{gto2\_fq\_mutate} creates a synthetic mutation of a FASTQ
+file given specific rates of mutations, deletions and additions. All
+these paramenters are defined by the user, and their are optional.
+
+For help type:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{./gto2_fq_mutate}\NormalTok{ -h}
+\end{Highlighting}
+\end{Shaded}
+
+In the following subsections, we explain the input and output
+parameters.
+
+\subsection*{Input parameters}\label{input-parameters-10}
+
+
+The \textbf{gto2\_fq\_mutate} program needs two streams for the
+computation, namely the input and output standard. However, optional
+settings can be supplied too, such as the starting point to the random
+generator, and the edition, deletion and insertion rates. Also, the user
+can choose to use the ACGTN alphabet in the synthetic mutation. The
+input stream is a FASTQ File.
+
+The attribution is given according to:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Usage}\NormalTok{: ./gto2_fq_mutate [options] [[--] args]}
+   \ExtensionTok{or}\NormalTok{: ./gto2_fq_mutate [options]}
+
+\ExtensionTok{Creates}\NormalTok{ a synthetic mutation of a FASTQ file given specific }
+\ExtensionTok{rates}\NormalTok{ of mutations, deletions and additions.}
+
+    \ExtensionTok{-h}\NormalTok{, --help      show this help message and exit}
+
+\ExtensionTok{Basic}\NormalTok{ options}
+    \OperatorTok{<} \ExtensionTok{input.fasta}\NormalTok{   Input FASTQ file format (stdin)}
+    \OperatorTok{>} \ExtensionTok{output.fasta}\NormalTok{  Output FASTQ file format (stdout)}
+
+\ExtensionTok{Optional}
+    \ExtensionTok{-s}\NormalTok{              Starting point to the random generator}
+    \ExtensionTok{-m}\NormalTok{              Defines the mutation rate (default 0.0)}
+    \ExtensionTok{-d}\NormalTok{              Defines the deletion rate (default 0.0)}
+    \ExtensionTok{-i}\NormalTok{              Defines the insertion rate (default 0.0)}
+    \ExtensionTok{-a}\NormalTok{              When active, the application uses the }
+                    \ExtensionTok{ACGTN}\NormalTok{ alphabet}
+
+\ExtensionTok{Example}\NormalTok{: ./gto2_fq_mutate -s }\OperatorTok{<}\NormalTok{seed}\OperatorTok{>}\NormalTok{ -m }\OperatorTok{<}\NormalTok{mutation rate}\OperatorTok{>} 
+\ExtensionTok{-d} \OperatorTok{<}\NormalTok{deletion rate}\OperatorTok{>}\NormalTok{ -i }\OperatorTok{<}\NormalTok{insertion rate}\OperatorTok{>}\NormalTok{ -a }
+\OperatorTok{<} \ExtensionTok{input.fastq} \OperatorTok{>}\NormalTok{ output.fastq}
+\end{Highlighting}
+\end{Shaded}
+
+An example of such an input file is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{@SRR001666.1}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:817:345 length=60}
+\ExtensionTok{GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACCAAGTTACCCTTAACAACTTAAGGG}
+\ExtensionTok{+}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII}
+\ExtensionTok{@SRR001666.2}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:801:338 length=60}
+\ExtensionTok{GTTCAGGGATACGACGTTTGTATTTTAAGAATCTGAAGCAGAAGTCGATGATAATACGCG}
+\ExtensionTok{+}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection*{Output}\label{output-10}
+
+
+The output of the \textbf{gto2\_fq\_mutate} program is a FASTQ file
+whith the synthetic mutation of input file. Using the input above with
+the seed value as 1 and the mutation rate as 0.5, an output example of
+this is the following:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{@SRR001666.1}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:817:345 length=60}
+\ExtensionTok{GGACTTTGAGGTGTGGCGATAGACTGAAAACACTTCAGGGTAAAATCACTCGCAAAAGTG}
+\ExtensionTok{+}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII}
+\ExtensionTok{@SRR001666.2}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:801:338 length=60}
+\ExtensionTok{GTTCAGAGCCTTTACCGTAGGGGTGTAAGATTTTATACAAAAAGTCCAGGTCAAGAGGAA}
+\ExtensionTok{+}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI}
+\end{Highlighting}
+\end{Shaded}
 
 \section{Program gto2\_fq\_split}\label{program-gto2_fq_split}
 
-to do
+The \textbf{gto2\_fq\_split} splits Paired End files according to the
+direction of the strand (`/1' or `/2'). It writes by default singleton
+reads as forward stands.
+
+For help type:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{./gto2_fq_split}\NormalTok{ -h}
+\end{Highlighting}
+\end{Shaded}
+
+In the following subsections, we explain the input and output
+parameters.
+
+\subsection*{Input parameters}\label{input-parameters-11}
+
+
+The \textbf{gto2\_fq\_split} program needs a stream for the computation,
+namely the input standard. The input stream is a FASTQ file.
+
+The attribution is given according to:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Usage}\NormalTok{: ./gto2_fq_split [options] [[--] args]}
+   \ExtensionTok{or}\NormalTok{: ./gto2_fq_split [options]}
+
+\ExtensionTok{It}\NormalTok{ writes by default singleton reads as forward stands.}
+
+    \ExtensionTok{-h}\NormalTok{, --help            show this help message and exit}
+
+\ExtensionTok{Basic}\NormalTok{ options}
+    \ExtensionTok{-f}\NormalTok{, --forward=}\OperatorTok{<}\NormalTok{str}\OperatorTok{>}\NormalTok{   Output forward file}
+    \ExtensionTok{-r}\NormalTok{, --reverse=}\OperatorTok{<}\NormalTok{str}\OperatorTok{>}\NormalTok{   Output reverse file}
+    \OperatorTok{<} \ExtensionTok{input.fastq}\NormalTok{         Input FASTQ file format (stdin)}
+    \OperatorTok{>} \ExtensionTok{output}\NormalTok{              Output read information (stdout)}
+
+\ExtensionTok{Example}\NormalTok{: ./gto2_fq_split -f }\OperatorTok{<}\NormalTok{output_forward.fastq}\OperatorTok{>} 
+\ExtensionTok{-r} \OperatorTok{<}\NormalTok{output_reverse.fastq}\OperatorTok{>} \OperatorTok{<}\NormalTok{ input.fastq }\OperatorTok{>}\NormalTok{ output}
+
+\ExtensionTok{Output}\NormalTok{ example :}
+\ExtensionTok{Total}\NormalTok{ reads      : value}
+\ExtensionTok{Singleton}\NormalTok{ reads  : value}
+\ExtensionTok{Forward}\NormalTok{ reads    : value}
+\ExtensionTok{Reverse}\NormalTok{ reads    : value}
+\end{Highlighting}
+\end{Shaded}
+
+An example of such an input file is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{@SRR001666.1}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:817:345 length=60 1}
+\ExtensionTok{GNNTGATGGCCGCTGCCGATGGCGNANAATCCCACCAANATACCCTTAACAACTTAAGGG}
+\ExtensionTok{+}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII}
+\ExtensionTok{@SRR001666.2}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:801:338 length=60 2}
+\ExtensionTok{NTTCAGGGATACGACGNTTGTATTTTAAGAATCTGNAGCAGAAGTCGATGATAATACGCG}
+\ExtensionTok{+}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection*{Output}\label{output-11}
+
+
+The output of the \textbf{gto2\_fq\_split} program is a set of
+information related to the file read. Using the input above, an output
+example of this is the following:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Total}\NormalTok{ reads     : 2}
+\ExtensionTok{Singleton}\NormalTok{ reads : 0}
+\ExtensionTok{Forward}\NormalTok{ reads   : 65536}
+\ExtensionTok{Reverse}\NormalTok{ reads   : 1}
+\end{Highlighting}
+\end{Shaded}
+
+Also, this program generates two FASTQ files, with the reverse and
+forward reads.
+
+An example of the forward reads, for the input, is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{@SRR001666.1}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:817:345 length=60 1}
+\ExtensionTok{GNNTGATGGCCGCTGCCGATGGCGNANAATCCCACCAANATACCCTTAACAACTTAAGGG}
+\ExtensionTok{+}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII}
+\end{Highlighting}
+\end{Shaded}
 
 \section{Program gto2\_fq\_pack}\label{program-gto2_fq_pack}
 
-to do
+The \textbf{gto2\_fq\_pack} packages each FASTQ read in a single line.
+It can show the read score first or the dna sequence, depending on the
+execution mode.
+
+For help type:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{./gto2_fq_pack}\NormalTok{ -h}
+\end{Highlighting}
+\end{Shaded}
+
+In the following subsections, we explain the input and output
+parameters.
+
+\subsection*{Input parameters}\label{input-parameters-12}
+
+
+The \textbf{gto2\_fq\_pack} program needs two streams for the
+computation, namely the input and output standard. The input stream is a
+FASTQ file.
+
+The attribution is given according to:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Usage}\NormalTok{: ./gto2_fq_pack [options] [[--] args]}
+   \ExtensionTok{or}\NormalTok{: ./gto2_fq_pack [options]}
+
+\ExtensionTok{It}\NormalTok{ packages each FASTQ read in a single line.}
+
+    \ExtensionTok{-h}\NormalTok{, --help            show this help message and exit}
+
+\ExtensionTok{Basic}\NormalTok{ options}
+    \OperatorTok{<} \ExtensionTok{input.fastq}\NormalTok{         Input FASTQ file format (stdin)}
+    \OperatorTok{>} \ExtensionTok{output.fastqpack}\NormalTok{    Output packaged FASTQ file format }
+                          \KeywordTok{(}\ExtensionTok{stdout}\KeywordTok{)}
+
+\ExtensionTok{Optional}
+    \ExtensionTok{-s}\NormalTok{, --scores          When active, the application show }
+                          \ExtensionTok{the}\NormalTok{ scores first}
+
+\ExtensionTok{Example}\NormalTok{: ./gto2_fq_pack -s }\OperatorTok{<}\NormalTok{ input.fastq }\OperatorTok{>}\NormalTok{ output.fastqpack}
+\end{Highlighting}
+\end{Shaded}
+
+An example of such an input file is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{@SRR001666.1}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:817:345 length=60}
+\ExtensionTok{GNNTGATGGCCGCTGCCGATGGCGNANAATCCCACCAANATACCCTTAACAACTTAAGGG}
+\ExtensionTok{+}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII}
+\ExtensionTok{@SRR001666.2}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:801:338 length=60}
+\ExtensionTok{NTTCAGGGATACGACGNTTGTATTTTAAGAATCTGNAGCAGAAGTCGATGATAATACGCG}
+\ExtensionTok{+}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection*{Output}\label{output-12}
+
+
+The output of the \textbf{gto2\_fq\_pack} program is a packaged FASTQ
+file. Using the input above, an output example of this is the following:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{GNNTGATGGCCGCTGCCGATGGCGNANAATCCCACCAANATACCCTTAACAACTTAAGGG}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII}
+\ExtensionTok{SRR001666.1}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:817:345 length=60+ 0}
+\ExtensionTok{NTTCAGGGATACGACGNTTGTATTTTAAGAATCTGNAGCAGAAGTCGATGATAATACGCG}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI}
+\ExtensionTok{SRR001666.2}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:801:338 length=60+ 1}
+\end{Highlighting}
+\end{Shaded}
+
+Another example for the same input, but using the scores first (flag
+`'s''), is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII}
+\ExtensionTok{GNNTGATGGCCGCTGCCGATGGCGNANAATCCCACCAANATACCCTTAACAACTTAAGGG}
+\ExtensionTok{SRR001666.1}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:817:345 length=60+ 0}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI}
+\ExtensionTok{NTTCAGGGATACGACGNTTGTATTTTAAGAATCTGNAGCAGAAGTCGATGATAATACGCG}
+\ExtensionTok{SRR001666.2}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:801:338 length=60+ 1}
+\end{Highlighting}
+\end{Shaded}
 
 \section{Program gto2\_fq\_unpack}\label{program-gto2_fq_unpack}
 
-to do
+The \textbf{gto2\_fq\_unpack} unpacks the FASTQ reads packaged using the
+\textbf{gto2\_fq\_pack} tool.
+
+For help type:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{./gto2_fq_unpack}\NormalTok{ -h}
+\end{Highlighting}
+\end{Shaded}
+
+In the following subsections, we explain the input and output
+parameters.
+
+\subsection*{Input parameters}\label{input-parameters-13}
+
+
+The \textbf{gto2\_fq\_unpack} program needs two streams for the
+computation, namely the input and output standard. The input stream is a
+packaged FASTQ file.
+
+The attribution is given according to:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Usage}\NormalTok{: ./gto2_fq_unpack [options] [[--] args]}
+   \ExtensionTok{or}\NormalTok{: ./gto2_fq_unpack [options]}
+
+\ExtensionTok{It}\NormalTok{ unpacks the FASTQ reads packaged using the gto2_fq_pack }
+\ExtensionTok{tool.}
+
+    \ExtensionTok{-h}\NormalTok{, --help            show this help message and exit}
+
+\ExtensionTok{Basic}\NormalTok{ options}
+    \OperatorTok{<} \ExtensionTok{input.fastq}\NormalTok{         Input FASTQ file format (stdin)}
+    \OperatorTok{>} \ExtensionTok{output.fastq}\NormalTok{        Output FASTQ file format (stdout)}
+
+\ExtensionTok{Optional}
+    \ExtensionTok{-s}\NormalTok{, --scores          When active, the application show }
+                          \ExtensionTok{the}\NormalTok{ scores first}
+    
+\ExtensionTok{Example}\NormalTok{: ./gto2_fq_unpack -s }\OperatorTok{<}\NormalTok{ input.fastqpack }\OperatorTok{>}\NormalTok{ out.fastq}
+\end{Highlighting}
+\end{Shaded}
+
+An example of such an input file is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{GNNTGATGGCCGCTGCCGATGGCGNANAATCCCACCAANATACCCTTAACAACTTAAGGG}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII}
+\ExtensionTok{SRR001666.1}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:817:345 length=60+ 0}
+\ExtensionTok{NTTCAGGGATACGACGNTTGTATTTTAAGAATCTGNAGCAGAAGTCGATGATAATACGCG}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI}
+\ExtensionTok{SRR001666.2}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:801:338 length=60+ 1}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection*{Output}\label{output-13}
+
+
+The output of the \textbf{gto2\_fq\_unpack} program is a FASTQ file.
+Using the input above, an output example of this is the following:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{@SRR001666.1}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:817:345 length=60}
+\ExtensionTok{GNNTGATGGCCGCTGCCGATGGCGNANAATCCCACCAANATACCCTTAACAACTTAAGGG}
+\ExtensionTok{+}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII}
+\ExtensionTok{@SRR001666.2}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:801:338 length=60}
+\ExtensionTok{NTTCAGGGATACGACGNTTGTATTTTAAGAATCTGNAGCAGAAGTCGATGATAATACGCG}
+\ExtensionTok{+}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI}
+\end{Highlighting}
+\end{Shaded}
 
 \section{Program
 gto2\_fq\_quality\_score\_info}\label{program-gto2_fq_quality_score_info}
 
-to do
+The \textbf{gto2\_fq\_quality\_score\_info} analyses the quality-scores
+of a FASTQ file.
+
+For help type:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{./gto2_fq_quality_score_info}\NormalTok{ -h}
+\end{Highlighting}
+\end{Shaded}
+
+In the following subsections, we explain the input and output
+parameters.
+
+\subsection*{Input parameters}\label{input-parameters-14}
+
+
+The \textbf{gto2\_fq\_quality\_score\_info} program needs two streams
+for the computation, namely the input and output standard. The input
+stream is a FASTQ file.
+
+The attribution is given according to:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Usage}\NormalTok{: ./gto2_fq_quality_score_info [options] [[--] args]}
+   \ExtensionTok{or}\NormalTok{: ./gto2_fq_quality_score_info [options]}
+
+\ExtensionTok{It}\NormalTok{ analyses the quality-scores of a FASTQ file.}
+
+    \ExtensionTok{-h}\NormalTok{, --help            show this help message and exit}
+
+\ExtensionTok{Basic}\NormalTok{ options}
+    \OperatorTok{<} \ExtensionTok{input.fastq}\NormalTok{         Input FASTQ file format (stdin)}
+    \OperatorTok{>} \ExtensionTok{output}\NormalTok{              Output read information (stdout)}
+    
+\ExtensionTok{Optional}
+    \ExtensionTok{-m}\NormalTok{, --max=}\OperatorTok{<}\NormalTok{int}\OperatorTok{>}\NormalTok{       The lenght of the maximum window}
+
+\ExtensionTok{Example}\NormalTok{: ./gto2_fq_quality_score_info -m }\OperatorTok{<}\NormalTok{max}\OperatorTok{>} \OperatorTok{<}\NormalTok{ input.fastq}
+\OperatorTok{>} \ExtensionTok{output}
+
+\ExtensionTok{Output}\NormalTok{ example :}
+\ExtensionTok{Total}\NormalTok{ reads     : value}
+\ExtensionTok{Max}\NormalTok{ read length : value}
+\ExtensionTok{Min}\NormalTok{ read length : value}
+\ExtensionTok{Min}\NormalTok{ QS value    : value}
+\ExtensionTok{Max}\NormalTok{ QS value    : value}
+\ExtensionTok{QS}\NormalTok{ range        : value}
+\end{Highlighting}
+\end{Shaded}
+
+An example of such an input file is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{@111}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:817:345 length=60 1}
+\ExtensionTok{GNNTGATGGCCGCTGCCGATGGCGNANAATCCCACCAANATACCCTTAACAACTTAAGGG}
+\ExtensionTok{+}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII}
+\ExtensionTok{@222}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:801:338 length=60 2}
+\ExtensionTok{NTTCAGGGATACGACGNTTGTATTTTAAGAATCTGNAGCAGAAGTCGATGATAATACGCG}
+\ExtensionTok{+}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection*{Output}\label{output-14}
+
+
+The output of the \textbf{gto2\_fq\_quality\_score\_info} program is a
+set of information related to the file read. Using the input above with
+the max window value as 30, an output example of this is the following:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Total}\NormalTok{ reads     : 2}
+\ExtensionTok{Max}\NormalTok{ read length : 60}
+\ExtensionTok{Min}\NormalTok{ read length : 60}
+\ExtensionTok{Min}\NormalTok{ QS value    : 54}
+\ExtensionTok{Max}\NormalTok{ QS value    : 73}
+\ExtensionTok{QS}\NormalTok{ range        : 20}
+ \ExtensionTok{1}\NormalTok{  ...  24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 }
+\ExtensionTok{--+}\NormalTok{ ... +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+}
+\ExtensionTok{73}\NormalTok{  ...  73 73 73 73 73 73 73 65 73 62 65 69 70 73 73 73 73 }
+                               \ExtensionTok{*}\NormalTok{     *  *  *  *             }
+                               \ExtensionTok{*}\NormalTok{     *  *  *  *             }
+                               \ExtensionTok{*}\NormalTok{     *  *  *  *             }
+                               \ExtensionTok{*}\NormalTok{     *  *  *                }
+                               \ExtensionTok{*}\NormalTok{     *  *                   }
+                               \ExtensionTok{*}\NormalTok{     *  *                   }
+                               \ExtensionTok{*}\NormalTok{     *  *                   }
+                               \ExtensionTok{*}\NormalTok{     *  *                   }
+                                     \ExtensionTok{*}                      
+                                     \ExtensionTok{*}                      
+                                     \ExtensionTok{*}   
+\end{Highlighting}
+\end{Shaded}
 
 \section{Program
 gto2\_fq\_quality\_score\_min}\label{program-gto2_fq_quality_score_min}
 
-to do
+The \textbf{gto2\_fq\_quality\_score\_min} analyses the minimal
+quality-scores of a FASTQ file.
+
+For help type:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{./gto2_fq_quality_score_min}\NormalTok{ -h}
+\end{Highlighting}
+\end{Shaded}
+
+In the following subsections, we explain the input and output
+parameters.
+
+\subsection*{Input parameters}\label{input-parameters-15}
+
+
+The \textbf{gto2\_fq\_quality\_score\_min} program needs two streams for
+the computation, namely the input and output standard. The input stream
+is a FASTQ file.
+
+The attribution is given according to:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Usage}\NormalTok{: ./gto2_fq_quality_score_min [options] [[--] args]}
+   \ExtensionTok{or}\NormalTok{: ./gto2_fq_quality_score_min [options]}
+
+\ExtensionTok{It}\NormalTok{ analyses the minimal quality-scores of a FASTQ file.}
+
+    \ExtensionTok{-h}\NormalTok{, --help        show this help message and exit}
+
+\ExtensionTok{Basic}\NormalTok{ options}
+    \OperatorTok{<} \ExtensionTok{input.fastq}\NormalTok{     Input FASTQ file format (stdin)}
+    \OperatorTok{>} \ExtensionTok{output}\NormalTok{          Output read information (stdout)}
+
+\ExtensionTok{Optional}
+    \ExtensionTok{-m}\NormalTok{, --max=}\OperatorTok{<}\NormalTok{int}\OperatorTok{>}\NormalTok{   The maximum window length (default 40)}
+
+\ExtensionTok{Example}\NormalTok{: ./gto2_fq_quality_score_min -m }\OperatorTok{<}\NormalTok{max}\OperatorTok{>} \OperatorTok{<}\NormalTok{ input.fastq }
+\OperatorTok{>} \ExtensionTok{output}
+\end{Highlighting}
+\end{Shaded}
+
+An example of such an input file is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{@111}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:817:345 length=60 1}
+\ExtensionTok{GNNTGATGGCCGCTGCCGATGGCGNANAATCCCACCAANATACCCTTAACAACTTAAGGG}
+\ExtensionTok{+}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII}
+\ExtensionTok{@222}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:801:338 length=60 2}
+\ExtensionTok{NTTCAGGGATACGACGNTTGTATTTTAAGAATCTGNAGCAGAAGTCGATGATAATACGCG}
+\ExtensionTok{+}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection*{Output}\label{output-15}
+
+
+The output of the \textbf{gto2\_fq\_quality\_score\_min} program is a
+set of information related to the file read, considering the minimum
+quality scores. Using the input above with the max window value as 20,
+an output example of this is the following:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+ \ExtensionTok{1}\NormalTok{  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 }
+\ExtensionTok{--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+}
+\ExtensionTok{73}\NormalTok{ 73 73 73 73 73 73 73 73 73 73 73 73 73 73 73 73 73 73 73}
+\end{Highlighting}
+\end{Shaded}
 
 \section{Program
 gto2\_fq\_quality\_score\_max}\label{program-gto2_fq_quality_score_max}
 
-to do
+The \textbf{gto2\_fq\_quality\_score\_max} analyses the maximal
+quality-scores of a FASTQ file.
+
+For help type:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{./gto2_fq_quality_score_max}\NormalTok{ -h}
+\end{Highlighting}
+\end{Shaded}
+
+In the following subsections, we explain the input and output
+parameters.
+
+\subsection*{Input parameters}\label{input-parameters-16}
+
+
+The \textbf{gto2\_fq\_quality\_score\_max} program needs two streams for
+the computation, namely the input and output standard. The input stream
+is a FASTQ file.
+
+The attribution is given according to:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Usage}\NormalTok{: ./gto2_fq_quality_score_max [options] [[--] args]}
+   \ExtensionTok{or}\NormalTok{: ./gto2_fq_quality_score_max [options]}
+
+\ExtensionTok{It}\NormalTok{ analyses the maximal quality-scores of a FASTQ file.}
+
+    \ExtensionTok{-h}\NormalTok{, --help            show this help message and exit}
+
+\ExtensionTok{Basic}\NormalTok{ options}
+    \OperatorTok{<} \ExtensionTok{input.fastq}\NormalTok{         Input FASTQ file format (stdin)}
+    \OperatorTok{>} \ExtensionTok{output}\NormalTok{              Output read information (stdout)}
+
+\ExtensionTok{Optional}
+    \ExtensionTok{-m}\NormalTok{, --max=}\OperatorTok{<}\NormalTok{int}\OperatorTok{>}\NormalTok{       The maximum window length (default 40)}
+
+\ExtensionTok{Example}\NormalTok{: ./gto2_fq_quality_score_max -m }\OperatorTok{<}\NormalTok{max}\OperatorTok{>} \OperatorTok{<}\NormalTok{ input.fastq }\OperatorTok{>}\NormalTok{ output}
+\end{Highlighting}
+\end{Shaded}
+
+An example of such an input file is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{@111}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:817:345 length=60 1}
+\ExtensionTok{GNNTGATGGCCGCTGCCGATGGCGNANAATCCCACCAANATACCCTTAACAACTTAAGGG}
+\ExtensionTok{+}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII}
+\ExtensionTok{@222}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:801:338 length=60 2}
+\ExtensionTok{NTTCAGGGATACGACGNTTGTATTTTAAGAATCTGNAGCAGAAGTCGATGATAATACGCG}
+\ExtensionTok{+}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection*{Output}\label{output-16}
+
+
+The output of the \textbf{gto2\_fq\_quality\_score\_max} program is a
+set of information related to the file read, considering the maximal
+quality scores. Using the input above with the max window value as 20,
+an output example of this is the following:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+ \ExtensionTok{1}\NormalTok{  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 }
+\ExtensionTok{--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+}
+\ExtensionTok{73}\NormalTok{ 73 73 73 73 73 73 73 73 73 73 73 73 73 73 73 73 73 73 73}
+\end{Highlighting}
+\end{Shaded}
 
 \section{Program gto2\_fq\_cut}\label{program-gto2_fq_cut}
 

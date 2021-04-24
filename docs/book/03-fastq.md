@@ -699,27 +699,501 @@ GCGAATCCGCGCGCCGGGACAGAATCTCCTGCAAAGCCCTGCAGGAACTTCTTCTGGAAG
 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 ```
 
-
 ## Program gto2_fq_mutate
-to do
+
+The **gto2_fq_mutate** creates a synthetic mutation of a FASTQ file given specific rates of mutations, deletions and additions. All these paramenters are defined by the user, and their are optional.
+
+For help type:
+
+```sh
+./gto2_fq_mutate -h
+```
+
+In the following subsections, we explain the input and output parameters.
+
+### Input parameters {-}
+
+The **gto2_fq_mutate** program needs two streams for the computation, namely the input and output standard. However, optional settings can be supplied too, such as the starting point to the random generator, and the edition, deletion and insertion rates. Also, the user can choose to use the ACGTN alphabet in the synthetic mutation. The input stream is a FASTQ File.
+
+The attribution is given according to:
+
+```sh
+Usage: ./gto2_fq_mutate [options] [[--] args]
+   or: ./gto2_fq_mutate [options]
+
+Creates a synthetic mutation of a FASTQ file given specific 
+rates of mutations, deletions and additions.
+
+    -h, --help      show this help message and exit
+
+Basic options
+    < input.fasta   Input FASTQ file format (stdin)
+    > output.fasta  Output FASTQ file format (stdout)
+
+Optional
+    -s              Starting point to the random generator
+    -m 				Defines the mutation rate (default 0.0)
+    -d 				Defines the deletion rate (default 0.0)
+    -i 				Defines the insertion rate (default 0.0)
+    -a 				When active, the application uses the 
+    				ACGTN alphabet
+
+Example: ./gto2_fq_mutate -s <seed> -m <mutation rate> 
+-d <deletion rate> -i <insertion rate> -a 
+< input.fastq > output.fastq
+
+```
+
+An example of such an input file is:
+
+```sh
+@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
+GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACCAAGTTACCCTTAACAACTTAAGGG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
+@SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
+GTTCAGGGATACGACGTTTGTATTTTAAGAATCTGAAGCAGAAGTCGATGATAATACGCG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
+```
+
+### Output {-}
+
+The output of the **gto2_fq_mutate** program is a FASTQ file whith the synthetic mutation of input file. Using the input above with the seed value as 1 and the mutation rate as 0.5, an output example of this is the following:
+
+```sh
+@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
+GGACTTTGAGGTGTGGCGATAGACTGAAAACACTTCAGGGTAAAATCACTCGCAAAAGTG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
+@SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
+GTTCAGAGCCTTTACCGTAGGGGTGTAAGATTTTATACAAAAAGTCCAGGTCAAGAGGAA
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
+```
 
 ## Program gto2_fq_split
-to do
+
+The **gto2_fq_split** splits Paired End files according to the direction of the strand ('/1' or '/2'). It writes by default singleton reads as forward stands. 
+
+For help type:
+
+```sh
+./gto2_fq_split -h
+```
+
+In the following subsections, we explain the input and output parameters.
+
+### Input parameters {-}
+
+The **gto2_fq_split** program needs a stream for the computation, namely the input standard. The input stream is a FASTQ file.
+
+The attribution is given according to:
+
+```sh
+Usage: ./gto2_fq_split [options] [[--] args]
+   or: ./gto2_fq_split [options]
+
+It writes by default singleton reads as forward stands.
+
+    -h, --help            show this help message and exit
+
+Basic options
+    -f, --forward=<str>   Output forward file
+    -r, --reverse=<str>   Output reverse file
+    < input.fastq         Input FASTQ file format (stdin)
+    > output         	  Output read information (stdout)
+
+Example: ./gto2_fq_split -f <output_forward.fastq> 
+-r <output_reverse.fastq> < input.fastq > output
+
+Output example :
+Total reads      : value
+Singleton reads  : value
+Forward reads    : value
+Reverse reads    : value
+```
+
+An example of such an input file is:
+
+```sh
+@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60 1
+GNNTGATGGCCGCTGCCGATGGCGNANAATCCCACCAANATACCCTTAACAACTTAAGGG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
+@SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60 2
+NTTCAGGGATACGACGNTTGTATTTTAAGAATCTGNAGCAGAAGTCGATGATAATACGCG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
+```
+
+### Output {-}
+
+The output of the **gto2_fq_split** program is a set of information related to the file read.
+Using the input above, an output example of this is the following:
+
+```sh
+Total reads     : 2
+Singleton reads : 0
+Forward reads   : 65536
+Reverse reads   : 1
+```
+
+Also, this program generates two FASTQ files, with the reverse and forward reads.
+
+An example of the forward reads, for the input, is: 
+
+```sh
+@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60 1
+GNNTGATGGCCGCTGCCGATGGCGNANAATCCCACCAANATACCCTTAACAACTTAAGGG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
+```
 
 ## Program gto2_fq_pack
-to do
+
+The **gto2_fq_pack** packages each FASTQ read in a single line. It can show the read score first or the dna sequence, depending on the execution mode. 
+
+For help type:
+
+```sh
+./gto2_fq_pack -h
+```
+
+In the following subsections, we explain the input and output parameters.
+
+### Input parameters {-}
+
+The **gto2_fq_pack** program needs two streams for the computation, namely the input and output standard. The input stream is a FASTQ file.
+
+The attribution is given according to:
+
+```sh
+Usage: ./gto2_fq_pack [options] [[--] args]
+   or: ./gto2_fq_pack [options]
+
+It packages each FASTQ read in a single line.
+
+    -h, --help            show this help message and exit
+
+Basic options
+    < input.fastq         Input FASTQ file format (stdin)
+    > output.fastqpack    Output packaged FASTQ file format 
+    					  (stdout)
+
+Optional
+    -s, --scores          When active, the application show 
+    					  the scores first
+
+Example: ./gto2_fq_pack -s < input.fastq > output.fastqpack
+```
+
+An example of such an input file is:
+
+```sh
+@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
+GNNTGATGGCCGCTGCCGATGGCGNANAATCCCACCAANATACCCTTAACAACTTAAGGG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
+@SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
+NTTCAGGGATACGACGNTTGTATTTTAAGAATCTGNAGCAGAAGTCGATGATAATACGCG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
+```
+
+### Output {-}
+
+The output of the **gto2_fq_pack** program is a packaged FASTQ file.
+Using the input above, an output example of this is the following:
+
+```sh
+GNNTGATGGCCGCTGCCGATGGCGNANAATCCCACCAANATACCCTTAACAACTTAAGGG
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
+SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60+	0
+NTTCAGGGATACGACGNTTGTATTTTAAGAATCTGNAGCAGAAGTCGATGATAATACGCG
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
+SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60+	1
+```
+
+Another example for the same input, but using the scores first (flag ''s''), is:
+
+```sh
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
+GNNTGATGGCCGCTGCCGATGGCGNANAATCCCACCAANATACCCTTAACAACTTAAGGG
+SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60+	0
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
+NTTCAGGGATACGACGNTTGTATTTTAAGAATCTGNAGCAGAAGTCGATGATAATACGCG
+SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60+	1
+```
 
 ## Program gto2_fq_unpack
-to do
+
+The **gto2_fq_unpack** unpacks the FASTQ reads packaged using the **gto2_fq_pack** tool.
+
+For help type:
+
+```sh
+./gto2_fq_unpack -h
+```
+
+In the following subsections, we explain the input and output parameters.
+
+### Input parameters {-}
+
+The **gto2_fq_unpack** program needs two streams for the computation, namely the input and output standard. The input stream is a packaged FASTQ file.
+
+The attribution is given according to:
+
+```sh
+Usage: ./gto2_fq_unpack [options] [[--] args]
+   or: ./gto2_fq_unpack [options]
+
+It unpacks the FASTQ reads packaged using the gto2_fq_pack 
+tool.
+
+    -h, --help            show this help message and exit
+
+Basic options
+    < input.fastq         Input FASTQ file format (stdin)
+    > output.fastq        Output FASTQ file format (stdout)
+
+Optional
+    -s, --scores          When active, the application show 
+    					  the scores first
+    
+Example: ./gto2_fq_unpack -s < input.fastqpack > out.fastq
+```
+
+An example of such an input file is:
+
+```sh
+GNNTGATGGCCGCTGCCGATGGCGNANAATCCCACCAANATACCCTTAACAACTTAAGGG
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
+SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60+	0
+NTTCAGGGATACGACGNTTGTATTTTAAGAATCTGNAGCAGAAGTCGATGATAATACGCG
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
+SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60+ 1
+```
+
+### Output {-}
+
+The output of the **gto2_fq_unpack** program is a FASTQ file.
+Using the input above, an output example of this is the following:
+
+```sh
+@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
+GNNTGATGGCCGCTGCCGATGGCGNANAATCCCACCAANATACCCTTAACAACTTAAGGG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
+@SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
+NTTCAGGGATACGACGNTTGTATTTTAAGAATCTGNAGCAGAAGTCGATGATAATACGCG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
+```
 
 ## Program gto2_fq_quality_score_info
-to do
+
+The **gto2_fq_quality_score_info** analyses the quality-scores of a FASTQ file.
+
+For help type:
+
+```sh
+./gto2_fq_quality_score_info -h
+```
+
+In the following subsections, we explain the input and output parameters.
+
+### Input parameters {-}
+
+The **gto2_fq_quality_score_info** program needs two streams for the computation, namely the input and output standard. The input stream is a FASTQ file.
+
+The attribution is given according to:
+
+```sh
+Usage: ./gto2_fq_quality_score_info [options] [[--] args]
+   or: ./gto2_fq_quality_score_info [options]
+
+It analyses the quality-scores of a FASTQ file.
+
+    -h, --help            show this help message and exit
+
+Basic options
+    < input.fastq         Input FASTQ file format (stdin)
+    > output              Output read information (stdout)
+    
+Optional
+    -m, --max=<int>       The lenght of the maximum window
+
+Example: ./gto2_fq_quality_score_info -m <max> < input.fastq
+> output
+
+Output example :
+Total reads     : value
+Max read length : value
+Min read length : value
+Min QS value    : value
+Max QS value    : value
+QS range        : value
+```
+
+An example of such an input file is:
+
+```sh
+@111 071112_SLXA-EAS1_s_7:5:1:817:345 length=60 1
+GNNTGATGGCCGCTGCCGATGGCGNANAATCCCACCAANATACCCTTAACAACTTAAGGG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
+@222 071112_SLXA-EAS1_s_7:5:1:801:338 length=60 2
+NTTCAGGGATACGACGNTTGTATTTTAAGAATCTGNAGCAGAAGTCGATGATAATACGCG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
+```
+
+### Output {-}
+
+The output of the **gto2_fq_quality_score_info** program is a set of information related to the file read. Using the input above with the max window value as 30, an output example of this is the following:
+
+```sh
+Total reads     : 2
+Max read length : 60
+Min read length : 60
+Min QS value    : 54
+Max QS value    : 73
+QS range        : 20
+ 1  ...  24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 
+--+ ... +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+73  ...  73 73 73 73 73 73 73 65 73 62 65 69 70 73 73 73 73 
+                               *     *  *  *  *             
+                               *     *  *  *  *             
+                               *     *  *  *  *             
+                               *     *  *  *                
+                               *     *  *                   
+                               *     *  *                   
+                               *     *  *                   
+                               *     *  *                   
+                                     *                      
+                                     *                      
+                                     *   
+```
 
 ## Program gto2_fq_quality_score_min
-to do
+
+The **gto2_fq_quality_score_min** analyses the minimal quality-scores of a FASTQ file.
+
+For help type:
+
+```sh
+./gto2_fq_quality_score_min -h
+```
+
+In the following subsections, we explain the input and output parameters.
+
+### Input parameters {-}
+
+The **gto2_fq_quality_score_min** program needs two streams for the computation, namely the input and output standard. The input stream is a FASTQ file.
+
+The attribution is given according to:
+
+```sh
+Usage: ./gto2_fq_quality_score_min [options] [[--] args]
+   or: ./gto2_fq_quality_score_min [options]
+
+It analyses the minimal quality-scores of a FASTQ file.
+
+    -h, --help        show this help message and exit
+
+Basic options
+    < input.fastq     Input FASTQ file format (stdin)
+    > output          Output read information (stdout)
+
+Optional
+    -m, --max=<int>   The maximum window length (default 40)
+
+Example: ./gto2_fq_quality_score_min -m <max> < input.fastq 
+> output
+```
+
+An example of such an input file is:
+
+```sh
+@111 071112_SLXA-EAS1_s_7:5:1:817:345 length=60 1
+GNNTGATGGCCGCTGCCGATGGCGNANAATCCCACCAANATACCCTTAACAACTTAAGGG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
+@222 071112_SLXA-EAS1_s_7:5:1:801:338 length=60 2
+NTTCAGGGATACGACGNTTGTATTTTAAGAATCTGNAGCAGAAGTCGATGATAATACGCG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
+```
+
+### Output {-}
+
+The output of the **gto2_fq_quality_score_min** program is a set of information related to the file read, considering the minimum quality scores. Using the input above with the max window value as 20, an output example of this is the following:
+
+```sh
+ 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 
+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+73 73 73 73 73 73 73 73 73 73 73 73 73 73 73 73 73 73 73 73
+```
 
 ## Program gto2_fq_quality_score_max
-to do
+
+The **gto2_fq_quality_score_max** analyses the maximal quality-scores of a FASTQ file.
+
+For help type:
+
+```sh
+./gto2_fq_quality_score_max -h
+```
+
+In the following subsections, we explain the input and output parameters.
+
+### Input parameters {-}
+
+The **gto2_fq_quality_score_max** program needs two streams for the computation, namely the input and output standard. The input stream is a FASTQ file.
+
+The attribution is given according to:
+
+```sh
+Usage: ./gto2_fq_quality_score_max [options] [[--] args]
+   or: ./gto2_fq_quality_score_max [options]
+
+It analyses the maximal quality-scores of a FASTQ file.
+
+    -h, --help            show this help message and exit
+
+Basic options
+    < input.fastq         Input FASTQ file format (stdin)
+    > output              Output read information (stdout)
+
+Optional
+    -m, --max=<int>       The maximum window length (default 40)
+
+Example: ./gto2_fq_quality_score_max -m <max> < input.fastq > output
+```
+
+An example of such an input file is:
+
+```sh
+@111 071112_SLXA-EAS1_s_7:5:1:817:345 length=60 1
+GNNTGATGGCCGCTGCCGATGGCGNANAATCCCACCAANATACCCTTAACAACTTAAGGG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
+@222 071112_SLXA-EAS1_s_7:5:1:801:338 length=60 2
+NTTCAGGGATACGACGNTTGTATTTTAAGAATCTGNAGCAGAAGTCGATGATAATACGCG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
+```
+
+### Output {-}
+
+The output of the **gto2_fq_quality_score_max** program is a set of information related to the file read, considering the maximal quality scores. Using the input above with the max window value as 20, an output example of this is the following:
+
+```sh
+ 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 
+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+73 73 73 73 73 73 73 73 73 73 73 73 73 73 73 73 73 73 73 73
+```
 
 ## Program gto2_fq_cut
 to do
