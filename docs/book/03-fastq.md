@@ -73,11 +73,11 @@ An example of such an input file is:
 ```sh
 @SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
 GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACCAAGTTACCCTTAACAACTTAAGGG
-+SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
++
 IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
 @SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
 GTTCAGGGATACGACGTTTGTATTTTAAGAATCTGAAGCAGAAGTCGATGATAATACGCG
-+SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
++
 IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
 ```
 
@@ -132,11 +132,11 @@ An example of such an input file is:
 ```sh
 @SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
 GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACCAAGTTACCCTTAACAACTTAAGGG
-+SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
++
 IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
 @SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
 GTTCAGGGATACGACGTTTGTATTTTAAGAATCTGAAGCAGAAGTCGATGATAATACGCG
-+SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
++
 IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
 ```
 
@@ -268,11 +268,11 @@ An example of such an input file is:
 ```sh
 @SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
 GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACCAAGTTACCCTTAACAACTTAAGGG
-+SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
++
 IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
 @SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
 GTTCAGGGATACGACGTTTGTATTTTAAGAATCTGAAGCAGAAGTCGATGATAATACGCG
-+SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
++
 IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
 ```
 
@@ -334,11 +334,11 @@ An example of such an input file is:
 ```sh
 @SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
 GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACCAAGTTACCCTTAACAACTTAAGGG
-+SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
++
 IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
 @SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
 GTTCAGGGATACGACGTTTGTATTTTAAGAATCTGAAGCAGAAGTCGATGATAATACGCG
-+SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
++
 IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
 ```
 
@@ -472,11 +472,11 @@ An example of such an input file is:
 ```sh
 @SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
 GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACCAAGTTACCCTTAACAACTTAAGGG
-+SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
++
 IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
 @SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
 GTTCAGGGATACGACGTTTGTATTTTAAGAATCTGAAGCAGAAGTCGATGATAATACGCG
-+SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
++
 54599<>77977==6=?I6IBI::33344235521677999>>><<<@@A@BBCDGGBFF
 ```
 
@@ -601,11 +601,11 @@ An example of such an input file is:
 ```sh
 @SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
 GNNTGATGGCCGCTGCCGATGGCGNANAATCCCACCAANATACCCTTAACAACTTAAGGG
-+SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
++
 IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
 @SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
 NTTCAGGGATACGACGNTTGTATTTTAAGAATCTGNAGCAGAAGTCGATGATAATACGCG
-+SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
++
 IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
 ```
 
@@ -616,11 +616,11 @@ The output of the **gto2_fq_rand_extra_chars** program is a FASTQ file. Using th
 ```sh
 @SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
 GTGTGATGGCCGCTGCCGATGGCGCATAATCCCACCAACATACCCTTAACAACTTAAGGG
-+SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
++
 IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
 @SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
 GTTCAGGGATACGACGATTGTATTTTAAGAATCTGCAGCAGAAGTCGATGATAATACGCG
-+SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
++
 IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
 ```
 
@@ -1196,25 +1196,473 @@ The output of the **gto2_fq_quality_score_max** program is a set of information 
 ```
 
 ## Program gto2_fq_cut
-to do
+
+The **gto2_fq_cut** cuts read sequences in a FASTQ file. It requires that the initial and end positions for the cut.
+
+For help type:
+
+```sh
+./gto2_fq_cut -h
+```
+
+In the following subsections, we explain the input and output parameters.
+
+### Input parameters {-}
+
+The **gto2_fq_cut** program needs two streams for the computation, namely the input and output standard. The input stream is a FASTQ file.
+
+The attribution is given according to:
+
+```sh
+Usage: ./gto2_fq_cut [options] [[--] args]
+   or: ./gto2_fq_cut [options]
+
+It cuts read sequences in a FASTQ file.
+
+    -h, --help            show this help message and exit
+
+Basic options
+    -i, --initial=<int>   Starting position to the cut
+    -e, --end=<int>       Ending position to the cut
+    < input.fastq         Input FASTQ file format (stdin)
+    > output.fastq        Output FASTQ file format (stdout)
+
+Example: ./gto2_fq_cut -i <initial> -e <end> < input.fastq 
+> output.fastq
+```
+
+An example of such an input file is:
+
+```sh
+@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
+GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACCAAGTTACCCTTAACAACTTAAGGG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
+@SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
+GTTCAGGGATACGACGTTTGTATTTTAAGAATCTGAAGCAGAAGTCGATGATAATACGCG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
+```
+
+### Output {-}
+
+The output of the **gto2_fq_cut** program is a FASTQ file cut. Using the initial value as 10 and the end value as 30, an example of this input, is the following:
+
+```sh
+@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
+CGCTGCCGATGGCGTCAAATC
++
+IIIIIIIIIIIIIIIIIIII9
+@SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
+ACGACGTTTGTATTTTAAGAA
++
+IIIIIIIIIIIIIIIIIIIII
+```
 
 ## Program gto2_fq_minimum_local_quality_score_forward
-to do
+
+The **gto2_fq_minimum_local_quality_score_forward** filters the reads considering the quality score average of a defined window size of bases.
+
+For help type:
+
+```sh
+./gto2_fq_minimum_local_quality_score_forward -h
+```
+
+In the following subsections, we explain the input and output parameters.
+
+### Input parameters {-}
+
+The **gto2_fq_minimum_local_quality_score_forward** program needs two streams for the computation, namely the input and output standard. The input stream is a FASTQ file.
+
+The attribution is given according to:
+
+```sh
+Usage: ./gto2_fq_minimum_local_quality_score_forward [options] [[--] args]
+   or: ./gto2_fq_minimum_local_quality_score_forward [options]
+
+It filters the reads considering the quality score average 
+of a defined window size of bases.
+
+    -h, --help        show this help message and exit
+
+Basic options
+    -k                The window size of bases (default 5)
+    -w                The minimum average of quality score 
+    				  (default 25)
+    -m                The minimum value of the quality score 
+    				  (default 33)
+    < input.fastq     Input FASTQ file format (stdin)
+    > output.fastq    Output FASTQ file format (stdout)
+
+Example: ./gto2_fq_minimum_local_quality_score_forward 
+-k <windowsize> -w <minavg> -m <minqs> 
+< input.fastq > output.fastq
+
+Console output example:
+Minimum QS       : value
+<FASTQ output>
+Total reads      : value
+Trimmed reads    : value
+```
+
+An example of such an input file is:
+
+```sh
+@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
+GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACCAAGTTACCCTTAACAACTTAAGGG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
+@SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
+GTTCAGGGATACGACGTTTGTATTTTAAGAATCTGAAGCAGAAGTCGATGATAATACGCG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIII-I)8IIIIIIIIIIIIIIIIII
+```
+
+### Output {-}
+
+The output of the **gto2_fq_minimum_local_quality_score_forward** program is a FASTQ file with the reads filtered following a quality score average of a defined window of bases. The execution report only appears in the console. Using the input above with the default values, an output example of this is the following:
+
+```sh
+Minimum QS     : 33
+@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
+GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACCAAGTTACCCTTAACAACTTAAGGG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
+@SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
+GTTCAGGGATACGACGTTTGTATTTTAAGAATCTGAA
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBII
+Total reads    : 2
+Trimmed reads  : 1
+```
 
 ## Program gto2_fq_minimum_local_quality_score_reverse
-to do
+
+The **gto2_fq_minimum_local_quality_score_reverse** filters the reverse reads, considering the quality score average of a defined window size of bases.
+
+For help type:
+
+```sh
+./gto2_fq_minimum_local_quality_score_reverse -h
+```
+
+In the following subsections, we explain the input and output parameters.
+
+### Input parameters {-}
+
+The **gto2_fq_minimum_local_quality_score_reverse** program needs two streams for the computation, namely the input and output standard. The input stream is a FASTQ file.
+
+The attribution is given according to:
+
+```sh
+Usage: ./gto2_fq_minimum_local_quality_score_reverse [options] [[--] args]
+   or: ./gto2_fq_minimum_local_quality_score_reverse [options]
+
+It filters the reverse reads, considering the quality score 
+average of a defined 
+window size of bases.
+
+    -h, --help        show this help message and exit
+
+Basic options
+    -k                The window size of bases (default 5)
+    -w                The minimum average of quality score 
+    				  (default 25)
+    -m                The minimum value of the quality score
+    				  (default 33)
+    < input.fastq     Input FASTQ file format (stdin)
+    > output.fastq    Output FASTQ file format (stdout)
+
+Example: ./gto2_fq_minimum_local_quality_score_reverse 
+-k <windowsize> -w <minavg> -m <minqs> 
+< input.fastq > output.fastq
+
+Console output example:
+Minimum QS       : value
+<FASTQ output>
+Total reads      : value
+Trimmed reads    : value
+```
+
+An example of such an input file is:
+
+```sh
+@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
+GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACCAAGTTACCCTTAACAACTTAAGGG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
+@SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
+GTTCAGGGATACGACGTTTGTATTTTAAGAATCTGAAGCAGAAGTCGATGATAATACGCG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIII-I)8IIIIIIIIIIIIIIIIII
+```
+
+### Output {-}
+
+The output of the **gto2_fq_minimum_local_quality_score_reverse** program is a FASTQ file with the reads filtered following a quality score average of a defined window of bases. The execution report only appears in the console. Using the input above with the default values, an output example of this is the following:
+
+```sh
+Minimum QS: 33
+@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
+GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACCAAGTTACCCTTAACAACTTAAGGG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
+@SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
+GTCGATGATAATACGCG
++
+IIIIIIIIIIIIIIIII
+Total reads    : 2
+Trimmed reads  : 1
+```
 
 ## Program gto2_fq_xs
-to do
+
+The **gto2_fq_xs** is a skilled FASTQ read simulation tool, flexible, portable (does not need a reference sequence) and tunable in terms of sequence complexity. XS handles Ion Torrent, Roche-454, Illumina and ABI-SOLiD simulation sequencing types. It has several running modes, depending on the time and memory available, and is aimed at testing computing infrastructures, namely cloud computing of large-scale projects, and testing FASTQ compression algorithms. Moreover, XS offers the possibility of simulating the three main FASTQ components individually (headers, DNA sequences and quality-scores). Quality-scores can be simulated using uniform and Gaussian distributions.
+
+For help type:
+
+```sh
+./gto2_fq_xs -h
+```
+
+In the following subsections, we explain the input and output parameters.
+
+### Input parameters {-}
+
+The **gto2_fq_xs** program needs a FASTQ file to compute.
+
+An example of such an input file is:
+
+```sh
+@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
+GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACCAAGTTACCCTTAACAACTTAAGGG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
+@SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
+GTTCAGGGATACGACGTTTGTATTTTAAGAATCTGAAGCAGAAGTCGATGATAATACGCG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
+```
+
+### Output {-}
+
+The output of the **gto2_fq_xs** program is a FASTQ file. Using the input above using the common usage with 5 reads (-n 5), an output example of this is the following:
+
+```sh
+
+```
 
 ## Program gto2_fq_complement
-to do
+
+The **gto2_fq_complement** replaces the ACGT bases with their complements in a FASTQ file format.
+
+For help type:
+
+```sh
+./gto2_fq_complement -h
+```
+
+In the following subsections, we explain the input and output parameters.
+
+### Input parameters {-}
+
+The **gto2_fq_complement** program needs two streams for the computation, namely the input and output standard. The input stream is a FASTQ file.
+
+The attribution is given according to:
+
+```sh
+Usage: ./gto2_fq_complement [options] [[--] args]
+   or: ./gto2_fq_complement [options]
+
+It replaces the ACGT bases with their complements in a FASTQ
+file format.
+
+    -h, --help            Show this help message and exit
+
+Basic options
+    < input.fastq         Input FASTQ file (stdin)
+    > output.fastq        Output FASTQ file (stdout)
+
+Example: ./gto2_fq_complement < input.fastq > output.fastq
+```
+
+An example of such an input file is:
+
+```sh
+@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
+GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACCAAGTTACCCTTAACAACTTAAGGG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
+@SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
+GTTCAGGGATACGACGTTTGTATTTTAAGAATCTGAAGCAGAAGTCGATGATAATACGCG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
+```
+
+### Output {-}
+
+The output of the **gto2_fq_complement** program is the FASTQ file with the ACGT base complements. Using the input above, an output example of this is the following:
+
+```sh
+@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
+CCCACTACCGGCGACGGCTACCGCAGTTTAGGGTGGTTCAATGGGAATTGTTGAATTCCC
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
+@SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
+CAAGTCCCTATGCTGCAAACATAAAATTCTTAGACTTCGTCTTCAGCTACTATTATGCGC
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
+```
 
 ## Program gto2_fq_reverse
-to do
+
+The **gto2_fq_reverse** reverses the ACGT bases order for each read in a FASTQ file format.
+
+For help type:
+
+```sh
+./gto2_fq_reverse -h
+```
+
+In the following subsections, we explain the input and output parameters.
+
+### Input parameters {-}
+
+The **gto2_fq_reverse** program needs two streams for the computation, namely the input and output standard. The input stream is a FASTQ file.
+
+The attribution is given according to:
+
+```sh
+Usage: ./gto2_fq_reverse [options] [[--] args]
+   or: ./gto2_fq_reverse [options]
+
+It reverses the ACGT bases order for each read in a FASTQ 
+file.
+
+    -h, --help            Show this help message and exit
+
+Basic options
+    < input.fastq         Input FASTQ file (stdin)
+    > output.fastq        Output FASTQ file (stdout)
+
+Example: ./gto2_fq_reverse < input.fastq > output.fastq
+```
+
+An example of such an input file is:
+
+```sh
+@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345
+GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACCAAGTTACCCTTAACAACTTAAGGG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
+@SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338
+GTTCAGGGATACGACGTTTGTATTTTAAGAATCTGAAGCAGAAGTCGATGATAATACGCG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
+```
+
+### Output {-}
+
+The output of the **gto2_fq_reverse** program is the FASTQ file complement with the flag ''(Reversed)'' added in the header.
+Using the input above, an output example of this is the following:
+
+```sh
+@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 (Reversed)
+GGGAATTCAACAATTCCCATTGAACCACCCTAAACTGCGGTAGCCGTCGCCGGTAGTGGG
++
+IIIDIIIIIIIIIIIIIIIIIIIICI9GI9IIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+@SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 (Reversed)
+GCGCATAATAGTAGCTGAAGACGAAGTCTAAGAATTTTATGTTTGCAGCATAGGGACTTG
++
+IGIIIIIIIIIIIIIIIIIIIIIIIBI6IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+```
 
 ## Program gto2_fq_variation_map
-to do
+
+The **gto2_fq_variation_map** identifies the variation that occours in the sequences relative to the reads or a set of reads.
+
+For help type:
+
+```sh
+./gto2_fq_variation_map -h
+```
+
+In the following subsections, we explain the input and output parameters.
+
+### Input parameters {-}
+
+The **gto2_fq_variation_map** program needs FASTQ, FASTA or SEQ files to be used as reference and target files.
+
+The attribution is given according to:
+
+```sh
+Usage: ./gto2_fq_variation_map <OPTIONS>... [FILE]:<...> 
+[FILE]:<...>
+
+The gto2_fq_variation_map is a tool to map relative 
+singularity regions. The (probabilistic) Bloom filter is 
+automatically set.   
+                                                         
+  -v                       verbose mode,                 
+  -a                       about CHESTER,                
+  -s <value>               bloom size,                   
+  -i                       use inversions,               
+  -p                       show positions/words,         
+  -k <value>               k-mer size (up to 30),        
+                                                         
+  [rFile1]:<rFile2>:<...>  reference file(s),            
+  [tFile1]:<tFile2>:<...>  target file(s).               
+                                                         
+The reference files may be FASTA, FASTQ or DNA SEQ,      
+while the target files may be FASTA OR DNA SEQ.          
+Report bugs to <{pratas,raquelsilva,ap,pjf}@ua.pt>.
+```
+
+An example of a reference file (Multi-FASTA format) is:
+
+```sh
+>AB000264 |acc=AB000264|descr=Homo sapiens mRNA 
+ACAAGACGGCCTCCTGCTGCTGCTGCTCTCCGGGGCCACGGCCCTGGAGGGTCCACCGCT
+CCCTGCTGCCATTGTCCCCGGCCCCACCTAAGGAAAAGCAGCCTCCTGACTTTCCTCGCT
+TGGGCCGAGACAGCGAGCATATGCAGGAAGCGGCAGGAAGTGGTTTGAGTGGACCTCCGG
+GCCCCTCATAGGAGAGGAAGCTCGGGAGGTGGCCAGGCGGCAGGAAGCAGGCCAGTGCCG
+CGAATCCGCGCGCCGGGACAGAATCTCCTGCAAAGCCCTGCAGGAACTTCTTCTGGAAGA
+CCTTCTCCACCCCCCCAGCTAAAACCTCACCCATGAATGCTCACGCAAGTTTAATTACAG
+ACCTGAA
+>AB000263 |acc=AB000263|descr=Homo sapiens mRNA 
+ACAAGATGCCATTGTCCCCCGGCCTCCTGCTGCTGCTGCTCTCCGGGGCCACGGCCACCG
+CTGCCCTGCCCCTGGAGGGTGGCCCCACCGGCCGAGACAGCGAGCATATGCAGGAAGCGG
+CAGGAATAAGGAAAAGCAGCCTCCTGACTTTCCTCGCTTGGTGGTTTGAGTGGACCTCCC
+AGGCCAGTGCCGGGCCCCTCATAGGAGAGGAAGCTCGGGAGGTGGCCAGGCGGCAGGAAG
+GCGCACCCCCCCAGCAATCCGCGCGCCGGGACAGAATGCCCTGCAGGAACTTCTTCTGGA
+AGACCTTCTCCTCCTGCAAATAAAACCTCACCCATGAATGCTCACGCAAGTTTAATTACA
+GACCTGAA
+```
+
+An example for the target file (FASTQ format) is:
+
+```sh
+@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
+GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACCAAGTTACCCTTAACAACTTAAGGG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
+@SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
+GTTCAGGGATACGACGTTTGTATTTTAAGAATCTGAAGCAGAAGTCGATGATAATACGCG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
+```
+
+### Output {-}
+
+The output of the **gto2_fq_variation_map** program is a text file identifying the relative regions. Using the inputs above, an output example of this is the following:
+
+```sh
+111111111111111111111111111110000000000000000000000000000000
+111111111111111111111111111110000000000000000000000000000000
+000000000000
+```
+
 
 ## Program gto2_fq_variation_filter
 to do
