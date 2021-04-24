@@ -34,7 +34,12 @@ program-gto2_fq_variation_filter
 program-gto2_fq_variation_visual
 program-gto2_fq_metagenomics
 amino-acid-tools
-gto2_aa
+program-gto2_aa_to_group
+program-gto2_aa_to_pseudo_dna
+program-gto2_aa_compressor
+program-gto2_aa_from_fa
+program-gto2_aa_from_fq
+program-gto2_aa_from_seq
 genomic-tools
 gto2_dna
 general-purpose-tools

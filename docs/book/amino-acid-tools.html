@@ -228,7 +228,27 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html"><i class="fa fa-check"></i><b>4</b> Amino Acid Tools</a><ul>
-<li class="chapter" data-level="4.1" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#gto2_aa"><i class="fa fa-check"></i><b>4.1</b> gto2_aa</a></li>
+<li class="chapter" data-level="4.1" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#program-gto2_aa_to_group"><i class="fa fa-check"></i><b>4.1</b> Program gto2_aa_to_group</a><ul>
+<li class="chapter" data-level="" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#input-parameters-27"><i class="fa fa-check"></i>Input parameters</a></li>
+<li class="chapter" data-level="" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#output-27"><i class="fa fa-check"></i>Output</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#program-gto2_aa_to_pseudo_dna"><i class="fa fa-check"></i><b>4.2</b> Program gto2_aa_to_pseudo_dna</a><ul>
+<li class="chapter" data-level="" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#input-parameters-28"><i class="fa fa-check"></i>Input parameters</a></li>
+<li class="chapter" data-level="" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#output-28"><i class="fa fa-check"></i>Output</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#program-gto2_aa_compressor"><i class="fa fa-check"></i><b>4.3</b> Program gto2_aa_compressor</a></li>
+<li class="chapter" data-level="4.4" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#program-gto2_aa_from_fa"><i class="fa fa-check"></i><b>4.4</b> Program gto2_aa_from_fa</a><ul>
+<li class="chapter" data-level="" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#input-parameters-29"><i class="fa fa-check"></i>Input parameters</a></li>
+<li class="chapter" data-level="" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#output-29"><i class="fa fa-check"></i>Output</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#program-gto2_aa_from_fq"><i class="fa fa-check"></i><b>4.5</b> Program gto2_aa_from_fq</a><ul>
+<li class="chapter" data-level="" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#input-parameters-30"><i class="fa fa-check"></i>Input parameters</a></li>
+<li class="chapter" data-level="" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#output-30"><i class="fa fa-check"></i>Output</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#program-gto2_aa_from_seq"><i class="fa fa-check"></i><b>4.6</b> Program gto2_aa_from_seq</a><ul>
+<li class="chapter" data-level="" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#input-parameters-31"><i class="fa fa-check"></i>Input parameters</a></li>
+<li class="chapter" data-level="" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#output-31"><i class="fa fa-check"></i>Output</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="genomic-tools.html"><a href="genomic-tools.html"><i class="fa fa-check"></i><b>5</b> Genomic Tools</a><ul>
 <li class="chapter" data-level="5.1" data-path="genomic-tools.html"><a href="genomic-tools.html#gto2_dna"><i class="fa fa-check"></i><b>5.1</b> gto2_dna</a></li>
@@ -255,10 +275,311 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="amino-acid-tools" class="section level1">
 <h1><span class="header-section-number">Chapter 4</span> Amino Acid Tools</h1>
-<div id="gto2_aa" class="section level2">
-<h2><span class="header-section-number">4.1</span> gto2_aa</h2>
-<p>to do</p>
+<p>A more specific subset of tools is the Amino Acid Sequence tools, designed to manipulate amino acid sequences. The main features of those tools are grouping sequences, for instance by their properties, such as electric charge (positive and negative), uncharged side chains, hydrophobic side chains and special cases. It is also possible generating pseudo-DNA with characteristics passed by amino acid sequences, or for data compression, using cooperation between multiple contexts and substitutional tolerant context models. The current available amino acid sequence tools, for analysis and manipulation, are:</p>
+<ul>
+<li><strong>gto2_aa_to_group</strong>: to convert an amino acid sequence to a group sequence.</li>
+<li><strong>gto2_aa_to_pseudo_dna</strong>: to convert an amino acid (protein) sequence to a pseudo DNA sequence.</li>
+<li><strong>gto2_aa_compressor</strong>: a new lossless compressor to compress efficiently amino acid sequences (proteins).</li>
+<li><strong>gto2_aa_from_fa</strong>: to convert DNA sequences in FASTA or Multi-FASTA file format to an amino acid sequence.</li>
+<li><strong>gto2_aa_from_fq</strong>: to convert DNA sequences in the FASTQ file format to an amino acid sequence.</li>
+<li><strong>gto2_aa_from_seq</strong>: to convert DNA sequences to an amino acid sequence.</li>
+</ul>
+<div id="program-gto2_aa_to_group" class="section level2">
+<h2><span class="header-section-number">4.1</span> Program gto2_aa_to_group</h2>
+<p>The <strong>gto2_aa_to_group</strong> converts an amino acid sequence to a group sequence.</p>
+<p>For help type:</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">./gto2_aa_to_group</span> -h</code></pre></div>
+<p>In the following subsections, we explain the input and output parameters.</p>
+<div id="input-parameters-27" class="section level3 unnumbered">
+<h3>Input parameters</h3>
+<p>The <strong>gto2_aa_to_group</strong> program needs two streams for the computation, namely the input and output standard. The input stream is an amino acid sequence. The attribution is given according to:</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">Usage</span>: ./gto2_aa_to_group [options] [[--] args]
+   <span class="ex">or</span>: ./gto2_aa_to_group [options]
 
+<span class="ex">It</span> converts a amino acid sequence to a group sequence.
+
+    <span class="ex">-h</span>, --help        show this help message and exit
+
+<span class="ex">Basic</span> options
+    <span class="op">&lt;</span> <span class="ex">input.prot</span>      Input amino acid sequence file (stdin)
+    <span class="op">&gt;</span> <span class="ex">output.group</span>    Output group sequence file (stdout)
+
+<span class="ex">Example</span>: ./gto2_aa_to_group <span class="op">&lt;</span> input.prot <span class="op">&gt;</span> output.group
+<span class="ex">Table</span>:
+<span class="ex">Prot</span>    Group
+<span class="ex">R</span>       P
+<span class="ex">H</span>       P  Electric charged side chains: POSITIVE
+<span class="ex">K</span>       P
+<span class="ex">-</span>       -
+<span class="ex">D</span>       N
+<span class="ex">E</span>       N  Electric charged side chains: NEGATIVE
+<span class="ex">-</span>       -
+<span class="ex">S</span>       U
+<span class="ex">T</span>       U
+<span class="ex">N</span>       U  Amino acids with electric UNCHARGED side chains
+<span class="ex">Q</span>       U
+<span class="ex">-</span>       -
+<span class="ex">C</span>       S
+<span class="ex">U</span>       S
+<span class="ex">G</span>       S  Special cases
+<span class="ex">P</span>       S
+<span class="ex">-</span>       -
+<span class="ex">A</span>       H
+<span class="ex">V</span>       H
+<span class="ex">I</span>       H
+<span class="ex">L</span>       H
+<span class="ex">M</span>       H  Amino acids with hydrophobic side chains
+<span class="ex">F</span>       H
+<span class="ex">Y</span>       H
+<span class="ex">W</span>       H
+<span class="ex">-</span>       -
+<span class="ex">*</span>       *  Others
+<span class="ex">X</span>       X  Unknown</code></pre></div>
+<p>This tool can be used to group amino acids by properties, such as electric charge (positive and negative), uncharged side chains, hydrophobic side chains and special cases. An example of such an input file is:</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">IPFLLKKQFALADKLVLSKLRQLLGGRIKMMPCGGAKLEPAIGLFFHAIGINIKLGYGMT</span>
+<span class="ex">ETTATVSCWHDFQFNPNSIGTLMPKAEVKIGENNEILVRGGMVMKGYYKKPEETAQAFTE</span>
+<span class="ex">DGFLKTGDAGEFDEQGNLFITDRIKELMKTSNGKYIAPQYIESKIGKDKFIEQIAIIADA</span>
+<span class="ex">KKYVSALIVPCFDSLEEYAKQLNIKYHDRLELLKNSDILKMFE</span></code></pre></div>
+</div>
+<div id="output-27" class="section level3 unnumbered">
+<h3>Output</h3>
+<p>The output of the <strong>gto2_aa_to_group</strong> program is a group sequence. Using the input above, an output example of this is the following:</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">HSHHHPPUHHHHNPHHHUPHPUHHSSPHPHHSSSSHPHNSHHSHHHPHHSHUHPHSHSHU</span>
+<span class="ex">NUUHUHUSHPNHUHUSUUHSUHHSPHNHPHSNUUNHHHPSSHHHPSHHPPSNNUHUHHUN</span>
+<span class="ex">NSHHPUSNHSNHNNUSUHHHUNPHPNHHPUUUSPHHHSUHHNUPHSPNPHHNUHHHHHNH</span>
+<span class="ex">PPHHUHHHHSSHNUHNNHHPUHUHPHPNPHNHHPUUNHHPHHN</span></code></pre></div>
+</div>
+</div>
+<div id="program-gto2_aa_to_pseudo_dna" class="section level2">
+<h2><span class="header-section-number">4.2</span> Program gto2_aa_to_pseudo_dna</h2>
+<p>The <strong>gto2_aa_to_pseudo_dna</strong> converts an amino acid (protein) sequence to a pseudo DNA sequence.</p>
+<p>For help type:</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">./gto2_aa_to_pseudo_dna</span> -h</code></pre></div>
+<p>In the following subsections, we explain the input and output parameters.</p>
+<div id="input-parameters-28" class="section level3 unnumbered">
+<h3>Input parameters</h3>
+<p>The <strong>gto2_aa_to_pseudo_dna</strong> program needs two streams for the computation, namely the input and output standard. The input stream is an amino acid sequence. The attribution is given according to:</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">Usage</span>: ./gto2_aa_to_pseudo_dna [options] [[--] args]
+   <span class="ex">or</span>: ./gto2_aa_to_pseudo_dna [options]
+
+<span class="ex">It</span> converts a protein sequence to a pseudo DNA sequence.
+
+    <span class="ex">-h</span>, --help        show this help message and exit
+
+<span class="ex">Basic</span> options
+    <span class="op">&lt;</span> <span class="ex">input.prot</span>      Input amino acid sequence file (stdin)
+    <span class="op">&gt;</span> <span class="ex">output.dna</span>      Output DNA sequence file (stdout)
+
+<span class="ex">Example</span>: ./gto2_aa_to_pseudo_dna <span class="op">&lt;</span> input.prot <span class="op">&gt;</span> output.dna
+<span class="ex">Table</span>:
+<span class="ex">Prot</span>    DNA
+<span class="ex">A</span>       GCA
+<span class="ex">C</span>       TGC
+<span class="ex">D</span>       GAC
+<span class="ex">E</span>       GAG
+<span class="ex">F</span>       TTT
+<span class="ex">G</span>       GGC
+<span class="ex">H</span>       CAT
+<span class="ex">I</span>       ATC
+<span class="ex">K</span>       AAA
+<span class="ex">L</span>       CTG
+<span class="ex">M</span>       ATG
+<span class="ex">N</span>       AAC
+<span class="ex">P</span>       CCG
+<span class="ex">Q</span>       CAG
+<span class="ex">R</span>       CGT
+<span class="ex">S</span>       TCT
+<span class="ex">T</span>       ACG
+<span class="ex">V</span>       GTA
+<span class="ex">W</span>       TGG
+<span class="ex">Y</span>       TAC
+<span class="ex">*</span>       TAG
+<span class="ex">X</span>       GGG</code></pre></div>
+<p>It can be used to generate pseudo-DNA with characteristics passed by amino acid (protein) sequences. An example of such an input file is:</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">IPFLLKKQFALADKLVLSKLRQLLGGRIKMMPCGGAKLEPAIGLFFHAIGINIKLGYGMT</span>
+<span class="ex">ETTATVSCWHDFQFNPNSIGTLMPKAEVKIGENNEILVRGGMVMKGYYKKPEETAQAFTE</span>
+<span class="ex">DGFLKTGDAGEFDEQGNLFITDRIKELMKTSNGKYIAPQYIESKIGKDKFIEQIAIIADA</span>
+<span class="ex">KKYVSALIVPCFDSLEEYAKQLNIKYHDRLELLKNSDILKMFE</span></code></pre></div>
+</div>
+<div id="output-28" class="section level3 unnumbered">
+<h3>Output</h3>
+<p>The output of the <strong>gto2_aa_to_pseudo_dna</strong> program is a DNA sequence. Using the input above, an output example of this is the following:</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">ATCCCGTTTCTGCTGAAAAAACAGTTTGCACTGGCAGACAAACTGGTACTGTCTAAACTG</span>
+<span class="ex">CGTCAGCTGCTGGGCGGCCGTATCAAAATGATGCCGTGCGGCGGCGCAAAACTGGAGCCG</span>
+<span class="ex">GCAATCGGCCTGTTTTTTCATGCAATCGGCATCAACATCAAACTGGGCTACGGCATGACG</span>
+<span class="ex">GAGACGACGGCAACGGTATCTTGCTGGCATGACTTTCAGTTTAACCCGAACTCTATCGGC</span>
+<span class="ex">ACGCTGATGCCGAAAGCAGAGGTAAAAATCGGCGAGAACAACGAGATCCTGGTACGTGGC</span>
+<span class="ex">GGCATGGTAATGAAAGGCTACTACAAAAAACCGGAGGAGACGGCACAGGCATTTACGGAG</span>
+<span class="ex">GACGGCTTTCTGAAAACGGGCGACGCAGGCGAGTTTGACGAGCAGGGCAACCTGTTTATC</span>
+<span class="ex">ACGGACCGTATCAAAGAGCTGATGAAAACGTCTAACGGCAAATACATCGCACCGCAGTAC</span>
+<span class="ex">ATCGAGTCTAAAATCGGCAAAGACAAATTTATCGAGCAGATCGCAATCATCGCAGACGCA</span>
+<span class="ex">AAAAAATACGTATCTGCACTGATCGTACCGTGCTTTGACTCTCTGGAGGAGTACGCAAAA</span>
+<span class="ex">CAGCTGAACATCAAATACCATGACCGTCTGGAGCTGCTGAAAAACTCTGACATCCTGAAA</span>
+<span class="ex">ATGTTTGAG</span></code></pre></div>
+</div>
+</div>
+<div id="program-gto2_aa_compressor" class="section level2">
+<h2><span class="header-section-number">4.3</span> Program gto2_aa_compressor</h2>
+<p>The <strong>gto2_aa_compressor</strong> is a new lossless compressor to compress efficiently amino acid sequences (proteins). It uses a cooperation between multiple context and substitutional tolerant context models. The cooperation between models is balanced with weights that benefit the models with better performance according to a forgetting function specific for each model.</p>
+<p>For help type:</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">./gto2_aa_compressor</span> -h</code></pre></div>
+<p>The <strong>gto2_aa_compressor</strong> program needs a file with amino acid sequences to compress. In the following example, it will be downloaded nine amino acid sequences and compress and decompress one of the smallest (HI). Finally, it compares if the uncompressed sequence is equal to the original.</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">wget</span> http://sweet.ua.pt/pratas/datasets/AminoAcidsCorpus.zip
+<span class="fu">unzip</span> AminoAcidsCorpus.zip
+<span class="fu">cp</span> AminoAcidsCorpus/HI .
+<span class="ex">./gto2_aa_compressor</span> -v -l 2 HI
+<span class="ex">./gto2_aa_decompressor</span> -v HI.co
+<span class="fu">cmp</span> HI HI.de</code></pre></div>
+</div>
+<div id="program-gto2_aa_from_fa" class="section level2">
+<h2><span class="header-section-number">4.4</span> Program gto2_aa_from_fa</h2>
+<p>The <strong>gto2_aa_from_fasta</strong> converts DNA sequences in FASTA or Multi-FASTA file format to an amino acid sequence.</p>
+<p>For help type:</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">./gto2_aa_from_fasta</span> -h</code></pre></div>
+<p>In the following subsections, we explain the input and output parameters.</p>
+<div id="input-parameters-29" class="section level3 unnumbered">
+<h3>Input parameters</h3>
+<p>The <strong>gto2_aa_from_fasta</strong> program needs two streams for the computation, namely the input and output standard. The input stream is a FASTA or Multi-FASTA file.</p>
+<p>The attribution is given according to:</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">Usage</span>: ./gto2_aa_from_fasta [options] [[--] args]
+   <span class="ex">or</span>: ./gto2_aa_from_fasta [options]
+
+<span class="ex">It</span> converts FASTA or Multi-FASTA file format to an amino 
+<span class="ex">acid</span> sequence (translation)<span class="ex">.</span>
+
+    <span class="ex">-h</span>, --help        Show this help message and exit
+
+<span class="ex">Basic</span> options
+    <span class="op">&lt;</span> <span class="ex">input.mfasta</span>    Input FASTA or Multi-FASTA file format 
+                      <span class="kw">(</span><span class="ex">stdin</span><span class="kw">)</span>
+    <span class="op">&gt;</span> <span class="ex">output.prot</span>     Output amino acid sequence file 
+                      <span class="kw">(</span><span class="ex">stdout</span><span class="kw">)</span>
+
+<span class="ex">Optional</span>
+    <span class="ex">-f</span>                Translation codon frame (1, 2 or 3)
+
+<span class="ex">Example</span>: ./gto2_aa_from_fasta <span class="op">&lt;</span> input.mfasta <span class="op">&gt;</span> output.prot</code></pre></div>
+<p>An example of such an input file is:</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="op">&gt;</span><span class="ex">AB000264</span> <span class="kw">|</span><span class="va">acc=</span>AB000264<span class="kw">|</span><span class="va">descr=</span>Homo <span class="ex">sapiens</span> mRNA 
+<span class="ex">ACAAGACGGCCTCCTGCTGCTGCTGCTCTCCGGGGCCACGGCCCTGGAGGGTCCACCGCT</span>
+<span class="ex">GCCCTGCTGCCATTGTCCCCGGCCCCACCTAAGGAAAAGCAGCCTCCTGACTTTCCTCGC</span>
+<span class="ex">TTGGGCCGAGACAGCGAGCATATGCAGGAAGCGGCAGGAAGTGGTTTGAGTGGACCTCCG</span>
+<span class="ex">GGCCCCTCATAGGAGAGGAAGCTCGGGAGGTGGCCAGGCGGCAGGAAGCAGGCCAGTGCC</span>
+<span class="ex">GCGAATCCGCGCGCCGGGACAGAATCTCCTGCAAAGCCCTGCAGGAACTTCTTCTGGAAG</span>
+<span class="ex">ACCTTCTCCACCCCCCCAGCTAAAACCTCACCCATGAATGCTCACGCAAGTTTAATTACA</span>
+<span class="ex">GACCTGAA</span>
+<span class="op">&gt;</span><span class="ex">AB000263</span> <span class="kw">|</span><span class="va">acc=</span>AB000263<span class="kw">|</span><span class="va">descr=</span>Homo <span class="ex">sapiens</span> mRNA 
+<span class="ex">ACAAGATGCCATTGTCCCCCGGCCTCCTGCTGCTGCTGCTCTCCGGGGCCACGGCCACCG</span>
+<span class="ex">CTGCCCTGCCCCTGGAGGGTGGCCCCACCGGCCGAGACAGCGAGCATATGCAGGAAGCGG</span>
+<span class="ex">CAGGAATAAGGAAAAGCAGCCTCCTGACTTTCCTCGCTTGGTGGTTTGAGTGGACCTCCC</span>
+<span class="ex">AGGCCAGTGCCGGGCCCCTCATAGGAGAGGAAGCTCGGGAGGTGGCCAGGCGGCAGGAAG</span>
+<span class="ex">GCGCACCCCCCCAGCAATCCGCGCGCCGGGACAGAATGCCCTGCAGGAACTTCTTCTGGA</span>
+<span class="ex">AGACCTTCTCCTCCTGCAAATAAAACCTCACCCATGAATGCTCACGCAAGTTTAATTACA</span>
+<span class="ex">GACCTGAA</span></code></pre></div>
+</div>
+<div id="output-29" class="section level3 unnumbered">
+<h3>Output</h3>
+<p>The output of the <strong>gto2_aa_from_fasta</strong> program is an amino acid sequence. Using the input above, an output example of this is the following:</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">TRRPPAAAALRGHGPGGSTAALLPLSPAPPKEKQPPDFPRLGRDSEHMQEAAGSGLSGPP</span>
+<span class="ex">GPS-ERKLGRWPGGRKQASAANPRAGTESPAKPCRNFFWKTFSTPPAKTSPMNAHASLIT</span>
+<span class="ex">DLTRCHCPPASCCCCSPGPRPPLPCPWRVAPPAETASICRKRQE-GKAAS-LSSLGGLSG</span>
+<span class="ex">PPRPVPGPS-ERKLGRWPGGRKAHPPSNPRAGTECPAGTSSGRPSPPANKTSPMNAHASL</span>
+<span class="ex">ITDL</span></code></pre></div>
+</div>
+</div>
+<div id="program-gto2_aa_from_fq" class="section level2">
+<h2><span class="header-section-number">4.5</span> Program gto2_aa_from_fq</h2>
+<p>The <strong>gto2_aa_from_fastq</strong> converts DNA sequences in the FASTQ file format to an amino acid sequence.</p>
+<p>For help type:</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">./gto2_aa_from_fastq</span> -h</code></pre></div>
+<p>In the following subsections, we explain the input and output parameters.</p>
+<div id="input-parameters-30" class="section level3 unnumbered">
+<h3>Input parameters</h3>
+<p>The <strong>gto2_aa_from_fastq</strong> program needs two streams for the computation, namely the input and output standard. The input stream is a FASTQ file.</p>
+<p>The attribution is given according to:</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">Usage</span>: ../../bin/gto2_aa_from_fastq [options] [[--] args]
+   <span class="ex">or</span>: ../../bin/gto2_aa_from_fastq [options]
+
+<span class="ex">It</span> converts FASTQ file format to an amino acid sequence 
+<span class="kw">(</span><span class="ex">translation</span><span class="kw">)</span><span class="ex">.</span>
+
+    <span class="ex">-h</span>, --help      Show this help message and exit
+
+<span class="ex">Basic</span> options
+    <span class="op">&lt;</span> <span class="ex">input.fastq</span>   Input FASTQ file format (stdin)
+    <span class="op">&gt;</span> <span class="ex">output.prot</span>   Output amino acid sequence file (stdout)
+
+<span class="ex">Optional</span>
+    <span class="ex">-f</span>              Translation codon frame (1, 2 or 3)
+
+<span class="ex">Example</span>: ./gto2_aa_from_fastq <span class="op">&lt;</span> input.fastq <span class="op">&gt;</span> output.prot</code></pre></div>
+<p>An example of such an input file is:</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">@SRR001666.1</span> 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
+<span class="ex">GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACCAAGTTACCCTTAACAACTTAAGGG</span>
+<span class="ex">+</span>
+<span class="ex">IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII</span>
+<span class="ex">@SRR001666.2</span> 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
+<span class="ex">GTTCAGGGATACGACGTTTGTATTTTAAGAATCTGAAGCAGAAGTCGATGATAATACGCG</span>
+<span class="ex">+</span>
+<span class="ex">IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI</span></code></pre></div>
+</div>
+<div id="output-30" class="section level3 unnumbered">
+<h3>Output</h3>
+<p>The output of the <strong>gto2_aa_from_fastq</strong> program is an amino acid sequence. Using the input above, an output example of this is the following:</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">G-WPLPMASNPTKLPLTT-GFSNRVQGYDVCILRI-SRSR--YASFYH</span></code></pre></div>
+</div>
+</div>
+<div id="program-gto2_aa_from_seq" class="section level2">
+<h2><span class="header-section-number">4.6</span> Program gto2_aa_from_seq</h2>
+<p>The <strong>gto2_aa_from_seq</strong> converts DNA sequence to an amino acid sequence.</p>
+<p>For help type:</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">./gto2_aa_from_seq</span> -h</code></pre></div>
+<p>In the following subsections, we explain the input and output parameters.</p>
+<div id="input-parameters-31" class="section level3 unnumbered">
+<h3>Input parameters</h3>
+<p>The <strong>gto2_aa_from_seq</strong> program needs two streams for the computation, namely the input and output standard. The input stream is a DNA sequence.</p>
+<p>The attribution is given according to:</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">Usage</span>: ./gto2_aa_from_seq [options] [[--] args]
+   <span class="ex">or</span>: ./gto2_aa_from_seq [options]
+
+<span class="ex">It</span> converts DNA sequence to an amino acid sequence 
+<span class="kw">(</span><span class="ex">translation</span><span class="kw">)</span><span class="ex">.</span>
+
+    <span class="ex">-h</span>, --help      Show this help message and exit
+
+<span class="ex">Basic</span> options
+    <span class="op">&lt;</span> <span class="ex">input.seq</span>     Input sequence file (stdin)
+    <span class="op">&gt;</span> <span class="ex">output.prot</span>   Output amino acid sequence file (stdout)
+
+<span class="ex">Optional</span>
+    <span class="ex">-f</span>              Translation codon frame (1, 2 or 3)
+
+<span class="ex">Example</span>: ./gto2_aa_from_seq <span class="op">&lt;</span> input.seq <span class="op">&gt;</span> output.prot</code></pre></div>
+<p>An example of such an input file is:</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">ACAAGACGGCCTCCTGCTGCTGCTGCTCTCCGGGGCCACGGCCCTGGAGGGTCCACCGCT</span>
+<span class="ex">GCCCTGCTGCCATTGTCCCCGGCCCCACCTAAGGAAAAGCAGCCTCCTGACTTTCCTCGC</span>
+<span class="ex">TTGGGCCGAGACAGCGAGCATATGCAGGAAGCGGCAGGAAGTGGTTTGAGTGGACCTCCG</span>
+<span class="ex">GGCCCCTCATAGGAGAGGAAGCTCGGGAGGTGGCCAGGCGGCAGGAAGCAGGCCAGTGCC</span>
+<span class="ex">GCGAATCCGCGCGCCGGGACAGAATCTCCTGCAAAGCCCTGCAGGAACTTCTTCTGGAAG</span>
+<span class="ex">ACCTTCTCCACCCCCCCAGCTAAAACCTCACCCATGAATGCTCACGCAAGTTTAATTACA</span>
+<span class="ex">GACCTGAAACAAGATGCCATTGTCCCCCGGCCTCCTGCTGCTGCTGCTCTCCGGGGCCAC</span>
+<span class="ex">GGCCACCGCTGCCCTGCCCCTGGAGGGTGGCCCCACCGGCCGAGACAGCGAGCATATGCA</span>
+<span class="ex">GGAAGCGGCAGGAATAAGGAAAAGCAGCCTCCTGACTTTCCTCGCTTGGTGGTTTGAGTG</span>
+<span class="ex">GACCTCCCAGGCCAGTGCCGGGCCCCTCATAGGAGAGGAAGCTCGGGAGGTGGCCAGGCG</span>
+<span class="ex">GCAGGAAGGCGCACCCCCCCAGCAATCCGCGCGCCGGGACAGAATGCCCTGCAGGAACTT</span>
+<span class="ex">CTTCTGGAAGACCTTCTCCTCCTGCAAATAAAACCTCACCCATGAATGCTCACGCAAGTT</span>
+<span class="ex">TAATTACAGACCTGAA</span></code></pre></div>
+</div>
+<div id="output-31" class="section level3 unnumbered">
+<h3>Output</h3>
+<p>The output of the <strong>gto2_aa_from_seq</strong> program is an amino acid sequence. Using the input above, an output example of this is the following:</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">TRRPPAAAALRGHGPGGSTAALLPLSPAPPKEKQPPDFPRLGRDSEHMQEAAGSGLSGPP</span>
+<span class="ex">GPS-ERKLGRWPGGRKQASAANPRAGTESPAKPCRNFFWKTFSTPPAKTSPMNAHASLIT</span>
+<span class="ex">DLKQDAIVPRPPAAAALRGHGHRCPAPGGWPHRPRQRAYAGSGRNKEKQPPDFPRLVV-V</span>
+<span class="ex">DLPGQCRAPHRRGSSGGGQAAGRRTPPAIRAPGQNALQELLLEDLLLLQIKPHP-MLTQV</span>
+<span class="ex">-LQT-</span></code></pre></div>
+
+</div>
 </div>
 </div>
             </section>

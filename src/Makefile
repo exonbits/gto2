@@ -65,10 +65,14 @@ PROGS  	 	= 	$(BIN)/gto2 \
 				$(BIN)/gto2_fq_minimum_local_quality_score_reverse \
 				$(BIN)/gto2_fq_complement \
 				$(BIN)/gto2_fq_reverse \
+				$(BIN)/gto2_aa_to_group \
+				$(BIN)/gto2_aa_to_pseudo_dna \
+				$(BIN)/gto2_aa_from_fa \
+         		$(BIN)/gto2_aa_from_fq \
+         		$(BIN)/gto2_aa_from_seq \
          	  $(BIN)/gto_fasta_to_seq \
          	  $(BIN)/gto_fasta_from_seq \
 			  $(BIN)/gto_char_to_line \
-			  $(BIN)/gto_amino_acid_to_group \
               $(BIN)/gto_fasta_extract_read_by_pattern \
          	  $(BIN)/gto_fasta_extract \
          	  $(BIN)/gto_fasta_extract_by_read \
@@ -77,7 +81,6 @@ PROGS  	 	= 	$(BIN)/gto2 \
               $(BIN)/gto_genomic_gen_random_dna \
 	          $(BIN)/gto_fasta_mutate \
               $(BIN)/gto_new_line_on_new_x \
-			  $(BIN)/gto_amino_acid_to_pseudo_dna \
 	          $(BIN)/gto_fasta_rand_extra_chars \
 	          $(BIN)/gto_genomic_rand_seq_extra_chars \
 	          $(BIN)/gto_fasta_rename_human_headers \
@@ -106,9 +109,6 @@ PROGS  	 	= 	$(BIN)/gto2 \
          	  $(BIN)/gto_fasta_complement \
          	  $(BIN)/gto_genomic_complement \
          	  $(BIN)/gto_fasta_reverse \
-         	  $(BIN)/gto_amino_acid_from_fasta \
-         	  $(BIN)/gto_amino_acid_from_fastq \
-         	  $(BIN)/gto_amino_acid_from_seq \
          	  $(BIN)/gto_fasta_split_streams \
          	  $(BIN)/gto_fasta_merge_streams 
          	  #$(BIN)/gto_amino_acid_to_seq 
@@ -171,6 +171,17 @@ $(BIN)/gto2_fq_complement: FastqComplement.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/gto2_fq_complement FastqComplement.c $(OBJS) $(LIBS)
 $(BIN)/gto2_fq_reverse: FastqReverse.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/gto2_fq_reverse FastqReverse.c $(OBJS) $(LIBS)	
+#Amino Acidd
+$(BIN)/gto2_aa_to_group: AminoAcidToGroup.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/gto2_aa_to_group AminoAcidToGroup.c $(OBJS) $(LIBS)
+$(BIN)/gto2_aa_to_pseudo_dna: AminoAcidToPseudoDNA.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/gto2_aa_to_pseudo_dna AminoAcidToPseudoDNA.c $(OBJS) $(LIBS)
+$(BIN)/gto2_aa_from_fa: AminoAcidFromFasta.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/gto2_aa_from_fa AminoAcidFromFasta.c $(OBJS) $(LIBS)
+$(BIN)/gto2_aa_from_fq: AminoAcidFromFastq.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/gto2_aa_from_fq AminoAcidFromFastq.c $(OBJS) $(LIBS)
+$(BIN)/gto2_aa_from_seq: AminoAcidFromSeq.c $(DEPS) $(OBJS)
+	$(CC) $(CFLAGS) -o $(BIN)/gto2_aa_from_seq AminoAcidFromSeq.c $(OBJS) $(LIBS)
 #
 $(BIN)/gto_fasta_to_seq: FastaToSeq.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/gto_fasta_to_seq FastaToSeq.c $(OBJS) $(LIBS)
@@ -178,8 +189,6 @@ $(BIN)/gto_fasta_from_seq: FastaFromSeq.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/gto_fasta_from_seq FastaFromSeq.c $(OBJS) $(LIBS)
 $(BIN)/gto_char_to_line: CharToLine.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/gto_char_to_line CharToLine.c $(OBJS) $(LIBS)
-$(BIN)/gto_amino_acid_to_group: AminoAcidToGroup.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/gto_amino_acid_to_group AminoAcidToGroup.c $(OBJS) $(LIBS)
 $(BIN)/gto_fasta_extract_read_by_pattern: FastaExtractReadByIdPattern.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/gto_fasta_extract_read_by_pattern FastaExtractReadByIdPattern.c $(OBJS) $(LIBS)
 $(BIN)/gto_fasta_extract: FastaExtract.c $(DEPS) $(OBJS) 
@@ -196,8 +205,6 @@ $(BIN)/gto_fasta_mutate: FastaMutate.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/gto_fasta_mutate FastaMutate.c $(OBJS) $(LIBS)
 $(BIN)/gto_new_line_on_new_x: NewLineForNewValue.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/gto_new_line_on_new_x NewLineForNewValue.c $(OBJS) $(LIBS)
-$(BIN)/gto_amino_acid_to_pseudo_dna: AminoAcidToPseudoDNA.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/gto_amino_acid_to_pseudo_dna AminoAcidToPseudoDNA.c $(OBJS) $(LIBS)
 $(BIN)/gto_fasta_rand_extra_chars: FastaRandExtraChars.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/gto_fasta_rand_extra_chars FastaRandExtraChars.c $(OBJS) $(LIBS)
 $(BIN)/gto_genomic_rand_seq_extra_chars: GenomicRandSeqExtraChars.c $(DEPS) $(OBJS)
@@ -254,12 +261,6 @@ $(BIN)/gto_genomic_complement: GenomicComplement.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/gto_genomic_complement GenomicComplement.c $(OBJS) $(LIBS)
 $(BIN)/gto_fasta_reverse: FastaReverse.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/gto_fasta_reverse FastaReverse.c $(OBJS) $(LIBS)
-$(BIN)/gto_amino_acid_from_fasta: AminoAcidFromFasta.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/gto_amino_acid_from_fasta AminoAcidFromFasta.c $(OBJS) $(LIBS)
-$(BIN)/gto_amino_acid_from_fastq: AminoAcidFromFastq.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/gto_amino_acid_from_fastq AminoAcidFromFastq.c $(OBJS) $(LIBS)
-$(BIN)/gto_amino_acid_from_seq: AminoAcidFromSeq.c $(DEPS) $(OBJS)
-	$(CC) $(CFLAGS) -o $(BIN)/gto_amino_acid_from_seq AminoAcidFromSeq.c $(OBJS) $(LIBS)
 $(BIN)/gto_fasta_split_streams: FastaSplitStreams.c $(DEPS) $(OBJS)
 	$(CC) $(CFLAGS) -o $(BIN)/gto_fasta_split_streams FastaSplitStreams.c $(OBJS) $(LIBS)
 $(BIN)/gto_fasta_merge_streams: FastaMergeStreams.c $(DEPS) $(OBJS)
@@ -288,8 +289,8 @@ ac:
 	git clone https://github.com/cobilab/ac.git
 	mv ac/src/Makefile.linux ac/src/Makefile
 	cd ac/src/ && make
-	mv ac/src/AC $(BIN)/gto_amino_acid_compressor
-	mv ac/src/AD $(BIN)/gto_amino_acid_decompressor
+	mv ac/src/AC $(BIN)/gto2_aa_compressor
+	mv ac/src/AD $(BIN)/gto2_aa_decompressor
 	rm -rf ac
 
 falcon:

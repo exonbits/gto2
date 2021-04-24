@@ -1889,14 +1889,14 @@ The attribution is given according to:
 
 \ExtensionTok{It}\NormalTok{ analyses the maximal quality-scores of a FASTQ file.}
 
-    \ExtensionTok{-h}\NormalTok{, --help            show this help message and exit}
+    \ExtensionTok{-h}\NormalTok{, --help        show this help message and exit}
 
 \ExtensionTok{Basic}\NormalTok{ options}
-    \OperatorTok{<} \ExtensionTok{input.fastq}\NormalTok{         Input FASTQ file format (stdin)}
-    \OperatorTok{>} \ExtensionTok{output}\NormalTok{              Output read information (stdout)}
+    \OperatorTok{<} \ExtensionTok{input.fastq}\NormalTok{     Input FASTQ file format (stdin)}
+    \OperatorTok{>} \ExtensionTok{output}\NormalTok{          Output read information (stdout)}
 
 \ExtensionTok{Optional}
-    \ExtensionTok{-m}\NormalTok{, --max=}\OperatorTok{<}\NormalTok{int}\OperatorTok{>}\NormalTok{       The maximum window length (default 40)}
+    \ExtensionTok{-m}\NormalTok{, --max=}\OperatorTok{<}\NormalTok{int}\OperatorTok{>}\NormalTok{   The maximum window length (default 40)}
 
 \ExtensionTok{Example}\NormalTok{: ./gto2_fq_quality_score_max -m }\OperatorTok{<}\NormalTok{max}\OperatorTok{>} 
 \OperatorTok{<} \ExtensionTok{input.fastq} \OperatorTok{>}\NormalTok{ output}
@@ -2786,9 +2786,517 @@ samples. An example for this CSV file is the following:
 
 \chapter{Amino Acid Tools}\label{amino-acid-tools}
 
-\section{gto2\_aa}\label{gto2_aa}
+A more specific subset of tools is the Amino Acid Sequence tools,
+designed to manipulate amino acid sequences. The main features of those
+tools are grouping sequences, for instance by their properties, such as
+electric charge (positive and negative), uncharged side chains,
+hydrophobic side chains and special cases. It is also possible
+generating pseudo-DNA with characteristics passed by amino acid
+sequences, or for data compression, using cooperation between multiple
+contexts and substitutional tolerant context models. The current
+available amino acid sequence tools, for analysis and manipulation, are:
 
-to do
+\begin{itemize}
+\tightlist
+\item
+  \textbf{gto2\_aa\_to\_group}: to convert an amino acid sequence to a
+  group sequence.
+\item
+  \textbf{gto2\_aa\_to\_pseudo\_dna}: to convert an amino acid (protein)
+  sequence to a pseudo DNA sequence.
+\item
+  \textbf{gto2\_aa\_compressor}: a new lossless compressor to compress
+  efficiently amino acid sequences (proteins).
+\item
+  \textbf{gto2\_aa\_from\_fa}: to convert DNA sequences in FASTA or
+  Multi-FASTA file format to an amino acid sequence.
+\item
+  \textbf{gto2\_aa\_from\_fq}: to convert DNA sequences in the FASTQ
+  file format to an amino acid sequence.
+\item
+  \textbf{gto2\_aa\_from\_seq}: to convert DNA sequences to an amino
+  acid sequence.
+\end{itemize}
+
+\section{Program gto2\_aa\_to\_group}\label{program-gto2_aa_to_group}
+
+The \textbf{gto2\_aa\_to\_group} converts an amino acid sequence to a
+group sequence.
+
+For help type:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{./gto2_aa_to_group}\NormalTok{ -h}
+\end{Highlighting}
+\end{Shaded}
+
+In the following subsections, we explain the input and output
+parameters.
+
+\subsection*{Input parameters}\label{input-parameters-27}
+
+
+The \textbf{gto2\_aa\_to\_group} program needs two streams for the
+computation, namely the input and output standard. The input stream is
+an amino acid sequence. The attribution is given according to:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Usage}\NormalTok{: ./gto2_aa_to_group [options] [[--] args]}
+   \ExtensionTok{or}\NormalTok{: ./gto2_aa_to_group [options]}
+
+\ExtensionTok{It}\NormalTok{ converts a amino acid sequence to a group sequence.}
+
+    \ExtensionTok{-h}\NormalTok{, --help        show this help message and exit}
+
+\ExtensionTok{Basic}\NormalTok{ options}
+    \OperatorTok{<} \ExtensionTok{input.prot}\NormalTok{      Input amino acid sequence file (stdin)}
+    \OperatorTok{>} \ExtensionTok{output.group}\NormalTok{    Output group sequence file (stdout)}
+
+\ExtensionTok{Example}\NormalTok{: ./gto2_aa_to_group }\OperatorTok{<}\NormalTok{ input.prot }\OperatorTok{>}\NormalTok{ output.group}
+\ExtensionTok{Table}\NormalTok{:}
+\ExtensionTok{Prot}\NormalTok{    Group}
+\ExtensionTok{R}\NormalTok{       P}
+\ExtensionTok{H}\NormalTok{       P  Electric charged side chains: POSITIVE}
+\ExtensionTok{K}\NormalTok{       P}
+\ExtensionTok{-}\NormalTok{       -}
+\ExtensionTok{D}\NormalTok{       N}
+\ExtensionTok{E}\NormalTok{       N  Electric charged side chains: NEGATIVE}
+\ExtensionTok{-}\NormalTok{       -}
+\ExtensionTok{S}\NormalTok{       U}
+\ExtensionTok{T}\NormalTok{       U}
+\ExtensionTok{N}\NormalTok{       U  Amino acids with electric UNCHARGED side chains}
+\ExtensionTok{Q}\NormalTok{       U}
+\ExtensionTok{-}\NormalTok{       -}
+\ExtensionTok{C}\NormalTok{       S}
+\ExtensionTok{U}\NormalTok{       S}
+\ExtensionTok{G}\NormalTok{       S  Special cases}
+\ExtensionTok{P}\NormalTok{       S}
+\ExtensionTok{-}\NormalTok{       -}
+\ExtensionTok{A}\NormalTok{       H}
+\ExtensionTok{V}\NormalTok{       H}
+\ExtensionTok{I}\NormalTok{       H}
+\ExtensionTok{L}\NormalTok{       H}
+\ExtensionTok{M}\NormalTok{       H  Amino acids with hydrophobic side chains}
+\ExtensionTok{F}\NormalTok{       H}
+\ExtensionTok{Y}\NormalTok{       H}
+\ExtensionTok{W}\NormalTok{       H}
+\ExtensionTok{-}\NormalTok{       -}
+\ExtensionTok{*}\NormalTok{       *  Others}
+\ExtensionTok{X}\NormalTok{       X  Unknown}
+\end{Highlighting}
+\end{Shaded}
+
+This tool can be used to group amino acids by properties, such as
+electric charge (positive and negative), uncharged side chains,
+hydrophobic side chains and special cases. An example of such an input
+file is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{IPFLLKKQFALADKLVLSKLRQLLGGRIKMMPCGGAKLEPAIGLFFHAIGINIKLGYGMT}
+\ExtensionTok{ETTATVSCWHDFQFNPNSIGTLMPKAEVKIGENNEILVRGGMVMKGYYKKPEETAQAFTE}
+\ExtensionTok{DGFLKTGDAGEFDEQGNLFITDRIKELMKTSNGKYIAPQYIESKIGKDKFIEQIAIIADA}
+\ExtensionTok{KKYVSALIVPCFDSLEEYAKQLNIKYHDRLELLKNSDILKMFE}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection*{Output}\label{output-27}
+
+
+The output of the \textbf{gto2\_aa\_to\_group} program is a group
+sequence. Using the input above, an output example of this is the
+following:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{HSHHHPPUHHHHNPHHHUPHPUHHSSPHPHHSSSSHPHNSHHSHHHPHHSHUHPHSHSHU}
+\ExtensionTok{NUUHUHUSHPNHUHUSUUHSUHHSPHNHPHSNUUNHHHPSSHHHPSHHPPSNNUHUHHUN}
+\ExtensionTok{NSHHPUSNHSNHNNUSUHHHUNPHPNHHPUUUSPHHHSUHHNUPHSPNPHHNUHHHHHNH}
+\ExtensionTok{PPHHUHHHHSSHNUHNNHHPUHUHPHPNPHNHHPUUNHHPHHN}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Program
+gto2\_aa\_to\_pseudo\_dna}\label{program-gto2_aa_to_pseudo_dna}
+
+The \textbf{gto2\_aa\_to\_pseudo\_dna} converts an amino acid (protein)
+sequence to a pseudo DNA sequence.
+
+For help type:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{./gto2_aa_to_pseudo_dna}\NormalTok{ -h}
+\end{Highlighting}
+\end{Shaded}
+
+In the following subsections, we explain the input and output
+parameters.
+
+\subsection*{Input parameters}\label{input-parameters-28}
+
+
+The \textbf{gto2\_aa\_to\_pseudo\_dna} program needs two streams for the
+computation, namely the input and output standard. The input stream is
+an amino acid sequence. The attribution is given according to:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Usage}\NormalTok{: ./gto2_aa_to_pseudo_dna [options] [[--] args]}
+   \ExtensionTok{or}\NormalTok{: ./gto2_aa_to_pseudo_dna [options]}
+
+\ExtensionTok{It}\NormalTok{ converts a protein sequence to a pseudo DNA sequence.}
+
+    \ExtensionTok{-h}\NormalTok{, --help        show this help message and exit}
+
+\ExtensionTok{Basic}\NormalTok{ options}
+    \OperatorTok{<} \ExtensionTok{input.prot}\NormalTok{      Input amino acid sequence file (stdin)}
+    \OperatorTok{>} \ExtensionTok{output.dna}\NormalTok{      Output DNA sequence file (stdout)}
+
+\ExtensionTok{Example}\NormalTok{: ./gto2_aa_to_pseudo_dna }\OperatorTok{<}\NormalTok{ input.prot }\OperatorTok{>}\NormalTok{ output.dna}
+\ExtensionTok{Table}\NormalTok{:}
+\ExtensionTok{Prot}\NormalTok{    DNA}
+\ExtensionTok{A}\NormalTok{       GCA}
+\ExtensionTok{C}\NormalTok{       TGC}
+\ExtensionTok{D}\NormalTok{       GAC}
+\ExtensionTok{E}\NormalTok{       GAG}
+\ExtensionTok{F}\NormalTok{       TTT}
+\ExtensionTok{G}\NormalTok{       GGC}
+\ExtensionTok{H}\NormalTok{       CAT}
+\ExtensionTok{I}\NormalTok{       ATC}
+\ExtensionTok{K}\NormalTok{       AAA}
+\ExtensionTok{L}\NormalTok{       CTG}
+\ExtensionTok{M}\NormalTok{       ATG}
+\ExtensionTok{N}\NormalTok{       AAC}
+\ExtensionTok{P}\NormalTok{       CCG}
+\ExtensionTok{Q}\NormalTok{       CAG}
+\ExtensionTok{R}\NormalTok{       CGT}
+\ExtensionTok{S}\NormalTok{       TCT}
+\ExtensionTok{T}\NormalTok{       ACG}
+\ExtensionTok{V}\NormalTok{       GTA}
+\ExtensionTok{W}\NormalTok{       TGG}
+\ExtensionTok{Y}\NormalTok{       TAC}
+\ExtensionTok{*}\NormalTok{       TAG}
+\ExtensionTok{X}\NormalTok{       GGG}
+\end{Highlighting}
+\end{Shaded}
+
+It can be used to generate pseudo-DNA with characteristics passed by
+amino acid (protein) sequences. An example of such an input file is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{IPFLLKKQFALADKLVLSKLRQLLGGRIKMMPCGGAKLEPAIGLFFHAIGINIKLGYGMT}
+\ExtensionTok{ETTATVSCWHDFQFNPNSIGTLMPKAEVKIGENNEILVRGGMVMKGYYKKPEETAQAFTE}
+\ExtensionTok{DGFLKTGDAGEFDEQGNLFITDRIKELMKTSNGKYIAPQYIESKIGKDKFIEQIAIIADA}
+\ExtensionTok{KKYVSALIVPCFDSLEEYAKQLNIKYHDRLELLKNSDILKMFE}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection*{Output}\label{output-28}
+
+
+The output of the \textbf{gto2\_aa\_to\_pseudo\_dna} program is a DNA
+sequence. Using the input above, an output example of this is the
+following:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{ATCCCGTTTCTGCTGAAAAAACAGTTTGCACTGGCAGACAAACTGGTACTGTCTAAACTG}
+\ExtensionTok{CGTCAGCTGCTGGGCGGCCGTATCAAAATGATGCCGTGCGGCGGCGCAAAACTGGAGCCG}
+\ExtensionTok{GCAATCGGCCTGTTTTTTCATGCAATCGGCATCAACATCAAACTGGGCTACGGCATGACG}
+\ExtensionTok{GAGACGACGGCAACGGTATCTTGCTGGCATGACTTTCAGTTTAACCCGAACTCTATCGGC}
+\ExtensionTok{ACGCTGATGCCGAAAGCAGAGGTAAAAATCGGCGAGAACAACGAGATCCTGGTACGTGGC}
+\ExtensionTok{GGCATGGTAATGAAAGGCTACTACAAAAAACCGGAGGAGACGGCACAGGCATTTACGGAG}
+\ExtensionTok{GACGGCTTTCTGAAAACGGGCGACGCAGGCGAGTTTGACGAGCAGGGCAACCTGTTTATC}
+\ExtensionTok{ACGGACCGTATCAAAGAGCTGATGAAAACGTCTAACGGCAAATACATCGCACCGCAGTAC}
+\ExtensionTok{ATCGAGTCTAAAATCGGCAAAGACAAATTTATCGAGCAGATCGCAATCATCGCAGACGCA}
+\ExtensionTok{AAAAAATACGTATCTGCACTGATCGTACCGTGCTTTGACTCTCTGGAGGAGTACGCAAAA}
+\ExtensionTok{CAGCTGAACATCAAATACCATGACCGTCTGGAGCTGCTGAAAAACTCTGACATCCTGAAA}
+\ExtensionTok{ATGTTTGAG}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Program gto2\_aa\_compressor}\label{program-gto2_aa_compressor}
+
+The \textbf{gto2\_aa\_compressor} is a new lossless compressor to
+compress efficiently amino acid sequences (proteins). It uses a
+cooperation between multiple context and substitutional tolerant context
+models. The cooperation between models is balanced with weights that
+benefit the models with better performance according to a forgetting
+function specific for each model.
+
+For help type:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{./gto2_aa_compressor}\NormalTok{ -h}
+\end{Highlighting}
+\end{Shaded}
+
+The \textbf{gto2\_aa\_compressor} program needs a file with amino acid
+sequences to compress. In the following example, it will be downloaded
+nine amino acid sequences and compress and decompress one of the
+smallest (HI). Finally, it compares if the uncompressed sequence is
+equal to the original.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{wget}\NormalTok{ http://sweet.ua.pt/pratas/datasets/AminoAcidsCorpus.zip}
+\FunctionTok{unzip}\NormalTok{ AminoAcidsCorpus.zip}
+\FunctionTok{cp}\NormalTok{ AminoAcidsCorpus/HI .}
+\ExtensionTok{./gto2_aa_compressor}\NormalTok{ -v -l 2 HI}
+\ExtensionTok{./gto2_aa_decompressor}\NormalTok{ -v HI.co}
+\FunctionTok{cmp}\NormalTok{ HI HI.de}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Program gto2\_aa\_from\_fa}\label{program-gto2_aa_from_fa}
+
+The \textbf{gto2\_aa\_from\_fasta} converts DNA sequences in FASTA or
+Multi-FASTA file format to an amino acid sequence.
+
+For help type:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{./gto2_aa_from_fasta}\NormalTok{ -h}
+\end{Highlighting}
+\end{Shaded}
+
+In the following subsections, we explain the input and output
+parameters.
+
+\subsection*{Input parameters}\label{input-parameters-29}
+
+
+The \textbf{gto2\_aa\_from\_fasta} program needs two streams for the
+computation, namely the input and output standard. The input stream is a
+FASTA or Multi-FASTA file.
+
+The attribution is given according to:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Usage}\NormalTok{: ./gto2_aa_from_fasta [options] [[--] args]}
+   \ExtensionTok{or}\NormalTok{: ./gto2_aa_from_fasta [options]}
+
+\ExtensionTok{It}\NormalTok{ converts FASTA or Multi-FASTA file format to an amino }
+\ExtensionTok{acid}\NormalTok{ sequence (translation)}\ExtensionTok{.}
+
+    \ExtensionTok{-h}\NormalTok{, --help        Show this help message and exit}
+
+\ExtensionTok{Basic}\NormalTok{ options}
+    \OperatorTok{<} \ExtensionTok{input.mfasta}\NormalTok{    Input FASTA or Multi-FASTA file format }
+                      \KeywordTok{(}\ExtensionTok{stdin}\KeywordTok{)}
+    \OperatorTok{>} \ExtensionTok{output.prot}\NormalTok{     Output amino acid sequence file }
+                      \KeywordTok{(}\ExtensionTok{stdout}\KeywordTok{)}
+
+\ExtensionTok{Optional}
+    \ExtensionTok{-f}\NormalTok{                Translation codon frame (1, 2 or 3)}
+
+\ExtensionTok{Example}\NormalTok{: ./gto2_aa_from_fasta }\OperatorTok{<}\NormalTok{ input.mfasta }\OperatorTok{>}\NormalTok{ output.prot}
+\end{Highlighting}
+\end{Shaded}
+
+An example of such an input file is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{>}\ExtensionTok{AB000264} \KeywordTok{|}\VariableTok{acc=}\NormalTok{AB000264}\KeywordTok{|}\VariableTok{descr=}\NormalTok{Homo }\ExtensionTok{sapiens}\NormalTok{ mRNA }
+\ExtensionTok{ACAAGACGGCCTCCTGCTGCTGCTGCTCTCCGGGGCCACGGCCCTGGAGGGTCCACCGCT}
+\ExtensionTok{GCCCTGCTGCCATTGTCCCCGGCCCCACCTAAGGAAAAGCAGCCTCCTGACTTTCCTCGC}
+\ExtensionTok{TTGGGCCGAGACAGCGAGCATATGCAGGAAGCGGCAGGAAGTGGTTTGAGTGGACCTCCG}
+\ExtensionTok{GGCCCCTCATAGGAGAGGAAGCTCGGGAGGTGGCCAGGCGGCAGGAAGCAGGCCAGTGCC}
+\ExtensionTok{GCGAATCCGCGCGCCGGGACAGAATCTCCTGCAAAGCCCTGCAGGAACTTCTTCTGGAAG}
+\ExtensionTok{ACCTTCTCCACCCCCCCAGCTAAAACCTCACCCATGAATGCTCACGCAAGTTTAATTACA}
+\ExtensionTok{GACCTGAA}
+\OperatorTok{>}\ExtensionTok{AB000263} \KeywordTok{|}\VariableTok{acc=}\NormalTok{AB000263}\KeywordTok{|}\VariableTok{descr=}\NormalTok{Homo }\ExtensionTok{sapiens}\NormalTok{ mRNA }
+\ExtensionTok{ACAAGATGCCATTGTCCCCCGGCCTCCTGCTGCTGCTGCTCTCCGGGGCCACGGCCACCG}
+\ExtensionTok{CTGCCCTGCCCCTGGAGGGTGGCCCCACCGGCCGAGACAGCGAGCATATGCAGGAAGCGG}
+\ExtensionTok{CAGGAATAAGGAAAAGCAGCCTCCTGACTTTCCTCGCTTGGTGGTTTGAGTGGACCTCCC}
+\ExtensionTok{AGGCCAGTGCCGGGCCCCTCATAGGAGAGGAAGCTCGGGAGGTGGCCAGGCGGCAGGAAG}
+\ExtensionTok{GCGCACCCCCCCAGCAATCCGCGCGCCGGGACAGAATGCCCTGCAGGAACTTCTTCTGGA}
+\ExtensionTok{AGACCTTCTCCTCCTGCAAATAAAACCTCACCCATGAATGCTCACGCAAGTTTAATTACA}
+\ExtensionTok{GACCTGAA}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection*{Output}\label{output-29}
+
+
+The output of the \textbf{gto2\_aa\_from\_fasta} program is an amino
+acid sequence. Using the input above, an output example of this is the
+following:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{TRRPPAAAALRGHGPGGSTAALLPLSPAPPKEKQPPDFPRLGRDSEHMQEAAGSGLSGPP}
+\ExtensionTok{GPS-ERKLGRWPGGRKQASAANPRAGTESPAKPCRNFFWKTFSTPPAKTSPMNAHASLIT}
+\ExtensionTok{DLTRCHCPPASCCCCSPGPRPPLPCPWRVAPPAETASICRKRQE-GKAAS-LSSLGGLSG}
+\ExtensionTok{PPRPVPGPS-ERKLGRWPGGRKAHPPSNPRAGTECPAGTSSGRPSPPANKTSPMNAHASL}
+\ExtensionTok{ITDL}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Program gto2\_aa\_from\_fq}\label{program-gto2_aa_from_fq}
+
+The \textbf{gto2\_aa\_from\_fastq} converts DNA sequences in the FASTQ
+file format to an amino acid sequence.
+
+For help type:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{./gto2_aa_from_fastq}\NormalTok{ -h}
+\end{Highlighting}
+\end{Shaded}
+
+In the following subsections, we explain the input and output
+parameters.
+
+\subsection*{Input parameters}\label{input-parameters-30}
+
+
+The \textbf{gto2\_aa\_from\_fastq} program needs two streams for the
+computation, namely the input and output standard. The input stream is a
+FASTQ file.
+
+The attribution is given according to:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Usage}\NormalTok{: ../../bin/gto2_aa_from_fastq [options] [[--] args]}
+   \ExtensionTok{or}\NormalTok{: ../../bin/gto2_aa_from_fastq [options]}
+
+\ExtensionTok{It}\NormalTok{ converts FASTQ file format to an amino acid sequence }
+\KeywordTok{(}\ExtensionTok{translation}\KeywordTok{)}\ExtensionTok{.}
+
+    \ExtensionTok{-h}\NormalTok{, --help      Show this help message and exit}
+
+\ExtensionTok{Basic}\NormalTok{ options}
+    \OperatorTok{<} \ExtensionTok{input.fastq}\NormalTok{   Input FASTQ file format (stdin)}
+    \OperatorTok{>} \ExtensionTok{output.prot}\NormalTok{   Output amino acid sequence file (stdout)}
+
+\ExtensionTok{Optional}
+    \ExtensionTok{-f}\NormalTok{              Translation codon frame (1, 2 or 3)}
+
+\ExtensionTok{Example}\NormalTok{: ./gto2_aa_from_fastq }\OperatorTok{<}\NormalTok{ input.fastq }\OperatorTok{>}\NormalTok{ output.prot}
+\end{Highlighting}
+\end{Shaded}
+
+An example of such an input file is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{@SRR001666.1}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:817:345 length=60}
+\ExtensionTok{GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACCAAGTTACCCTTAACAACTTAAGGG}
+\ExtensionTok{+}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII}
+\ExtensionTok{@SRR001666.2}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:801:338 length=60}
+\ExtensionTok{GTTCAGGGATACGACGTTTGTATTTTAAGAATCTGAAGCAGAAGTCGATGATAATACGCG}
+\ExtensionTok{+}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection*{Output}\label{output-30}
+
+
+The output of the \textbf{gto2\_aa\_from\_fastq} program is an amino
+acid sequence. Using the input above, an output example of this is the
+following:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{G-WPLPMASNPTKLPLTT-GFSNRVQGYDVCILRI-SRSR--YASFYH}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Program gto2\_aa\_from\_seq}\label{program-gto2_aa_from_seq}
+
+The \textbf{gto2\_aa\_from\_seq} converts DNA sequence to an amino acid
+sequence.
+
+For help type:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{./gto2_aa_from_seq}\NormalTok{ -h}
+\end{Highlighting}
+\end{Shaded}
+
+In the following subsections, we explain the input and output
+parameters.
+
+\subsection*{Input parameters}\label{input-parameters-31}
+
+
+The \textbf{gto2\_aa\_from\_seq} program needs two streams for the
+computation, namely the input and output standard. The input stream is a
+DNA sequence.
+
+The attribution is given according to:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Usage}\NormalTok{: ./gto2_aa_from_seq [options] [[--] args]}
+   \ExtensionTok{or}\NormalTok{: ./gto2_aa_from_seq [options]}
+
+\ExtensionTok{It}\NormalTok{ converts DNA sequence to an amino acid sequence }
+\KeywordTok{(}\ExtensionTok{translation}\KeywordTok{)}\ExtensionTok{.}
+
+    \ExtensionTok{-h}\NormalTok{, --help      Show this help message and exit}
+
+\ExtensionTok{Basic}\NormalTok{ options}
+    \OperatorTok{<} \ExtensionTok{input.seq}\NormalTok{     Input sequence file (stdin)}
+    \OperatorTok{>} \ExtensionTok{output.prot}\NormalTok{   Output amino acid sequence file (stdout)}
+
+\ExtensionTok{Optional}
+    \ExtensionTok{-f}\NormalTok{              Translation codon frame (1, 2 or 3)}
+
+\ExtensionTok{Example}\NormalTok{: ./gto2_aa_from_seq }\OperatorTok{<}\NormalTok{ input.seq }\OperatorTok{>}\NormalTok{ output.prot}
+\end{Highlighting}
+\end{Shaded}
+
+An example of such an input file is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{ACAAGACGGCCTCCTGCTGCTGCTGCTCTCCGGGGCCACGGCCCTGGAGGGTCCACCGCT}
+\ExtensionTok{GCCCTGCTGCCATTGTCCCCGGCCCCACCTAAGGAAAAGCAGCCTCCTGACTTTCCTCGC}
+\ExtensionTok{TTGGGCCGAGACAGCGAGCATATGCAGGAAGCGGCAGGAAGTGGTTTGAGTGGACCTCCG}
+\ExtensionTok{GGCCCCTCATAGGAGAGGAAGCTCGGGAGGTGGCCAGGCGGCAGGAAGCAGGCCAGTGCC}
+\ExtensionTok{GCGAATCCGCGCGCCGGGACAGAATCTCCTGCAAAGCCCTGCAGGAACTTCTTCTGGAAG}
+\ExtensionTok{ACCTTCTCCACCCCCCCAGCTAAAACCTCACCCATGAATGCTCACGCAAGTTTAATTACA}
+\ExtensionTok{GACCTGAAACAAGATGCCATTGTCCCCCGGCCTCCTGCTGCTGCTGCTCTCCGGGGCCAC}
+\ExtensionTok{GGCCACCGCTGCCCTGCCCCTGGAGGGTGGCCCCACCGGCCGAGACAGCGAGCATATGCA}
+\ExtensionTok{GGAAGCGGCAGGAATAAGGAAAAGCAGCCTCCTGACTTTCCTCGCTTGGTGGTTTGAGTG}
+\ExtensionTok{GACCTCCCAGGCCAGTGCCGGGCCCCTCATAGGAGAGGAAGCTCGGGAGGTGGCCAGGCG}
+\ExtensionTok{GCAGGAAGGCGCACCCCCCCAGCAATCCGCGCGCCGGGACAGAATGCCCTGCAGGAACTT}
+\ExtensionTok{CTTCTGGAAGACCTTCTCCTCCTGCAAATAAAACCTCACCCATGAATGCTCACGCAAGTT}
+\ExtensionTok{TAATTACAGACCTGAA}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection*{Output}\label{output-31}
+
+
+The output of the \textbf{gto2\_aa\_from\_seq} program is an amino acid
+sequence. Using the input above, an output example of this is the
+following:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{TRRPPAAAALRGHGPGGSTAALLPLSPAPPKEKQPPDFPRLGRDSEHMQEAAGSGLSGPP}
+\ExtensionTok{GPS-ERKLGRWPGGRKQASAANPRAGTESPAKPCRNFFWKTFSTPPAKTSPMNAHASLIT}
+\ExtensionTok{DLKQDAIVPRPPAAAALRGHGHRCPAPGGWPHRPRQRAYAGSGRNKEKQPPDFPRLVV-V}
+\ExtensionTok{DLPGQCRAPHRRGSSGGGQAAGRRTPPAIRAPGQNALQELLLEDLLLLQIKPHP-MLTQV}
+\ExtensionTok{-LQT-}
+\end{Highlighting}
+\end{Shaded}
 
 \chapter{Genomic Tools}\label{genomic-tools}
 

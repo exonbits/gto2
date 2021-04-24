@@ -1160,14 +1160,14 @@ Usage: ./gto2_fq_quality_score_max [options] [[--] args]
 
 It analyses the maximal quality-scores of a FASTQ file.
 
-    -h, --help            show this help message and exit
+    -h, --help        show this help message and exit
 
 Basic options
-    < input.fastq         Input FASTQ file format (stdin)
-    > output              Output read information (stdout)
+    < input.fastq     Input FASTQ file format (stdin)
+    > output          Output read information (stdout)
 
 Optional
-    -m, --max=<int>       The maximum window length (default 40)
+    -m, --max=<int>   The maximum window length (default 40)
 
 Example: ./gto2_fq_quality_score_max -m <max> 
 < input.fastq > output

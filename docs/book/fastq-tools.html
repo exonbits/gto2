@@ -228,7 +228,27 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html"><i class="fa fa-check"></i><b>4</b> Amino Acid Tools</a><ul>
-<li class="chapter" data-level="4.1" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#gto2_aa"><i class="fa fa-check"></i><b>4.1</b> gto2_aa</a></li>
+<li class="chapter" data-level="4.1" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#program-gto2_aa_to_group"><i class="fa fa-check"></i><b>4.1</b> Program gto2_aa_to_group</a><ul>
+<li class="chapter" data-level="" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#input-parameters-27"><i class="fa fa-check"></i>Input parameters</a></li>
+<li class="chapter" data-level="" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#output-27"><i class="fa fa-check"></i>Output</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#program-gto2_aa_to_pseudo_dna"><i class="fa fa-check"></i><b>4.2</b> Program gto2_aa_to_pseudo_dna</a><ul>
+<li class="chapter" data-level="" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#input-parameters-28"><i class="fa fa-check"></i>Input parameters</a></li>
+<li class="chapter" data-level="" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#output-28"><i class="fa fa-check"></i>Output</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#program-gto2_aa_compressor"><i class="fa fa-check"></i><b>4.3</b> Program gto2_aa_compressor</a></li>
+<li class="chapter" data-level="4.4" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#program-gto2_aa_from_fa"><i class="fa fa-check"></i><b>4.4</b> Program gto2_aa_from_fa</a><ul>
+<li class="chapter" data-level="" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#input-parameters-29"><i class="fa fa-check"></i>Input parameters</a></li>
+<li class="chapter" data-level="" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#output-29"><i class="fa fa-check"></i>Output</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#program-gto2_aa_from_fq"><i class="fa fa-check"></i><b>4.5</b> Program gto2_aa_from_fq</a><ul>
+<li class="chapter" data-level="" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#input-parameters-30"><i class="fa fa-check"></i>Input parameters</a></li>
+<li class="chapter" data-level="" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#output-30"><i class="fa fa-check"></i>Output</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#program-gto2_aa_from_seq"><i class="fa fa-check"></i><b>4.6</b> Program gto2_aa_from_seq</a><ul>
+<li class="chapter" data-level="" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#input-parameters-31"><i class="fa fa-check"></i>Input parameters</a></li>
+<li class="chapter" data-level="" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#output-31"><i class="fa fa-check"></i>Output</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="genomic-tools.html"><a href="genomic-tools.html"><i class="fa fa-check"></i><b>5</b> Genomic Tools</a><ul>
 <li class="chapter" data-level="5.1" data-path="genomic-tools.html"><a href="genomic-tools.html#gto2_dna"><i class="fa fa-check"></i><b>5.1</b> gto2_dna</a></li>
@@ -1128,14 +1148,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="ex">It</span> analyses the maximal quality-scores of a FASTQ file.
 
-    <span class="ex">-h</span>, --help            show this help message and exit
+    <span class="ex">-h</span>, --help        show this help message and exit
 
 <span class="ex">Basic</span> options
-    <span class="op">&lt;</span> <span class="ex">input.fastq</span>         Input FASTQ file format (stdin)
-    <span class="op">&gt;</span> <span class="ex">output</span>              Output read information (stdout)
+    <span class="op">&lt;</span> <span class="ex">input.fastq</span>     Input FASTQ file format (stdin)
+    <span class="op">&gt;</span> <span class="ex">output</span>          Output read information (stdout)
 
 <span class="ex">Optional</span>
-    <span class="ex">-m</span>, --max=<span class="op">&lt;</span>int<span class="op">&gt;</span>       The maximum window length (default 40)
+    <span class="ex">-m</span>, --max=<span class="op">&lt;</span>int<span class="op">&gt;</span>   The maximum window length (default 40)
 
 <span class="ex">Example</span>: ./gto2_fq_quality_score_max -m <span class="op">&lt;</span>max<span class="op">&gt;</span> 
 <span class="op">&lt;</span> <span class="ex">input.fastq</span> <span class="op">&gt;</span> output</code></pre></div>
