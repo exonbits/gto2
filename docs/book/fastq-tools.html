@@ -222,7 +222,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="fastq-tools.html"><a href="fastq-tools.html#input-parameters-25"><i class="fa fa-check"></i>Input parameters</a></li>
 <li class="chapter" data-level="" data-path="fastq-tools.html"><a href="fastq-tools.html#output-25"><i class="fa fa-check"></i>Output</a></li>
 </ul></li>
-<li class="chapter" data-level="3.27" data-path="fastq-tools.html"><a href="fastq-tools.html#program-gto2_fq_metagenomics"><i class="fa fa-check"></i><b>3.27</b> Program gto2_fq_metagenomics</a></li>
+<li class="chapter" data-level="3.27" data-path="fastq-tools.html"><a href="fastq-tools.html#program-gto2_fq_metagenomics"><i class="fa fa-check"></i><b>3.27</b> Program gto2_fq_metagenomics</a><ul>
+<li class="chapter" data-level="" data-path="fastq-tools.html"><a href="fastq-tools.html#input-parameters-26"><i class="fa fa-check"></i>Input parameters</a></li>
+<li class="chapter" data-level="" data-path="fastq-tools.html"><a href="fastq-tools.html#output-26"><i class="fa fa-check"></i>Output</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html"><i class="fa fa-check"></i><b>4</b> Amino Acid Tools</a><ul>
 <li class="chapter" data-level="4.1" data-path="amino-acid-tools.html"><a href="amino-acid-tools.html#gto2_aa"><i class="fa fa-check"></i><b>4.1</b> gto2_aa</a></li>
@@ -338,15 +341,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">Usage</span>: ./gto2_fq_to_mfa [options] [[--] args]
    <span class="ex">or</span>: ./gto2_fq_to_mfa [options]
 
-<span class="ex">It</span> converts a FASTQ file format to a pseudo Multi-FASTA file.
-<span class="ex">It</span> does NOT align the sequence.
-<span class="ex">It</span> extracts the sequence and adds each header in a Multi-FASTA format.
+<span class="ex">It</span> converts a FASTQ file format to a pseudo Multi-FASTA 
+<span class="ex">file.</span> It does NOT align the sequence. It extracts the 
+<span class="ex">sequence</span> and adds each header in a Multi-FASTA format.
 
-    <span class="ex">-h</span>, --help            show this help message and exit
+    <span class="ex">-h</span>, --help       show this help message and exit
 
 <span class="ex">Basic</span> options
-    <span class="op">&lt;</span> <span class="ex">input.fastq</span>         Input FASTQ file format (stdin)
-    <span class="op">&gt;</span> <span class="ex">output.mfasta</span>       Output Multi-FASTA file format (stdout)
+    <span class="op">&lt;</span> <span class="ex">input.fastq</span>    Input FASTQ file format (stdin)
+    <span class="op">&gt;</span> <span class="ex">output.mfasta</span>  Output Multi-FASTA file format (stdout)
 
 <span class="ex">Example</span>: ./gto2_fq_to_mfa <span class="op">&lt;</span> input.fastq <span class="op">&gt;</span> output.mfasta</code></pre></div>
 <p>An example of such an input file is:</p>
@@ -748,8 +751,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     <span class="ex">-n</span>, --name=<span class="op">&lt;</span>str<span class="op">&gt;</span>      The read<span class="st">&#39;s header</span>
 <span class="st">    -l, --lineSize=&lt;int&gt;  The maximum of chars for line</span>
 
-<span class="st">Example: ./gto2_fq_from_seq -l &lt;lineSize&gt; -n &lt;name&gt; &lt; </span>
-<span class="st">input.seq &gt; output.fastq</span></code></pre></div>
+<span class="st">Example: ./gto2_fq_from_seq -l &lt;lineSize&gt; -n &lt;name&gt; </span>
+<span class="st">&lt; input.seq &gt; output.fastq</span></code></pre></div>
 <p>An example of such an input file is:</p>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">ACAAGACGGCCTCCTGCTGCTGCTGCTCTCCGGGGCCACGGCCCTGGAGGGTCCACCGCT</span>
 <span class="ex">GCCCTGCTGCCATTGTCCCCGGCCCCACCTAAGGAAAAGCAGCCTCCTGACTTTCCTCGC</span>
@@ -1134,7 +1137,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="ex">Optional</span>
     <span class="ex">-m</span>, --max=<span class="op">&lt;</span>int<span class="op">&gt;</span>       The maximum window length (default 40)
 
-<span class="ex">Example</span>: ./gto2_fq_quality_score_max -m <span class="op">&lt;</span>max<span class="op">&gt;</span> <span class="op">&lt;</span> input.fastq <span class="op">&gt;</span> output</code></pre></div>
+<span class="ex">Example</span>: ./gto2_fq_quality_score_max -m <span class="op">&lt;</span>max<span class="op">&gt;</span> 
+<span class="op">&lt;</span> <span class="ex">input.fastq</span> <span class="op">&gt;</span> output</code></pre></div>
 <p>An example of such an input file is:</p>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">@111</span> 071112_SLXA-EAS1_s_7:5:1:817:345 length=60 1
 <span class="ex">GNNTGATGGCCGCTGCCGATGGCGNANAATCCCACCAANATACCCTTAACAACTTAAGGG</span>
@@ -1583,8 +1587,83 @@ Figure 3.1: Execution plot of the variation visual tool using the previous input
 </div>
 <div id="program-gto2_fq_metagenomics" class="section level2">
 <h2><span class="header-section-number">3.27</span> Program gto2_fq_metagenomics</h2>
-<p>to do</p>
+<p>The <strong>gto2_fq_metagenomics</strong> is an ultra-fast method to infer metagenomic composition of sequenced reads relative to a database. gto2_fq_metagenomics measures similarity between any FASTQ file (or FASTA), independently from the size, against any multi-FASTA database, such as the entire set of complete genomes from the NCBI. gto2_fq_metagenomics supports single reads, paired-end reads, and compositions of both. It has been tested in many plataforms, such as Illumina MySeq, HiSeq, Novaseq, IonTorrent.</p>
+<p>gto2_fq_metagenomics is efficient to detect the presence and authenticate a given species in the FASTQ reads. The core of the method is based on relative data compression. gto2_fq_metagenomics uses variable multi-threading, without multiplying the memory for each thread, being able to run efficiently in a common laptop.</p>
+<p>For help type:</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">./gto2_fq_metagenomics</span> -h</code></pre></div>
+<p>In the following subsections, we explain the input and output parameters.</p>
+<div id="input-parameters-26" class="section level3 unnumbered">
+<h3>Input parameters</h3>
+<p>The <strong>gto2_fq_metagenomics</strong> program needs a FASTQ file to compute.</p>
+<p>The attribution is given according to:</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">NAME</span>                                                                     
+      <span class="ex">The</span> gto2_fq_metagenomics is a tool to infer 
+      <span class="ex">metagenomic</span> composition.            
+                                                                         
+<span class="ex">SYNOPSIS</span>                                                                 
+      <span class="ex">gto2_fq_metagenomics</span> [OPTION]... [FILE1]:[FILE2]:... 
+      [<span class="ex">FILE</span>]                      
+                                                                         
+<span class="ex">SAMPLE</span>                                                                   
+      <span class="ex">gto2_fq_metagenomics</span> -v -F -l 47 -Z -y pro.com 
+      <span class="ex">reads1.fq</span>:reads2.fq DB.fa         
+                                                                         
+<span class="ex">DESCRIPTION</span>                                                              
+      <span class="ex">It</span> infers metagenomic sample composition of sequenced 
+      <span class="ex">reads.</span> The core of the method uses a cooperation 
+      <span class="ex">between</span> multiple context and tolerant context models 
+      <span class="ex">with</span> several depths. The reference sequences must be 
+      <span class="kw">in</span> <span class="ex">a</span> multi-FASTA format. The sequenced reads must be 
+      <span class="ex">trimmed</span> and in FASTQ format.           
+                                                                         
+      <span class="ex">Non-mandatory</span> arguments:                                           
+                                                                         
+      <span class="ex">-h</span>                   give this help,                               
+      <span class="ex">-F</span>                   force mode (overwrites top file),             
+      <span class="ex">-V</span>                   display version number,                       
+      <span class="ex">-v</span>                   verbose mode (more information),              
+      <span class="ex">-Z</span>                   database local similarity,                    
+      <span class="ex">-s</span>                   show compression levels,                      
+                                                                         
+      <span class="ex">-l</span> <span class="op">&lt;</span>level<span class="op">&gt;</span>           compression level [1<span class="kw">;</span><span class="ex">47</span>],                    
+      <span class="ex">-p</span> <span class="op">&lt;</span>sample<span class="op">&gt;</span>          subsampling (default: 1),                    
+      <span class="ex">-t</span> <span class="op">&lt;</span>top<span class="op">&gt;</span>             top of similarity (default: 20),              
+      <span class="ex">-n</span> <span class="op">&lt;</span>nThreads<span class="op">&gt;</span>        number of threads (default: 2),              
+                                                                         
+      <span class="ex">-x</span> <span class="op">&lt;</span>FILE<span class="op">&gt;</span>            similarity top filename,                      
+      <span class="ex">-y</span> <span class="op">&lt;</span>FILE<span class="op">&gt;</span>            profile filename (-Z must be on)<span class="bu">.</span>             
+                                                                         
+      <span class="ex">Mandatory</span> arguments:                                               
+                                                                         
+      [<span class="ex">FILE1</span>]:[FILE2]:...  metagenomic filename (FASTQ),                 
+                           <span class="ex">Use</span> <span class="st">&quot;:&quot;</span> for splitting files.                
+                                                                         
+      [<span class="ex">FILE</span>]               database filename (Multi-FASTA)<span class="bu">.</span>                </code></pre></div>
+<p>An example of such an input file is:</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">@SRR001666.1</span> 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
+<span class="ex">GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACCAAGTTACCCTTAACAACTTAAGGG</span>
+<span class="ex">+</span>
+<span class="ex">IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII</span>
+<span class="ex">@SRR001666.2</span> 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
+<span class="ex">GTTCAGGGATACGACGTTTGTATTTTAAGAATCTGAAGCAGAAGTCGATGATAATACGCG</span>
+<span class="ex">+</span>
+<span class="ex">IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI</span></code></pre></div>
+</div>
+<div id="output-26" class="section level3 unnumbered">
+<h3>Output</h3>
+<p>The output of the <strong>gto2_fq_metagenomics</strong> program is a CSV file (top.csv) with the highest probability of being contained in the samples. An example for this CSV file is the following:</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">2</span>  66725   12.263   NC_037703.1_Saccharomycodes_ludwigii...
+<span class="ex">1</span>  66725   12.263   NC_037703.1_Saccharomycodes_ludwigii...
+<span class="ex">3</span>  107123  11.492   NC_012621.1_Nakaseomyces_bacillispor...
+<span class="ex">4</span>  107123  11.492   NC_012621.1_Nakaseomyces_bacillispor...
+<span class="ex">5</span>  16592   11.153   NC_024030.1_Equus_przewalskii_mitoch...
+<span class="ex">6</span>  14583   10.851   NC_021120.1_Bursaphelenchus_mucronat...
+<span class="ex">7</span>  162504  10.607   NC_018415.1_Candidatus_Carsonella_ru...
+<span class="ex">8</span>  10315   10.586   NC_016117.1_Mnemiopsis_leidyi_mitoch...
+<span class="ex">9</span>  162589  10.550   NC_018414.1_Candidatus_Carsonella_ru...
+<span class="ex">10</span> 166163  10.476   NC_018416.1_Candidatus_Carsonella_ru...</code></pre></div>
 
+</div>
 </div>
 </div>
             </section>

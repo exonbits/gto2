@@ -114,15 +114,15 @@ The attribution is given according to:
 Usage: ./gto2_fq_to_mfa [options] [[--] args]
    or: ./gto2_fq_to_mfa [options]
 
-It converts a FASTQ file format to a pseudo Multi-FASTA file.
-It does NOT align the sequence.
-It extracts the sequence and adds each header in a Multi-FASTA format.
+It converts a FASTQ file format to a pseudo Multi-FASTA 
+file. It does NOT align the sequence. It extracts the 
+sequence and adds each header in a Multi-FASTA format.
 
-    -h, --help            show this help message and exit
+    -h, --help       show this help message and exit
 
 Basic options
-    < input.fastq         Input FASTQ file format (stdin)
-    > output.mfasta       Output Multi-FASTA file format (stdout)
+    < input.fastq    Input FASTQ file format (stdin)
+    > output.mfasta  Output Multi-FASTA file format (stdout)
 
 Example: ./gto2_fq_to_mfa < input.fastq > output.mfasta
 ```
@@ -658,8 +658,8 @@ Optional options
     -n, --name=<str>      The read's header
     -l, --lineSize=<int>  The maximum of chars for line
 
-Example: ./gto2_fq_from_seq -l <lineSize> -n <name> < 
-input.seq > output.fastq
+Example: ./gto2_fq_from_seq -l <lineSize> -n <name> 
+< input.seq > output.fastq
 ```
 
 An example of such an input file is:
@@ -1169,7 +1169,8 @@ Basic options
 Optional
     -m, --max=<int>       The maximum window length (default 40)
 
-Example: ./gto2_fq_quality_score_max -m <max> < input.fastq > output
+Example: ./gto2_fq_quality_score_max -m <max> 
+< input.fastq > output
 ```
 
 An example of such an input file is:
@@ -1765,4 +1766,97 @@ The output of the **gto2_fq_variation_visual** program is a SVG plot with the ma
 </div>
 
 ## Program gto2_fq_metagenomics
-to do
+
+The **gto2_fq_metagenomics** is an ultra-fast method to infer metagenomic composition of sequenced reads relative to a database. gto2_fq_metagenomics measures similarity between any FASTQ file (or FASTA), independently from the size, against any multi-FASTA database, such as the entire set of complete genomes from the NCBI. gto2_fq_metagenomics supports single reads, paired-end reads, and compositions of both. It has been tested in many plataforms, such as Illumina MySeq, HiSeq, Novaseq, IonTorrent.
+
+gto2_fq_metagenomics is efficient to detect the presence and authenticate a given species in the FASTQ reads. The core of the method is based on relative data compression. gto2_fq_metagenomics uses variable multi-threading, without multiplying the memory for each thread, being able to run efficiently in a common laptop.
+
+For help type:
+
+```sh
+./gto2_fq_metagenomics -h
+```
+
+In the following subsections, we explain the input and output parameters.
+
+### Input parameters {-}
+
+The **gto2_fq_metagenomics** program needs a FASTQ file to compute.
+
+The attribution is given according to:
+
+```sh
+NAME                                                                     
+      The gto2_fq_metagenomics is a tool to infer 
+      metagenomic composition.            
+                                                                         
+SYNOPSIS                                                                 
+      gto2_fq_metagenomics [OPTION]... [FILE1]:[FILE2]:... 
+      [FILE]                      
+                                                                         
+SAMPLE                                                                   
+      gto2_fq_metagenomics -v -F -l 47 -Z -y pro.com 
+      reads1.fq:reads2.fq DB.fa         
+                                                                         
+DESCRIPTION                                                              
+      It infers metagenomic sample composition of sequenced 
+      reads. The core of the method uses a cooperation 
+      between multiple context and tolerant context models 
+      with several depths. The reference sequences must be 
+      in a multi-FASTA format. The sequenced reads must be 
+      trimmed and in FASTQ format.           
+                                                                         
+      Non-mandatory arguments:                                           
+                                                                         
+      -h                   give this help,                               
+      -F                   force mode (overwrites top file),             
+      -V                   display version number,                       
+      -v                   verbose mode (more information),              
+      -Z                   database local similarity,                    
+      -s                   show compression levels,                      
+                                                                         
+      -l <level>           compression level [1;47],                    
+      -p <sample>          subsampling (default: 1),                    
+      -t <top>             top of similarity (default: 20),              
+      -n <nThreads>        number of threads (default: 2),              
+                                                                         
+      -x <FILE>            similarity top filename,                      
+      -y <FILE>            profile filename (-Z must be on).             
+                                                                         
+      Mandatory arguments:                                               
+                                                                         
+      [FILE1]:[FILE2]:...  metagenomic filename (FASTQ),                 
+                           Use ":" for splitting files.                
+                                                                         
+      [FILE]               database filename (Multi-FASTA).                
+```
+
+An example of such an input file is:
+
+```sh
+@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
+GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACCAAGTTACCCTTAACAACTTAAGGG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
+@SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
+GTTCAGGGATACGACGTTTGTATTTTAAGAATCTGAAGCAGAAGTCGATGATAATACGCG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
+```
+
+### Output {-}
+
+The output of the **gto2_fq_metagenomics** program is a CSV file (top.csv) with the highest probability of being contained in the samples. An example for this CSV file is the following:
+
+```sh
+2  66725   12.263   NC_037703.1_Saccharomycodes_ludwigii...
+1  66725   12.263   NC_037703.1_Saccharomycodes_ludwigii...
+3  107123  11.492   NC_012621.1_Nakaseomyces_bacillispor...
+4  107123  11.492   NC_012621.1_Nakaseomyces_bacillispor...
+5  16592   11.153   NC_024030.1_Equus_przewalskii_mitoch...
+6  14583   10.851   NC_021120.1_Bursaphelenchus_mucronat...
+7  162504  10.607   NC_018415.1_Candidatus_Carsonella_ru...
+8  10315   10.586   NC_016117.1_Mnemiopsis_leidyi_mitoch...
+9  162589  10.550   NC_018414.1_Candidatus_Carsonella_ru...
+10 166163  10.476   NC_018416.1_Candidatus_Carsonella_ru...
+```

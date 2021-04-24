@@ -587,15 +587,15 @@ The attribution is given according to:
 \ExtensionTok{Usage}\NormalTok{: ./gto2_fq_to_mfa [options] [[--] args]}
    \ExtensionTok{or}\NormalTok{: ./gto2_fq_to_mfa [options]}
 
-\ExtensionTok{It}\NormalTok{ converts a FASTQ file format to a pseudo Multi-FASTA file.}
-\ExtensionTok{It}\NormalTok{ does NOT align the sequence.}
-\ExtensionTok{It}\NormalTok{ extracts the sequence and adds each header in a Multi-FASTA format.}
+\ExtensionTok{It}\NormalTok{ converts a FASTQ file format to a pseudo Multi-FASTA }
+\ExtensionTok{file.}\NormalTok{ It does NOT align the sequence. It extracts the }
+\ExtensionTok{sequence}\NormalTok{ and adds each header in a Multi-FASTA format.}
 
-    \ExtensionTok{-h}\NormalTok{, --help            show this help message and exit}
+    \ExtensionTok{-h}\NormalTok{, --help       show this help message and exit}
 
 \ExtensionTok{Basic}\NormalTok{ options}
-    \OperatorTok{<} \ExtensionTok{input.fastq}\NormalTok{         Input FASTQ file format (stdin)}
-    \OperatorTok{>} \ExtensionTok{output.mfasta}\NormalTok{       Output Multi-FASTA file format (stdout)}
+    \OperatorTok{<} \ExtensionTok{input.fastq}\NormalTok{    Input FASTQ file format (stdin)}
+    \OperatorTok{>} \ExtensionTok{output.mfasta}\NormalTok{  Output Multi-FASTA file format (stdout)}
 
 \ExtensionTok{Example}\NormalTok{: ./gto2_fq_to_mfa }\OperatorTok{<}\NormalTok{ input.fastq }\OperatorTok{>}\NormalTok{ output.mfasta}
 \end{Highlighting}
@@ -1265,8 +1265,8 @@ The attribution is given according to:
     \ExtensionTok{-n}\NormalTok{, --name=}\OperatorTok{<}\NormalTok{str}\OperatorTok{>}\NormalTok{      The read}\StringTok{'s header}
 \StringTok{    -l, --lineSize=<int>  The maximum of chars for line}
 
-\StringTok{Example: ./gto2_fq_from_seq -l <lineSize> -n <name> < }
-\StringTok{input.seq > output.fastq}
+\StringTok{Example: ./gto2_fq_from_seq -l <lineSize> -n <name> }
+\StringTok{< input.seq > output.fastq}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1898,7 +1898,8 @@ The attribution is given according to:
 \ExtensionTok{Optional}
     \ExtensionTok{-m}\NormalTok{, --max=}\OperatorTok{<}\NormalTok{int}\OperatorTok{>}\NormalTok{       The maximum window length (default 40)}
 
-\ExtensionTok{Example}\NormalTok{: ./gto2_fq_quality_score_max -m }\OperatorTok{<}\NormalTok{max}\OperatorTok{>} \OperatorTok{<}\NormalTok{ input.fastq }\OperatorTok{>}\NormalTok{ output}
+\ExtensionTok{Example}\NormalTok{: ./gto2_fq_quality_score_max -m }\OperatorTok{<}\NormalTok{max}\OperatorTok{>} 
+\OperatorTok{<} \ExtensionTok{input.fastq} \OperatorTok{>}\NormalTok{ output}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2664,7 +2665,124 @@ using the input above.
 \section{Program
 gto2\_fq\_metagenomics}\label{program-gto2_fq_metagenomics}
 
-to do
+The \textbf{gto2\_fq\_metagenomics} is an ultra-fast method to infer
+metagenomic composition of sequenced reads relative to a database.
+gto2\_fq\_metagenomics measures similarity between any FASTQ file (or
+FASTA), independently from the size, against any multi-FASTA database,
+such as the entire set of complete genomes from the NCBI.
+gto2\_fq\_metagenomics supports single reads, paired-end reads, and
+compositions of both. It has been tested in many plataforms, such as
+Illumina MySeq, HiSeq, Novaseq, IonTorrent.
+
+gto2\_fq\_metagenomics is efficient to detect the presence and
+authenticate a given species in the FASTQ reads. The core of the method
+is based on relative data compression. gto2\_fq\_metagenomics uses
+variable multi-threading, without multiplying the memory for each
+thread, being able to run efficiently in a common laptop.
+
+For help type:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{./gto2_fq_metagenomics}\NormalTok{ -h}
+\end{Highlighting}
+\end{Shaded}
+
+In the following subsections, we explain the input and output
+parameters.
+
+\subsection*{Input parameters}\label{input-parameters-26}
+
+
+The \textbf{gto2\_fq\_metagenomics} program needs a FASTQ file to
+compute.
+
+The attribution is given according to:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{NAME}                                                                     
+      \ExtensionTok{The}\NormalTok{ gto2_fq_metagenomics is a tool to infer }
+      \ExtensionTok{metagenomic}\NormalTok{ composition.            }
+                                                                         
+\ExtensionTok{SYNOPSIS}                                                                 
+      \ExtensionTok{gto2_fq_metagenomics}\NormalTok{ [OPTION]... [FILE1]:[FILE2]:... }
+\NormalTok{      [}\ExtensionTok{FILE}\NormalTok{]                      }
+                                                                         
+\ExtensionTok{SAMPLE}                                                                   
+      \ExtensionTok{gto2_fq_metagenomics}\NormalTok{ -v -F -l 47 -Z -y pro.com }
+      \ExtensionTok{reads1.fq}\NormalTok{:reads2.fq DB.fa         }
+                                                                         
+\ExtensionTok{DESCRIPTION}                                                              
+      \ExtensionTok{It}\NormalTok{ infers metagenomic sample composition of sequenced }
+      \ExtensionTok{reads.}\NormalTok{ The core of the method uses a cooperation }
+      \ExtensionTok{between}\NormalTok{ multiple context and tolerant context models }
+      \ExtensionTok{with}\NormalTok{ several depths. The reference sequences must be }
+      \KeywordTok{in} \ExtensionTok{a}\NormalTok{ multi-FASTA format. The sequenced reads must be }
+      \ExtensionTok{trimmed}\NormalTok{ and in FASTQ format.           }
+                                                                         
+      \ExtensionTok{Non-mandatory}\NormalTok{ arguments:                                           }
+                                                                         
+      \ExtensionTok{-h}\NormalTok{                   give this help,                               }
+      \ExtensionTok{-F}\NormalTok{                   force mode (overwrites top file),             }
+      \ExtensionTok{-V}\NormalTok{                   display version number,                       }
+      \ExtensionTok{-v}\NormalTok{                   verbose mode (more information),              }
+      \ExtensionTok{-Z}\NormalTok{                   database local similarity,                    }
+      \ExtensionTok{-s}\NormalTok{                   show compression levels,                      }
+                                                                         
+      \ExtensionTok{-l} \OperatorTok{<}\NormalTok{level}\OperatorTok{>}\NormalTok{           compression level [1}\KeywordTok{;}\ExtensionTok{47}\NormalTok{],                    }
+      \ExtensionTok{-p} \OperatorTok{<}\NormalTok{sample}\OperatorTok{>}\NormalTok{          subsampling (default: 1),                    }
+      \ExtensionTok{-t} \OperatorTok{<}\NormalTok{top}\OperatorTok{>}\NormalTok{             top of similarity (default: 20),              }
+      \ExtensionTok{-n} \OperatorTok{<}\NormalTok{nThreads}\OperatorTok{>}\NormalTok{        number of threads (default: 2),              }
+                                                                         
+      \ExtensionTok{-x} \OperatorTok{<}\NormalTok{FILE}\OperatorTok{>}\NormalTok{            similarity top filename,                      }
+      \ExtensionTok{-y} \OperatorTok{<}\NormalTok{FILE}\OperatorTok{>}\NormalTok{            profile filename (-Z must be on)}\BuiltInTok{.}             
+                                                                         
+      \ExtensionTok{Mandatory}\NormalTok{ arguments:                                               }
+                                                                         
+\NormalTok{      [}\ExtensionTok{FILE1}\NormalTok{]:[FILE2]:...  metagenomic filename (FASTQ),                 }
+                           \ExtensionTok{Use} \StringTok{":"}\NormalTok{ for splitting files.                }
+                                                                         
+\NormalTok{      [}\ExtensionTok{FILE}\NormalTok{]               database filename (Multi-FASTA)}\BuiltInTok{.}                
+\end{Highlighting}
+\end{Shaded}
+
+An example of such an input file is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{@SRR001666.1}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:817:345 length=60}
+\ExtensionTok{GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACCAAGTTACCCTTAACAACTTAAGGG}
+\ExtensionTok{+}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII}
+\ExtensionTok{@SRR001666.2}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:801:338 length=60}
+\ExtensionTok{GTTCAGGGATACGACGTTTGTATTTTAAGAATCTGAAGCAGAAGTCGATGATAATACGCG}
+\ExtensionTok{+}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection*{Output}\label{output-26}
+
+
+The output of the \textbf{gto2\_fq\_metagenomics} program is a CSV file
+(top.csv) with the highest probability of being contained in the
+samples. An example for this CSV file is the following:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{2}\NormalTok{  66725   12.263   NC_037703.1_Saccharomycodes_ludwigii...}
+\ExtensionTok{1}\NormalTok{  66725   12.263   NC_037703.1_Saccharomycodes_ludwigii...}
+\ExtensionTok{3}\NormalTok{  107123  11.492   NC_012621.1_Nakaseomyces_bacillispor...}
+\ExtensionTok{4}\NormalTok{  107123  11.492   NC_012621.1_Nakaseomyces_bacillispor...}
+\ExtensionTok{5}\NormalTok{  16592   11.153   NC_024030.1_Equus_przewalskii_mitoch...}
+\ExtensionTok{6}\NormalTok{  14583   10.851   NC_021120.1_Bursaphelenchus_mucronat...}
+\ExtensionTok{7}\NormalTok{  162504  10.607   NC_018415.1_Candidatus_Carsonella_ru...}
+\ExtensionTok{8}\NormalTok{  10315   10.586   NC_016117.1_Mnemiopsis_leidyi_mitoch...}
+\ExtensionTok{9}\NormalTok{  162589  10.550   NC_018414.1_Candidatus_Carsonella_ru...}
+\ExtensionTok{10}\NormalTok{ 166163  10.476   NC_018416.1_Candidatus_Carsonella_ru...}
+\end{Highlighting}
+\end{Shaded}
 
 \chapter{Amino Acid Tools}\label{amino-acid-tools}
 
