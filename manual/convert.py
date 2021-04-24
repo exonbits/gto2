@@ -14,6 +14,8 @@ data=data.replace("gto2_fastq","gto2_fq")
 data=data.replace("gto2_fasta","gto2_fa")
 data=data.replace("\nUsing the input above, an output example for this is the following:", "Using the input above, an output example of this is the following:")
 data=data.replace("paramters", "parameters")
+data=data.replace("length=72", "length=60")
+data=data.replace("an output example for this is the following:","an output example of this is the following:")
 data=data.replace("\\\\","\n")
 data=data.replace("\n\n\n","\n\n")
 newData=""

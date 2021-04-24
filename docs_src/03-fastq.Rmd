@@ -198,11 +198,11 @@ Filtered reads : value
 An example of such an input file is:
 
 ```sh
-@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=72
+@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
 GNNTGATGGCCGCTGCCGATGGCGNANAATCCCACCAANATACCCTTAACAACTTAAGGG
 +
 IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
-@SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=72
+@SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
 NTTCAGGGATACGACGNTTGTATTTTAAGAATCTGNAGCAGAAGTCGATGATAATACGCG
 +
 IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
@@ -216,7 +216,7 @@ The execution report only appears in the console.
 Using the input above with the max value as 5, an output example for this is the following:
 
 ```sh
-@SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=72
+@SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
 NTTCAGGGATACGACGNTTGTATTTTAAGAATCTGNAGCAGAAGTCGATGATAATACGCG
 +
 IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
@@ -266,13 +266,13 @@ Total Quality-Scores : value
 An example of such an input file is:
 
 ```sh
-@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=72
+@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
 GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACCAAGTTACCCTTAACAACTTAAGGG
-+SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=72
++SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
 IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
-@SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=72
+@SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
 GTTCAGGGATACGACGTTTGTATTTTAAGAATCTGAAGCAGAAGTCGATGATAATACGCG
-+SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=72
++SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
 IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
 ```
 
@@ -332,13 +332,13 @@ QS range        : value
 An example of such an input file is:
 
 ```sh
-@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=72
+@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
 GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACCAAGTTACCCTTAACAACTTAAGGG
-+SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=72
++SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
 IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
-@SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=72
+@SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
 GTTCAGGGATACGACGTTTGTATTTTAAGAATCTGAAGCAGAAGTCGATGATAATACGCG
-+SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=72
++SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
 IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
 ```
 
@@ -356,19 +356,349 @@ QS range        : 33
 ```
 
 ## Program gto2_fq_maximum_read_size
-to do
+
+The **gto2_fq_maximum_read_size** filters the FASTQ reads with the length higher than the value defined.
+
+For help type:
+
+```sh
+./gto2_fq_maximum_read_size -h
+```
+
+In the following subsections, we explain the input and output parameters.
+
+### Input parameters {-}
+
+The **gto2_fq_maximum_read_size** program needs two streams for the computation, namely the input and output standard. The input stream is a FASTQ file.
+
+The attribution is given according to:
+
+```sh
+Usage: ./gto2_fq_maximum_read_size [options] [[--] args]
+   or: ./gto2_fq_maximum_read_size [options]
+
+It filters the FASTQ reads with the length higher than the 
+value defined. 
+If present, it will erase the second header (after +).
+
+    -h, --help            show this help message and exit
+
+Basic options
+    -s, --size=<int>      The maximum read length
+    < input.fastq         Input FASTQ file format (stdin)
+    > output.fastq        Output FASTQ file format (stdout)
+
+Example: ./gto2_fq_maximum_read_size -s <size> < input.fastq 
+> output.fastq
+
+Console output example :
+<FASTQ non-filtered reads>
+Total reads    : value
+Filtered reads : value
+```
+
+An example of such an input file is:
+
+```sh
+@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=59
+GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACCAAGTTACCCTTAACAACTTAAGG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDII
+@SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
+GTTCAGGGATACGACGTTTGTATTTTAAGAATCTGAAGCAGAAGTCGATGATAATACGCG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
+```
+
+### Output {-}
+
+The output of the **gto2_fq_maximum_read_size** program is a set of all the filtered FASTQ reads, followed by the execution report.
+The execution report only appears in the console.
+
+Using the input above with the size values as 59, an output example for this is the following:
+
+```sh
+@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=59
+GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACCAAGTTACCCTTAACAACTTAAGG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDII
+Total reads    : 2
+Filtered reads : 1
+```
 
 ## Program gto2_fq_minimum_quality_score
-to do
+
+The **gto2_fq_minimum_quality_score** discards reads with average quality-score below of the defined.
+
+For help type:
+
+```sh
+./gto2_fq_minimum_quality_score -h
+```
+
+In the following subsections, we explain the input and output parameters.
+
+### Input parameters {-}
+
+The **gto2_fq_minimum_quality_score** program needs two streams for the computation, namely the input and output standard. The input stream is a FASTQ file.
+
+The attribution is given according to:
+
+```sh
+Usage: ./gto2_fq_minimum_quality_score [options] [[--] args]
+   or: ./gto2_fq_minimum_quality_score [options]
+
+It discards reads with average quality-score below value.
+
+    -h, --help            show this help message and exit
+
+Basic options
+    -m, --min=<int>       The minimum average quality-score 
+    					  (Value 25 or 30 is commonly used)
+    < input.fastq         Input FASTQ file format (stdin)
+    > output.fastq        Output FASTQ file format (stdout)
+
+Example: ./gto2_fq_minimum_quality_score -m <min> < 
+input.fastq > output.fastq
+
+Console output example:
+<FASTQ non-filtered reads>
+Total reads    : value
+Filtered reads : value
+```
+
+An example of such an input file is:
+
+```sh
+@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
+GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACCAAGTTACCCTTAACAACTTAAGGG
++SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
+@SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
+GTTCAGGGATACGACGTTTGTATTTTAAGAATCTGAAGCAGAAGTCGATGATAATACGCG
++SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
+54599<>77977==6=?I6IBI::33344235521677999>>><<<@@A@BBCDGGBFF
+```
+
+### Output {-}
+
+The output of the **gto2_fq_minimum_quality_score** program is a set of all the filtered FASTQ reads, followed by the execution report. Using the input above with the minimum averge value as 30, an output example of this is the following:
+
+```sh
+@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
+GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACCAAGTTACCCTTAACAACTTAAGGG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
+Total reads    : 2
+Filtered reads : 1
+```
 
 ## Program gto2_fq_minimum_read_size
-to do
+
+The **gto2_fq_minimum_read_size** filters the FASTQ reads with the length smaller than the value defined.
+
+For help type:
+
+```sh
+./gto2_fq_minimum_read_size -h
+```
+
+In the following subsections, we explain the input and output parameters.
+
+### Input parameters {-}
+
+The **gto2_fq_minimum_read_size** program needs two streams for the computation, namely the input and output standard. The input stream is a FASTQ file.
+
+The attribution is given according to:
+
+```sh
+Usage: ./gto2_fq_minimum_read_size [options] [[--] args]
+   or: ./gto2_fq_minimum_read_size [options]
+
+It filters the FASTQ reads with the length smaller than the 
+value defined. 
+If present, it will erase the second header (after +).
+
+    -h, --help            show this help message and exit
+
+Basic options
+    -s, --size=<int>      The minimum read length
+    < input.fastq         Input FASTQ file format (stdin)
+    > output.fastq        Output FASTQ file format (stdout)
+
+Example: ./gto2_fq_minimum_read_size -s <size> < input.fastq
+> output.fastq
+
+Console output example:
+<FASTQ non-filtered reads>
+Total reads    : value
+Filtered reads : value
+```
+
+An example of such an input file is:
+
+```sh
+@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=50
+GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACCAAGTTACCCTTAAC
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIII
+@SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
+GTTCAGGGATACGACGTTTGTATTTTAAGAATCTGAAGCAGAAGTCGATGATAATACGCG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
+```
+
+### Output {-}
+
+The output of the **gto2_fq_minimum_read_size** program is a set of all the filtered FASTQ reads, followed by the execution report. The execution report only appears in the console. Using the input above with the size values as 55, an output example of this is the following:
+
+```sh
+@SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
+GTTCAGGGATACGACGTTTGTATTTTAAGAATCTGAAGCAGAAGTCGATGATAATACGCG
++
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
+Total reads    : 2
+Filtered reads : 1
+```
 
 ## Program gto2_fq_rand_extra_chars
-to do
+
+The **gto2_fq_rand_extra_chars** substitutes the outside ACGT chars by random ACGT symbols in the DNA sequence of FASTQ files.
+
+For help type:
+
+```sh
+./gto2_fq_rand_extra_chars -h
+```
+
+In the following subsections, we explain the input and output parameters.
+
+### Input parameters {-}
+
+The **gto2_fq_rand_extra_chars** program needs two streams for the computation, namely the input and output standard. The input stream is a FASTQ file.
+
+The attribution is given according to:
+
+```sh
+Usage: ./gto2_fq_rand_extra_chars [options] [[--] args]
+   or: ./gto2_fq_rand_extra_chars [options]
+
+It substitues in the FASTQ files, the DNA sequence the 
+outside ACGT chars by random ACGT symbols.
+
+    -h, --help            show this help message and exit
+
+Basic options
+    < input.fastq         Input FASTQ file format (stdin)
+    > output.fastq        Output FASTQ file format (stdout)
+
+Example: ./gto2_fq_rand_extra_chars < input.fastq > 
+output.fastq
+```
+
+An example of such an input file is:
+
+```sh
+@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
+GNNTGATGGCCGCTGCCGATGGCGNANAATCCCACCAANATACCCTTAACAACTTAAGGG
++SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
+@SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
+NTTCAGGGATACGACGNTTGTATTTTAAGAATCTGNAGCAGAAGTCGATGATAATACGCG
++SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
+```
+
+### Output {-}
+
+The output of the **gto2_fq_rand_extra_chars** program is a FASTQ file. Using the input above, an output example of this is the following:
+
+```sh
+@SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
+GTGTGATGGCCGCTGCCGATGGCGCATAATCCCACCAACATACCCTTAACAACTTAAGGG
++SRR001666.1 071112_SLXA-EAS1_s_7:5:1:817:345 length=60
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII
+@SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
+GTTCAGGGATACGACGATTGTATTTTAAGAATCTGCAGCAGAAGTCGATGATAATACGCG
++SRR001666.2 071112_SLXA-EAS1_s_7:5:1:801:338 length=60
+IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI
+```
 
 ## Program gto2_fq_from_seq
-to do
+
+The **gto2_fq_from_seq** converts a genomic sequence to pseudo FASTQ file format.
+
+For help type:
+
+```sh
+./gto2_fq_from_seq -h
+```
+
+In the following subsections, we explain the input and output parameters.
+
+### Input parameters {-}
+
+The **gto2_fq_from_seq** program needs two streams for the computation, namely the input and output standard. The input stream is a sequence group file.
+
+The attribution is given according to:
+
+```sh
+Usage: ./gto2_fq_from_seq [options] [[--] args]
+   or: ./gto2_fq_from_seq [options]
+
+It converts a genomic sequence to pseudo FASTQ file format.
+
+    -h, --help            show this help message and exit
+
+Basic options
+    < input.seq           Input sequence file (stdin)
+    > output.fastq        Output FASTQ file format (stdout)
+
+Optional options
+    -n, --name=<str>      The read's header
+    -l, --lineSize=<int>  The maximum of chars for line
+
+Example: ./gto2_fq_from_seq -l <lineSize> -n <name> < 
+input.seq > output.fastq
+```
+
+An example of such an input file is:
+
+```sh
+ACAAGACGGCCTCCTGCTGCTGCTGCTCTCCGGGGCCACGGCCCTGGAGGGTCCACCGCT
+GCCCTGCTGCCATTGTCCCCGGCCCCACCTAAGGAAAAGCAGCCTCCTGACTTTCCTCGC
+TTGGGCCGAGACAGCGAGCATATGCAGGAAGCGGCAGGAAGTGGTTTGAGTGGACCTCCG
+GGCCCCTCATAGGAGAGGAAGCTCGGGAGGTGGCCAGGCGGCAGGAAGCAGGCCAGTGCC
+GCGAATCCGCGCGCCGGGACAGAATCTCCTGCAAAGCCCTGCAGGAACTTCTTCTGGAAG
+```
+
+### Output {-}
+
+The output of the **gto2_fq_from_seq** program is a pseudo FASTQ file. An example, using the size line as 60 and the read's header as ''SeqToFastq'', for the input, is:
+
+```sh
+@SeqToFastq1
+ACAAGACGGCCTCCTGCTGCTGCTGCTCTCCGGGGCCACGGCCCTGGAGGGTCCACCGCT
++
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+@SeqToFastq2
+GCCCTGCTGCCATTGTCCCCGGCCCCACCTAAGGAAAAGCAGCCTCCTGACTTTCCTCGC
++
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+@SeqToFastq3
+TTGGGCCGAGACAGCGAGCATATGCAGGAAGCGGCAGGAAGTGGTTTGAGTGGACCTCCG
++
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+@SeqToFastq4
+GGCCCCTCATAGGAGAGGAAGCTCGGGAGGTGGCCAGGCGGCAGGAAGCAGGCCAGTGCC
++
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+@SeqToFastq5
+GCGAATCCGCGCGCCGGGACAGAATCTCCTGCAAAGCCCTGCAGGAACTTCTTCTGGAAG
++
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+```
+
 
 ## Program gto2_fq_mutate
 to do
