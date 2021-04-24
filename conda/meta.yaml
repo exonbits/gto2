@@ -9,7 +9,7 @@ package:
 
 source:
     git_rev: v0.2.0
-    git_url: https://github.com/cobilab/gto.git
+    git_url: https://github.com/cobilab/gto2.git
 
 requirements:
     build:
