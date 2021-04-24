@@ -40,7 +40,7 @@ make
 Or by installing them directly using the Cobilab channel from Conda:
 
 ```sh
-conda install -c cobilab gto2 --yes
+conda install -c cobilab gto2 -y
 ```
 
 ## Testing

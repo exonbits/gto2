@@ -308,7 +308,7 @@ Or by installing them directly using the Cobilab channel from Conda:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\ExtensionTok{conda}\NormalTok{ install -c cobilab gto2 --yes}
+\ExtensionTok{conda}\NormalTok{ install -c cobilab gto2 -y}
 \end{Highlighting}
 \end{Shaded}
 
@@ -397,96 +397,96 @@ analysis and manipulation include:
 \begin{itemize}
 \tightlist
 \item
-  \textbf{gto2\_fq\_to\_fa}: it converts a FASTQ file format to a pseudo
+  \textbf{gto2\_fq\_to\_fa}: to convert a FASTQ file format to a pseudo
   FASTA file.
 \item
-  \textbf{gto2\_fq\_to\_mfa}: it converts a FASTQ file format to a
-  pseudo Multi-FASTA file.
+  \textbf{gto2\_fq\_to\_mfa}: to convert a FASTQ file format to a pseudo
+  Multi-FASTA file.
 \item
-  \textbf{gto2\_fq\_exclude\_n}: it discards the FASTQ reads with the
+  \textbf{gto2\_fq\_exclude\_n}: to discard the FASTQ reads with the
   minimum number of ``N'' symbols.
 \item
-  \textbf{gto2\_fq\_extract\_quality\_scores}: it extracts all the
+  \textbf{gto2\_fq\_extract\_quality\_scores}: to extract all the
   quality-scores from FASTQ reads.
 \item
-  \textbf{gto2\_fq\_info}: it analyses the basic information of FASTQ
+  \textbf{gto2\_fq\_info}: to analyse the basic information of FASTQ
   file format.
 \item
-  \textbf{gto2\_fq\_maximum\_read\_size}: it filters the FASTQ reads
-  with the length higher than the value defined.
+  \textbf{gto2\_fq\_maximum\_read\_size}: to filter the FASTQ reads with
+  the length higher than the value defined.
 \item
-  \textbf{gto2\_fq\_minimum\_quality\_score}: it discards reads with
+  \textbf{gto2\_fq\_minimum\_quality\_score}: to discard reads with
   average quality-score below of the defined.
 \item
-  \textbf{gto2\_fq\_minimum\_read\_size}: it filters the FASTQ reads
-  with the length smaller than the value defined.
+  \textbf{gto2\_fq\_minimum\_read\_size}: to filter the FASTQ reads with
+  the length smaller than the value defined.
 \item
-  \textbf{gto2\_fq\_rand\_extra\_chars}: it substitues in the FASTQ
+  \textbf{gto2\_fq\_rand\_extra\_chars}: to substitue in the FASTQ
   files, the DNA sequence the outside ACGT chars by random ACGT symbols.
 \item
-  \textbf{gto2\_fq\_from\_seq}: it converts a genomic sequence to pseudo
+  \textbf{gto2\_fq\_from\_seq}: to convert a genomic sequence to pseudo
   FASTQ file format.
 \item
-  \textbf{gto2\_fq\_mutate}: it creates a synthetic mutation of a FASTQ
+  \textbf{gto2\_fq\_mutate}: to create a synthetic mutation of a FASTQ
   file given specific rates of mutations, deletions and additions.
 \item
-  \textbf{gto2\_fq\_split}: it splits Paired End files according to the
+  \textbf{gto2\_fq\_split}: to split Paired End files according to the
   direction of the strand (`/1' or `/2').
 \item
-  \textbf{gto2\_fq\_pack}: it packages each FASTQ read in a single line.
+  \textbf{gto2\_fq\_pack}: to package each FASTQ read in a single line.
 \item
-  \textbf{gto2\_fq\_unpack}: it unpacks the FASTQ reads packaged using
-  the \textbf{gto2\_fastq\_pack} tool.
+  \textbf{gto2\_fq\_unpack}: to unpack the FASTQ reads packaged using
+  the \textbf{gto2\_fq\_pack} tool.
 \item
-  \textbf{gto2\_fq\_quality\_score\_info}: it analyses the
+  \textbf{gto2\_fq\_quality\_score\_info}: to analyse the quality-scores
+  of a FASTQ file.
+\item
+  \textbf{gto2\_fq\_quality\_score\_min}: to analyse the minimal
   quality-scores of a FASTQ file.
 \item
-  \textbf{gto2\_fq\_quality\_score\_min}: it analyses the minimal
+  \textbf{gto2\_fq\_quality\_score\_max}: to analyse the maximal
   quality-scores of a FASTQ file.
 \item
-  \textbf{gto2\_fq\_quality\_score\_max}: it analyses the maximal
-  quality-scores of a FASTQ file.
+  \textbf{gto2\_fq\_cut}: to cut read sequences in a FASTQ file.
 \item
-  \textbf{gto2\_fq\_cut}: it cuts read sequences in a FASTQ file.
-\item
-  \textbf{gto2\_fq\_minimum\_local\_quality\_score\_forward}: it filters
+  \textbf{gto2\_fq\_minimum\_local\_quality\_score\_forward}: to filter
   the reads considering the quality score average of a defined window
   size of bases.
 \item
-  \textbf{gto2\_fq\_minimum\_local\_quality\_score\_reverse}: it filters
+  \textbf{gto2\_fq\_minimum\_local\_quality\_score\_reverse}: to filter
   the reverse reads, considering the average window size score defined
   by the bases.
 \item
-  \textbf{gto2\_fq\_xs}: it is a skilled FASTQ read simulation tool,
-  flexible, portable and tunable in terms of sequence complexity.
+  \textbf{gto2\_fq\_xs}: a skilled FASTQ read simulation tool, flexible,
+  portable and tunable in terms of sequence complexity.
 \item
-  \textbf{gto2\_fq\_complement}: it replaces the ACGT bases with their
+  \textbf{gto2\_fq\_complement}: to replace the ACGT bases with their
   complements in a FASTQ file format.
 \item
-  \textbf{gto2\_fq\_reverse}: it reverses the ACGT bases order for each
+  \textbf{gto2\_fq\_reverse}: to reverse the ACGT bases order for each
   read in a FASTQ file format.
 \item
-  \textbf{gto2\_fq\_variation\_map}: it identifies the variation that
+  \textbf{gto2\_fq\_variation\_map}: to identify the variation that
   occours in the sequences relative to the reads or a set of reads.
 \item
-  \textbf{gto2\_fq\_variation\_filter}: it filters and segments the
+  \textbf{gto2\_fq\_variation\_filter}: to filter and segments the
   regions of singularity from the output of
   \textbf{gto2\_fq\_variation\_map}.
 \item
-  \textbf{gto2\_fq\_variation\_visual}: it depites the regions of
+  \textbf{gto2\_fq\_variation\_visual}: to depict the regions of
   singularity using the output from \textbf{gto2\_fq\_variation\_filter}
   into an SVG image.
 \item
-  \textbf{gto2\_fq\_metagenomics}: it measures similarity between any
+  \textbf{gto2\_fq\_metagenomics}: to measure the similarity between any
   FASTQ file, independently from the size, against any multi-FASTA
   database.
 \end{itemize}
 
-\section{gto2\_fq\_to\_fa}\label{gto2_fq_to_fa}
+\section{Program gto2\_fq\_to\_fa}\label{program-gto2_fq_to_fa}
 
 The \textbf{gto2\_fq\_to\_fa} converts a FASTQ file format to a pseudo
-FASTA file. However, it does not align the sequence. Also, it extracts
-the sequence and adds a pseudo header.
+FASTA file. However, this tool does not align the sequence, instead, it
+extracts the sequence and adds a pseudo-header.
 
 For help type:
 
@@ -496,7 +496,8 @@ For help type:
 \end{Highlighting}
 \end{Shaded}
 
-In the following subsections, we explain the input and output paramters.
+In the following subsections, we explain the input and output
+parameters.
 
 \subsection*{Input parameters}\label{input-parameters}
 
@@ -544,8 +545,8 @@ An example of such an input file is:
 \subsection*{Output}\label{output}
 
 
-The output of the \textbf{gto2\_fq\_to\_fa} program a FASTA file. Using
-the input above, an output example for this is the following:
+The output of the \textbf{gto2\_fq\_to\_fa} program is a FASTA file.
+Using the input above, an output example of this is the following:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -555,107 +556,432 @@ the input above, an output example for this is the following:
 \end{Highlighting}
 \end{Shaded}
 
-\section{gto2\_fq\_to\_mfa}\label{gto2_fq_to_mfa}
+\section{Program gto2\_fq\_to\_mfa}\label{program-gto2_fq_to_mfa}
+
+The \textbf{gto2\_fq\_to\_mfa} converts a FASTQ file format to a pseudo
+Multi-FASTA file. However, this tool does not align the sequence,
+instead, it extracts the sequence and adds a pseudo header.
+
+For help type:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{./gto2_fq_to_mfa}\NormalTok{ -h}
+\end{Highlighting}
+\end{Shaded}
+
+In the following subsections, we explain the input and output
+parameters.
+
+\subsection*{Input parameters}\label{input-parameters-1}
+
+
+The \textbf{gto2\_fq\_to\_mfa} program needs two streams for the
+computation, namely the input and output standard. The input stream is a
+FASTQ file.
+
+The attribution is given according to:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Usage}\NormalTok{: ./gto2_fq_to_mfa [options] [[--] args]}
+   \ExtensionTok{or}\NormalTok{: ./gto2_fq_to_mfa [options]}
+
+\ExtensionTok{It}\NormalTok{ converts a FASTQ file format to a pseudo Multi-FASTA file.}
+\ExtensionTok{It}\NormalTok{ does NOT align the sequence.}
+\ExtensionTok{It}\NormalTok{ extracts the sequence and adds each header in a Multi-FASTA format.}
+
+    \ExtensionTok{-h}\NormalTok{, --help            show this help message and exit}
+
+\ExtensionTok{Basic}\NormalTok{ options}
+    \OperatorTok{<} \ExtensionTok{input.fastq}\NormalTok{         Input FASTQ file format (stdin)}
+    \OperatorTok{>} \ExtensionTok{output.mfasta}\NormalTok{       Output Multi-FASTA file format (stdout)}
+
+\ExtensionTok{Example}\NormalTok{: ./gto2_fq_to_mfa }\OperatorTok{<}\NormalTok{ input.fastq }\OperatorTok{>}\NormalTok{ output.mfasta}
+\end{Highlighting}
+\end{Shaded}
+
+An example of such an input file is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{@SRR001666.1}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:817:345 length=60}
+\ExtensionTok{GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACCAAGTTACCCTTAACAACTTAAGGG}
+\ExtensionTok{+SRR001666.1}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:817:345 length=60}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII}
+\ExtensionTok{@SRR001666.2}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:801:338 length=60}
+\ExtensionTok{GTTCAGGGATACGACGTTTGTATTTTAAGAATCTGAAGCAGAAGTCGATGATAATACGCG}
+\ExtensionTok{+SRR001666.2}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:801:338 length=60}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection*{Output}\label{output-1}
+
+
+The output of the \textbf{gto2\_fq\_to\_mfa} program is a Multi-FASTA
+file. Using the input above, an output example of this is the following:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{>}\ExtensionTok{SRR001666.1}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:817:345 length=60}
+\ExtensionTok{GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACCAAGTTACCCTTAACAACTTAAGGG}
+\OperatorTok{>}\ExtensionTok{SRR001666.2}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:801:338 length=60}
+\ExtensionTok{GTTCAGGGATACGACGTTTGTATTTTAAGAATCTGAAGCAGAAGTCGATGATAATACGCG}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Program gto2\_fq\_exclude\_n}\label{program-gto2_fq_exclude_n}
+
+The \textbf{gto2\_fq\_exclude\_n} discards the FASTQ reads with the
+minimum number of `'N'' symbols, and it will erase the second header
+(after +), if presented.
+
+For help type:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{./gto2_fq_exclude_n}\NormalTok{ -h}
+\end{Highlighting}
+\end{Shaded}
+
+In the following subsections, we explain the input and output
+parameters.
+
+\subsection*{Input parameters}\label{input-parameters-2}
+
+
+The \textbf{gto2\_fq\_exclude\_n} program needs two streams for the
+computation, namely the input and output standard. The input stream is a
+FASTQ file.
+
+The attribution is given according to:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Usage}\NormalTok{: ./gto2_fq_exclude_n [options] [[--] args]}
+   \ExtensionTok{or}\NormalTok{: ./gto2_fq_exclude_n [options]}
+
+\ExtensionTok{It}\NormalTok{ discards the FASTQ reads with the minimum number of }\StringTok{"N"} 
+\ExtensionTok{symbols.} 
+\ExtensionTok{If}\NormalTok{ present, it will erase the second header (after +)}\ExtensionTok{.}
+
+    \ExtensionTok{-h}\NormalTok{, --help            show this help message and exit}
+
+\ExtensionTok{Basic}\NormalTok{ options}
+    \ExtensionTok{-m}\NormalTok{, --max=}\OperatorTok{<}\NormalTok{int}\OperatorTok{>}\NormalTok{       The maximum of of }\StringTok{"N"}\NormalTok{ symbols in }
+                          \ExtensionTok{the}\NormalTok{ read}
+    \OperatorTok{<} \ExtensionTok{input.fastq}\NormalTok{         Input FASTQ file format (stdin)}
+    \OperatorTok{>} \ExtensionTok{output.fastq}\NormalTok{        Output FASTQ file format (stdout)}
+
+\ExtensionTok{Example}\NormalTok{: ./gto2_fq_exclude_n -m }\OperatorTok{<}\NormalTok{max}\OperatorTok{>} \OperatorTok{<}\NormalTok{ input.fastq }\OperatorTok{>} 
+\ExtensionTok{output.fastq}
+
+\ExtensionTok{Console}\NormalTok{ output example :}
+\OperatorTok{<}\ExtensionTok{FASTQ}\NormalTok{ non-filtered reads}\OperatorTok{>}
+\ExtensionTok{Total}\NormalTok{ reads    : value}
+\ExtensionTok{Filtered}\NormalTok{ reads : value}
+\end{Highlighting}
+\end{Shaded}
+
+An example of such an input file is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{@SRR001666.1}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:817:345 length=72}
+\ExtensionTok{GNNTGATGGCCGCTGCCGATGGCGNANAATCCCACCAANATACCCTTAACAACTTAAGGG}
+\ExtensionTok{+}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII}
+\ExtensionTok{@SRR001666.2}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:801:338 length=72}
+\ExtensionTok{NTTCAGGGATACGACGNTTGTATTTTAAGAATCTGNAGCAGAAGTCGATGATAATACGCG}
+\ExtensionTok{+}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection*{Output}\label{output-2}
+
+
+The output of the \textbf{gto2\_fq\_exclude\_n} program is a set of all
+the filtered FASTQ reads, followed by the execution report. The
+execution report only appears in the console.
+
+Using the input above with the max value as 5, an output example for
+this is the following:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{@SRR001666.2}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:801:338 length=72}
+\ExtensionTok{NTTCAGGGATACGACGNTTGTATTTTAAGAATCTGNAGCAGAAGTCGATGATAATACGCG}
+\ExtensionTok{+}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI}
+\ExtensionTok{Total}\NormalTok{ reads    : 2}
+\ExtensionTok{Filtered}\NormalTok{ reads : 1}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Program
+gto2\_fq\_extract\_quality\_scores}\label{program-gto2_fq_extract_quality_scores}
+
+The \textbf{gto2\_fq\_extract\_quality\_scores} extracts all the
+quality-scores from FASTQ reads.
+
+For help type:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{./gto2_fq_extract_quality_scores}\NormalTok{ -h}
+\end{Highlighting}
+\end{Shaded}
+
+In the following subsections, we explain the input and output
+parameters.
+
+\subsection*{Input parameters}\label{input-parameters-3}
+
+
+The \textbf{gto2\_fq\_extract\_quality\_scores} program needs two
+streams for the computation, namely the input and output standard. The
+input stream is a FASTQ file.
+
+The attribution is given according to:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Usage}\NormalTok{: ./gto2_fq_extract_quality_scores [options] [[--]args]}
+   \ExtensionTok{or}\NormalTok{: ./gto2_fq_extract_quality_scores [options]}
+
+\ExtensionTok{It}\NormalTok{ extracts all the quality-scores from FASTQ reads.}
+
+    \ExtensionTok{-h}\NormalTok{, --help            show this help message and exit}
+
+\ExtensionTok{Basic}\NormalTok{ options}
+    \OperatorTok{<} \ExtensionTok{input.fastq}\NormalTok{         Input FASTQ file format (stdin)}
+    \OperatorTok{>} \ExtensionTok{output.fastq}\NormalTok{        Output FASTQ file format (stdout)}
+
+\ExtensionTok{Example}\NormalTok{: ./gto2_fq_extract_quality_scores }\OperatorTok{<}\NormalTok{ input.fastq }\OperatorTok{>}
+\ExtensionTok{output.fastq}
+
+\ExtensionTok{Console}\NormalTok{ output example:}
+\OperatorTok{<}\ExtensionTok{FASTQ}\NormalTok{ quality scores}\OperatorTok{>}
+\ExtensionTok{Total}\NormalTok{ reads          : value}
+\ExtensionTok{Total}\NormalTok{ Quality-Scores : value}
+\end{Highlighting}
+\end{Shaded}
+
+An example of such an input file is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{@SRR001666.1}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:817:345 length=72}
+\ExtensionTok{GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACCAAGTTACCCTTAACAACTTAAGGG}
+\ExtensionTok{+SRR001666.1}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:817:345 length=72}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII}
+\ExtensionTok{@SRR001666.2}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:801:338 length=72}
+\ExtensionTok{GTTCAGGGATACGACGTTTGTATTTTAAGAATCTGAAGCAGAAGTCGATGATAATACGCG}
+\ExtensionTok{+SRR001666.2}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:801:338 length=72}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection*{Output}\label{output-3}
+
+
+The output of the \textbf{gto2\_fq\_extract\_quality\_scores} program is
+a set of all the quality scores from the FASTQ reads, followed by the
+execution report. The execution report only appears in the console.
+Using the input above, an output example of this is the following:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI}
+\ExtensionTok{Total}\NormalTok{ reads          : 2}
+\ExtensionTok{Total}\NormalTok{ Quality-Scores : 144}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Program gto2\_fq\_info}\label{program-gto2_fq_info}
+
+The \textbf{gto2\_fq\_info} analyses the basic information of FASTQ file
+format.
+
+For help type:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{./gto2_fq_info}\NormalTok{ -h}
+\end{Highlighting}
+\end{Shaded}
+
+In the following subsections, we explain the input and output
+parameters.
+
+\subsection*{Input parameters}\label{input-parameters-4}
+
+
+The \textbf{gto2\_fq\_info} program needs two streams for the
+computation, namely the input and output standard. The input stream is a
+FASTQ file.
+
+The attribution is given according to:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Usage}\NormalTok{: ./gto2_fq_info [options] [[--] args]}
+   \ExtensionTok{or}\NormalTok{: ./gto2_fq_info [options]}
+
+\ExtensionTok{It}\NormalTok{ analyses the basic information of FASTQ file format.}
+
+    \ExtensionTok{-h}\NormalTok{, --help            show this help message and exit}
+
+\ExtensionTok{Basic}\NormalTok{ options}
+    \OperatorTok{<} \ExtensionTok{input.fastq}\NormalTok{         Input FASTQ file format (stdin)}
+    \OperatorTok{>} \ExtensionTok{output}\NormalTok{              Output read information (stdout)}
+
+\ExtensionTok{Example}\NormalTok{: ./gto2_fq_info }\OperatorTok{<}\NormalTok{ input.fastq }\OperatorTok{>}\NormalTok{ output}
+
+\ExtensionTok{Output}\NormalTok{ example:}
+\ExtensionTok{Total}\NormalTok{ reads     : value}
+\ExtensionTok{Max}\NormalTok{ read length : value}
+\ExtensionTok{Min}\NormalTok{ read length : value}
+\ExtensionTok{Min}\NormalTok{ QS value    : value}
+\ExtensionTok{Max}\NormalTok{ QS value    : value}
+\ExtensionTok{QS}\NormalTok{ range        : value}
+\end{Highlighting}
+\end{Shaded}
+
+An example of such an input file is:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{@SRR001666.1}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:817:345 length=72}
+\ExtensionTok{GGGTGATGGCCGCTGCCGATGGCGTCAAATCCCACCAAGTTACCCTTAACAACTTAAGGG}
+\ExtensionTok{+SRR001666.1}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:817:345 length=72}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIII9IG9ICIIIIIIIIIIIIIIIIIIIIDIII}
+\ExtensionTok{@SRR001666.2}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:801:338 length=72}
+\ExtensionTok{GTTCAGGGATACGACGTTTGTATTTTAAGAATCTGAAGCAGAAGTCGATGATAATACGCG}
+\ExtensionTok{+SRR001666.2}\NormalTok{ 071112_SLXA-EAS1_s_7:5:1:801:338 length=72}
+\ExtensionTok{IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII6IBIIIIIIIIIIIIIIIIIIIIIIIGI}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection*{Output}\label{output-4}
+
+
+The output of the \textbf{gto2\_fq\_info} program is a set of
+information related to the file read. Using the input above, an output
+example of this is the following:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{Total}\NormalTok{ reads     : 2}
+\ExtensionTok{Max}\NormalTok{ read length : 72}
+\ExtensionTok{Min}\NormalTok{ read length : 72}
+\ExtensionTok{Min}\NormalTok{ QS value    : 41}
+\ExtensionTok{Max}\NormalTok{ QS value    : 73}
+\ExtensionTok{QS}\NormalTok{ range        : 33}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Program
+gto2\_fq\_maximum\_read\_size}\label{program-gto2_fq_maximum_read_size}
 
 to do
 
-\section{gto2\_fq\_exclude\_n}\label{gto2_fq_exclude_n}
+\section{Program
+gto2\_fq\_minimum\_quality\_score}\label{program-gto2_fq_minimum_quality_score}
 
 to do
 
-\section{gto2\_fq\_extract\_quality\_scores}\label{gto2_fq_extract_quality_scores}
+\section{Program
+gto2\_fq\_minimum\_read\_size}\label{program-gto2_fq_minimum_read_size}
 
 to do
 
-\section{gto2\_fq\_info}\label{gto2_fq_info}
+\section{Program
+gto2\_fq\_rand\_extra\_chars}\label{program-gto2_fq_rand_extra_chars}
 
 to do
 
-\section{gto2\_fq\_maximum\_read\_size}\label{gto2_fq_maximum_read_size}
+\section{Program gto2\_fq\_from\_seq}\label{program-gto2_fq_from_seq}
 
 to do
 
-\section{gto2\_fq\_minimum\_quality\_score}\label{gto2_fq_minimum_quality_score}
+\section{Program gto2\_fq\_mutate}\label{program-gto2_fq_mutate}
 
 to do
 
-\section{gto2\_fq\_minimum\_read\_size}\label{gto2_fq_minimum_read_size}
+\section{Program gto2\_fq\_split}\label{program-gto2_fq_split}
 
 to do
 
-\section{gto2\_fq\_rand\_extra\_chars}\label{gto2_fq_rand_extra_chars}
+\section{Program gto2\_fq\_pack}\label{program-gto2_fq_pack}
 
 to do
 
-\section{gto2\_fq\_from\_seq}\label{gto2_fq_from_seq}
+\section{Program gto2\_fq\_unpack}\label{program-gto2_fq_unpack}
 
 to do
 
-\section{gto2\_fq\_mutate}\label{gto2_fq_mutate}
+\section{Program
+gto2\_fq\_quality\_score\_info}\label{program-gto2_fq_quality_score_info}
 
 to do
 
-\section{gto2\_fq\_split}\label{gto2_fq_split}
+\section{Program
+gto2\_fq\_quality\_score\_min}\label{program-gto2_fq_quality_score_min}
 
 to do
 
-\section{gto2\_fq\_pack}\label{gto2_fq_pack}
+\section{Program
+gto2\_fq\_quality\_score\_max}\label{program-gto2_fq_quality_score_max}
 
 to do
 
-\section{gto2\_fq\_unpack}\label{gto2_fq_unpack}
+\section{Program gto2\_fq\_cut}\label{program-gto2_fq_cut}
 
 to do
 
-\section{gto2\_fq\_quality\_score\_info}\label{gto2_fq_quality_score_info}
+\section{Program
+gto2\_fq\_minimum\_local\_quality\_score\_forward}\label{program-gto2_fq_minimum_local_quality_score_forward}
 
 to do
 
-\section{gto2\_fq\_quality\_score\_min}\label{gto2_fq_quality_score_min}
+\section{Program
+gto2\_fq\_minimum\_local\_quality\_score\_reverse}\label{program-gto2_fq_minimum_local_quality_score_reverse}
 
 to do
 
-\section{gto2\_fq\_quality\_score\_max}\label{gto2_fq_quality_score_max}
+\section{Program gto2\_fq\_xs}\label{program-gto2_fq_xs}
 
 to do
 
-\section{gto2\_fq\_cut}\label{gto2_fq_cut}
+\section{Program gto2\_fq\_complement}\label{program-gto2_fq_complement}
 
 to do
 
-\section{gto2\_fq\_minimum\_local\_quality\_score\_forward}\label{gto2_fq_minimum_local_quality_score_forward}
+\section{Program gto2\_fq\_reverse}\label{program-gto2_fq_reverse}
 
 to do
 
-\section{gto2\_fq\_minimum\_local\_quality\_score\_reverse}\label{gto2_fq_minimum_local_quality_score_reverse}
+\section{Program
+gto2\_fq\_variation\_map}\label{program-gto2_fq_variation_map}
 
 to do
 
-\section{gto2\_fq\_xs}\label{gto2_fq_xs}
+\section{Program
+gto2\_fq\_variation\_filter}\label{program-gto2_fq_variation_filter}
 
 to do
 
-\section{gto2\_fq\_complement}\label{gto2_fq_complement}
+\section{Program
+gto2\_fq\_variation\_visual}\label{program-gto2_fq_variation_visual}
 
 to do
 
-\section{gto2\_fq\_reverse}\label{gto2_fq_reverse}
-
-to do
-
-\section{gto2\_fq\_variation\_map}\label{gto2_fq_variation_map}
-
-to do
-
-\section{gto2\_fq\_variation\_filter}\label{gto2_fq_variation_filter}
-
-to do
-
-\section{gto2\_fq\_variation\_visual}\label{gto2_fq_variation_visual}
-
-to do
-
-\section{gto2\_fq\_metagenomics}\label{gto2_fq_metagenomics}
+\section{Program
+gto2\_fq\_metagenomics}\label{program-gto2_fq_metagenomics}
 
 to do
 
